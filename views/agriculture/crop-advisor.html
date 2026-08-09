@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= title %></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100 agriculture-page">
+	<%- include('../partials/navbar.html') %>
+	<main class="container py-5 flex-grow-1">
+		<div class="agri-breadcrumb mb-4"><a href="/agriculture"><i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Agriculture management</a><span>/</span><strong>Crop advisor</strong></div>
+		<div class="row g-4 align-items-start">
+			<div class="col-lg-5"><div class="agri-page-intro"><p class="section-kicker mb-2">Crop advisor</p><h1 class="display-5 fw-bold mb-3">A clearer starting point for your crop plan.</h1><p class="text-secondary">Choose the crop, season, and soil that best match your field. OPES EDGE returns a stored planning guide you can discuss with a local expert.</p><div class="agri-image-note"><img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1000&q=82" alt="Farmer walking through a green field"><span><i class="bi bi-lightbulb me-1" aria-hidden="true"></i>Use this as a starting guide, not a replacement for local agronomy advice.</span></div></div></div>
+			<div class="col-lg-7"><section class="surface-card p-4 p-md-5" aria-labelledby="advisor-form-heading"><p class="section-kicker mb-2">Three simple choices</p><h2 class="h3 mb-4" id="advisor-form-heading">Tell us about the field.</h2><% if (error) { %><div class="alert alert-warning" role="alert"><i class="bi bi-exclamation-circle me-2" aria-hidden="true"></i><%= error %></div><% } %><form method="post" action="/agriculture/crop-advisor"><input type="hidden" name="_csrf" value="<%= csrfToken %>"><div class="mb-4"><label class="form-label fw-semibold" for="crop">What are you growing?</label><select class="form-select" id="crop" name="crop" required><option value="">Choose a crop</option><% cropOptions.forEach((crop) => { %><option value="<%= crop %>" <%= form.crop === crop ? 'selected' : '' %>><%= crop %></option><% }) %></select></div><div class="mb-4"><label class="form-label fw-semibold" for="season">Which season?</label><select class="form-select" id="season" name="season" required><% ['Kharif', 'Rabi', 'All season'].forEach((season) => { %><option value="<%= season %>" <%= form.season === season ? 'selected' : '' %>><%= season %></option><% }) %></select></div><div class="mb-4"><label class="form-label fw-semibold" for="soil">What soil is closest?</label><select class="form-select" id="soil" name="soil" required><% ['Loam', 'Clay', 'Sandy'].forEach((soil) => { %><option value="<%= soil %>" <%= form.soil === soil ? 'selected' : '' %>><%= soil %></option><% }) %></select></div><button class="btn btn-coral w-100 py-2" type="submit">Build my crop guide <i class="bi bi-arrow-right ms-1" aria-hidden="true"></i></button></form></section></div>
+		</div>
+		<% if (result) { %><section class="agri-advice-result mt-4 p-4 p-md-5" aria-labelledby="advice-heading"><div class="d-flex flex-column flex-md-row justify-content-between gap-3 mb-4"><div><p class="section-kicker mb-2">Your planning guide</p><h2 class="h3 mb-1" id="advice-heading"><%= result.crop %> / <%= result.season %></h2><p class="mb-0 text-white-50"><%= result.soil %> soil · <%= result.water_need %> water need</p></div><span class="badge rounded-pill text-bg-light align-self-start px-3 py-2"><i class="bi bi-check-circle me-1" aria-hidden="true"></i>Guide found</span></div><div class="row g-3"><div class="col-md-6"><div class="agri-advice-card"><span class="agri-advice-card__label">What to know</span><p class="mb-0"><%= result.summary %></p></div></div><div class="col-md-6"><div class="agri-advice-card"><span class="agri-advice-card__label">Suggested actions</span><p class="mb-0"><%= result.actions %></p></div></div></div></section><% } %>
+	</main>
+	<%- include('../partials/footer.html') %>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

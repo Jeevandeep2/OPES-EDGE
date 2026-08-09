@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="OPES EDGE connects people with practical community and sustainability services."
+    />
+    <title><%= title %></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100">
+    <%- include('partials/navbar.html') -%>
+    <main class="flex-grow-1">
+      <section class="home-hero py-5">
+        <div class="container position-relative py-5">
+          <div class="row align-items-end g-5">
+            <div class="col-lg-8">
+              <p class="hero-kicker mb-4">
+                A smarter way to serve your community
+              </p>
+              <h1 class="hero-title fw-bold mb-4">
+                Useful technology for everyday progress.
+              </h1>
+              <p class="hero-copy mb-4">
+                OPES EDGE brings essential services, local knowledge, and
+                sustainable action into one calm, connected place.
+              </p>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="/register" class="btn btn-warning btn-lg px-4"
+                  >Create your account
+                  <i class="bi bi-arrow-up-right ms-2" aria-hidden="true"></i
+                ></a>
+                <a href="#services" class="btn btn-outline-light btn-lg px-4"
+                  >Explore services</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="hero-stat">
+                    <strong>06</strong><span>core service areas</span>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="hero-stat">
+                    <strong>01</strong><span>shared community hub</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-space" id="services">
+        <div class="container">
+          <div class="section-heading mb-4">
+            <p class="section-kicker mb-2">The OPES EDGE network</p>
+            <h2 class="fw-bold mb-3">
+              Start with what your community needs today.
+            </h2>
+            <p class="text-secondary mb-0">
+              Each service is designed to be practical, accessible, and ready to
+              grow with the people who use it.
+            </p>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/agriculture"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-flower1" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Agriculture management</h3>
+                  <p class="text-secondary small">
+                    Crop advice, weather planning, and market information for
+                    better farm decisions.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden"
+                      >Open Agriculture Management</span
+                    ></span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/education"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-book" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Education</h3>
+                  <p class="text-secondary small">
+                    Learning resources and guidance that help students move
+                    forward with confidence.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden">Open Education</span></span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/healthcare"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-heart-pulse" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Healthcare services</h3>
+                  <p class="text-secondary small">
+                    Clear health information and service discovery for more
+                    informed care.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden"
+                      >Open Healthcare Services</span
+                    ></span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/community"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-people" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Community development</h3>
+                  <p class="text-secondary small">
+                    Local events, announcements, and feedback that keep people
+                    connected.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden"
+                      >Open Community Development</span
+                    ></span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/energy"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-lightning-charge" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Energy management</h3>
+                  <p class="text-secondary small">
+                    Understand usage patterns and make more sustainable energy
+                    choices.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden"
+                      >Open Energy Management</span
+                    ></span
+                  >
+                </div></a
+              >
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <a
+                class="card service-card text-decoration-none h-100"
+                href="/water"
+                ><div class="card-body p-4 d-flex flex-column">
+                  <span class="service-icon mb-4"
+                    ><i class="bi bi-droplet" aria-hidden="true"></i
+                  ></span>
+                  <h3 class="h5 text-dark">Water management</h3>
+                  <p class="text-secondary small">
+                    Support responsible water use, monitoring, and conservation
+                    across the community.
+                  </p>
+                  <span class="service-arrow mt-auto"
+                    ><i class="bi bi-arrow-up-right" aria-hidden="true"></i
+                    ><span class="visually-hidden"
+                      >Open Water Management</span
+                    ></span
+                  >
+                </div></a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer.html') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="d-flex flex-column min-vh-100 agriculture-page">
+    <%- include('../partials/navbar.html') %>
+    <main class="container py-5 flex-grow-1">
+      <div class="agri-breadcrumb mb-4">
+        <a href="/agriculture"
+          ><i class="bi bi-arrow-left me-1" aria-hidden="true"></i>Agriculture
+          management</a
+        ><span>/</span><strong>Seasonal planning</strong>
+      </div>
+      <section class="agri-subhero mb-5">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <p class="section-kicker mb-2">Weather planning</p>
+            <h1 class="display-5 fw-bold mb-3">
+              Plan around the season, not a guess.
+            </h1>
+            <p class="lead text-secondary mb-0">
+              This page provides practical seasonal checklists. It does not
+              claim to be a live forecast.
+            </p>
+          </div>
+          <div class="col-lg-5">
+            <img
+              class="agri-wide-image"
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1100&q=82"
+              alt="Golden field under a changing sky"
+            />
+          </div>
+        </div>
+      </section>
+      <section aria-labelledby="season-heading">
+        <div class="d-flex justify-content-between align-items-end mb-3">
+          <div>
+            <p class="section-kicker mb-2">Planning calendar</p>
+            <h2 class="h3 mb-0" id="season-heading">Three seasonal checks</h2>
+          </div>
+          <span class="text-secondary small">Reference guidance</span>
+        </div>
+        <div class="row g-3">
+          <% planningRows.forEach((row, index) => { %>
+          <div class="col-12 col-md-4">
+            <article class="surface-card agri-season-card h-100 p-4">
+              <div class="d-flex justify-content-between mb-4">
+                <span class="agri-season-number">0<%= index + 1 %></span
+                ><i
+                  class="bi bi-calendar3 text-secondary"
+                  aria-hidden="true"
+                ></i>
+              </div>
+              <h3 class="h5 mb-1"><%= row.season %></h3>
+              <p class="small text-secondary mb-3">
+                <%= row.timing %> · <%= row.focus %>
+              </p>
+              <p class="mb-0 text-secondary"><%= row.action %></p>
+            </article>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+      <div class="alert alert-info border-0 mt-4" role="note">
+        <i class="bi bi-cloud-sun me-2" aria-hidden="true"></i>For current
+        rainfall or temperature, check your local meteorological service before
+        making a time-sensitive decision.
+      </div>
+    </main>
+    <%- include('../partials/footer.html') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
