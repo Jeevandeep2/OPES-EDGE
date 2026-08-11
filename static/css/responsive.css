@@ -1,0 +1,83 @@
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+
+/* Small phones (320px - 425px) */
+@media (max-width: 425px) {
+  .hero-content h1 {
+    font-size: 2rem !important;
+  }
+  
+  .hero-content .lead {
+    font-size: 1rem !important;
+  }
+  
+  .section-title {
+    font-size: 1.6rem !important;
+  }
+  
+  .steps-row::before {
+    display: none; /* Hide connecting line on tiny screens */
+  }
+  
+  .service-card .card-img-top {
+    height: 160px;
+  }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .steps-row::before {
+    display: none; /* Hide connecting line on mobile */
+  }
+  
+  .step-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .impact-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Large desktops (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero-content h1 {
+    font-size: 4rem;
+  }
+}
+
+/* Fix for navbar not overlapping content */
+body {
+  padding-top: 76px;
+}
+
+/* Ensure images never break layout */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Touch-friendly buttons on mobile */
+.btn, .nav-link, .dropdown-item {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduce padding on small screens */
+@media (max-width: 576px) {
+  section {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}

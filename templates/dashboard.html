@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard — OPES EDGE{% endblock %}
+
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        <div class="dashboard-welcome mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3 class="fw-bold mb-1">Welcome to OPES EDGE</h3>
+                    <p class="text-muted mb-0">Your personal dashboard is under construction. Soon you will see your activity, saved resources, and service shortcuts here.</p>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <span class="badge bg-primary-brand px-3 py-2"><i class="bi bi-person me-1"></i> Guest User</span>
+                </div>
+            </div>
+        </div>
+        
+        <h5 class="fw-bold mb-3">Quick Access</h5>
+        <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('agriculture') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-flower1 text-success" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Agriculture</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('education') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-book text-primary" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Education</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('healthcare') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-heart-pulse text-danger" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Healthcare</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('community') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-people text-warning" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Community</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('energy') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-lightning-charge text-warning" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Energy</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ url_for('water') }}" class="text-decoration-none">
+                    <div class="card h-100 text-center p-3 border-0 shadow-sm hover-shadow">
+                        <i class="bi bi-droplet text-info" style="font-size: 2rem;"></i>
+                        <small class="fw-bold mt-2 text-dark">Water</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

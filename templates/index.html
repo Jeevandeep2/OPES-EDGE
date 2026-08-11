@@ -1,0 +1,376 @@
+{% extends "base.html" %}
+
+{% block title %}OPES EDGE — One Platform for Every Solution{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-section" id="home">
+    <div class="container hero-content">
+        <div class="hero-badge">
+            <i class="bi bi-award me-1"></i> Engineering Excellence Challenge 2026
+        </div>
+        <h1>OPES EDGE</h1>
+        <p class="lead">One Platform for Every Solution. Connecting people, essential services, smart technology and sustainable solutions in one unified platform.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="#services" class="btn btn-primary-brand btn-lg">
+                <i class="bi bi-grid-3x3-gap me-2"></i>Explore OPES EDGE
+            </a>
+            <a href="{{ url_for('register') }}" class="btn btn-outline-brand btn-lg">
+                <i class="bi bi-rocket-takeoff me-2"></i>Get Started
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== INTRODUCTION ==================== -->
+<section class="py-5 my-5" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
+                     alt="Team collaborating on community technology" 
+                     class="img-fluid rounded-4 shadow-lg"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <h6 class="text-uppercase fw-bold text-primary-brand mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">About OPES EDGE</h6>
+                <h2 class="section-title">Technology That Serves Everyone</h2>
+                <p class="text-muted mb-3">
+                    OPES EDGE is an AI-powered smart community platform designed to bring essential services together. 
+                    Instead of using separate apps for farming, learning, health, and governance, communities get one 
+                    reliable, accessible platform.
+                </p>
+                <p class="text-muted mb-4">
+                    Built for rural and urban users alike, OPES EDGE prioritizes simplicity, offline-friendly resources, 
+                    and responsible technology. Whether you are a farmer checking crop prices, a student finding free courses, 
+                    or a patient booking a clinic visit — everything is connected here.
+                </p>
+                <div class="d-flex gap-4">
+                    <div>
+                        <h4 class="fw-bold text-primary-brand mb-0">6</h4>
+                        <small class="text-muted">Core Services</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold text-primary-brand mb-0">1</h4>
+                        <small class="text-muted">Unified Platform</small>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold text-primary-brand mb-0">∞</h4>
+                        <small class="text-muted">Community Impact</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SIX SERVICE AREAS ==================== -->
+<section class="py-5 bg-light-brand" id="services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-primary-brand mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Our Services</h6>
+            <h2 class="section-title">One Platform, Six Essential Services</h2>
+            <p class="section-subtitle">Everything your community needs, intelligently connected through a single trusted gateway.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Agriculture -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Green agricultural field with crops"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-success text-white">
+                        <i class="bi bi-flower1"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Agriculture</h5>
+                        <p class="card-text">Smart farming guidance, crop health tips, soil intelligence, and market connectivity for farmers.</p>
+                        <a href="{{ url_for('agriculture') }}" class="btn btn-outline-success btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Students learning with books and laptops"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-primary text-white">
+                        <i class="bi bi-book"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Education</h5>
+                        <p class="card-text">Curated learning resources, exam preparation, coding practice, and free courses from trusted platforms.</p>
+                        <a href="{{ url_for('education') }}" class="btn btn-outline-primary btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Healthcare -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Healthcare professional providing care"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-danger text-white">
+                        <i class="bi bi-heart-pulse"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Healthcare</h5>
+                        <p class="card-text">Wellness information, doctor directories, appointment guidance, and responsible health resources.</p>
+                        <a href="{{ url_for('healthcare') }}" class="btn btn-outline-danger btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Community of people together"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-warning text-dark">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Community Services</h5>
+                        <p class="card-text">Government schemes, digital literacy support, public notices, and local assistance programs.</p>
+                        <a href="{{ url_for('community') }}" class="btn btn-outline-warning btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Energy -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Solar panels and renewable energy"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-warning text-dark">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Energy Management</h5>
+                        <p class="card-text">Energy usage insights, solar awareness, consumption tracking, and carbon footprint reduction tips.</p>
+                        <a href="{{ url_for('energy') }}" class="btn btn-outline-warning btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Water -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=800&q=80" 
+                         class="card-img-top" alt="Clean water and conservation"
+                         onerror="this.parentElement.querySelector('.card-img-top').style.display='none'">
+                    <div class="icon-circle bg-info text-white">
+                        <i class="bi bi-droplet"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Water Management</h5>
+                        <p class="card-text">Water conservation guides, usage monitoring, rainwater harvesting tips, and leak awareness.</p>
+                        <a href="{{ url_for('water') }}" class="btn btn-outline-info btn-sm rounded-pill px-4">
+                            Explore <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== HOW IT WORKS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-primary-brand mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">How It Works</h6>
+            <h2 class="section-title">Simple Steps to Smarter Living</h2>
+        </div>
+        
+        <div class="row steps-row position-relative">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h5 class="step-title">Choose a Service</h5>
+                    <p class="step-desc">Pick from Agriculture, Education, Healthcare, Community, Energy, or Water.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h5 class="step-title">Explore Tools</h5>
+                    <p class="step-desc">Access curated information, calculators, directories, and local resources.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h5 class="step-title">Get Assistance</h5>
+                    <p class="step-desc">Receive personalized suggestions and context-aware guidance.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h5 class="step-title">Take Action</h5>
+                    <p class="step-desc">Apply what you learned — book appointments, save water, sell crops, or study smarter.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== AI SECTION ==================== -->
+<section class="ai-section py-5 my-5">
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase fw-bold text-white-50 mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Future Ready</h6>
+                <h2 class="fw-bold mb-3">One Intelligent Assistant, Many Community Needs</h2>
+                <p class="text-white-50 mb-4">
+                    OPES EDGE is designed to integrate AI assistance across all six service areas. 
+                    In the future, the platform will provide context-aware help — from crop recommendations 
+                    for farmers to study plans for students, and wellness reminders for families.
+                </p>
+                <ul class="list-unstyled text-white-50">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary-brand me-2"></i> Agriculture: Crop guidance and market predictions</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary-brand me-2"></i> Education: Personalized learning paths</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary-brand me-2"></i> Healthcare: Informational symptom guidance (with disclaimers)</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary-brand me-2"></i> Community: Scheme eligibility and document help</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-primary-brand me-2"></i> Energy & Water: Smart usage recommendations</li>
+                </ul>
+                <div class="mt-4">
+                    <span class="badge bg-white text-dark me-2"><i class="bi bi-cpu me-1"></i> AI-Ready Architecture</span>
+                    <span class="badge bg-white text-dark"><i class="bi bi-shield-check me-1"></i> Privacy First</span>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="ai-icon">
+                    <i class="bi bi-robot"></i>
+                </div>
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=80" 
+                     alt="Abstract AI technology visualization" 
+                     class="img-fluid rounded-4 shadow-lg"
+                     style="max-height: 350px; object-fit: cover; width: 100%;"
+                     onerror="this.style.display='none'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== IMPACT / SUSTAINABILITY ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-primary-brand mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Our Impact</h6>
+            <h2 class="section-title">Smart Technology for Sustainable Communities</h2>
+            <p class="section-subtitle">OPES EDGE connects innovation with responsibility.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-6 col-lg-3">
+                <div class="impact-card">
+                    <span class="impact-number">100%</span>
+                    <span class="impact-label">Accessible Design</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="impact-card">
+                    <span class="impact-number">6</span>
+                    <span class="impact-label">Integrated Services</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="impact-card">
+                    <span class="impact-number">24/7</span>
+                    <span class="impact-label">Information Access</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="impact-card">
+                    <span class="impact-number">∞</span>
+                    <span class="impact-label">Growth Potential</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5 align-items-center">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80" 
+                     alt="Sustainable green landscape with wind turbines" 
+                     class="img-fluid rounded-4 shadow-lg"
+                     onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 order-lg-1 pe-lg-5">
+                <h3 class="fw-bold mb-3">Why OPES EDGE?</h3>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0">
+                        <span class="badge bg-primary-brand rounded-circle p-2"><i class="bi bi-people"></i></span>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold mb-1">Community First</h5>
+                        <p class="text-muted small mb-0">Designed for farmers, students, patients, and families — not just tech experts.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0">
+                        <span class="badge bg-success rounded-circle p-2"><i class="bi bi-leaf"></i></span>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold mb-1">Sustainability Focused</h5>
+                        <p class="text-muted small mb-0">Promotes water conservation, energy efficiency, and responsible agriculture.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0">
+                        <span class="badge bg-info rounded-circle p-2"><i class="bi bi-shield-lock"></i></span>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold mb-1">Trust & Privacy</h5>
+                        <p class="text-muted small mb-0">Your data stays local. No unnecessary tracking. Transparent and secure.</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-phone"></i></span>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="fw-bold mb-1">Mobile Ready</h5>
+                        <p class="text-muted small mb-0">Works on small screens, slow internet, and older phones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CALL TO ACTION ==================== -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Ready to Experience OPES EDGE?</h2>
+        <p class="lead mb-4 opacity-90">Join the platform that brings your community's essential services together.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('register') }}" class="btn btn-light btn-lg fw-bold text-primary-brand">
+                <i class="bi bi-person-plus me-2"></i>Create Account
+            </a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

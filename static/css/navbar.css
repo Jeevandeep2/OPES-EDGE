@@ -1,0 +1,99 @@
+/* ============================================
+   NAVBAR STYLES
+   ============================================ */
+
+.navbar {
+  padding: 0.75rem 0;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Brand / Logo text */
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--opes-primary) !important;
+  letter-spacing: -0.5px;
+}
+
+.brand-sub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--opes-gray);
+  display: block;
+  margin-top: -4px;
+  letter-spacing: 0.5px;
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #334155 !important;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.1rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--opes-primary) !important;
+  background-color: rgba(13, 148, 136, 0.06);
+}
+
+/* Active page indicator */
+.navbar-nav .nav-link.active {
+  color: var(--opes-primary) !important;
+  background-color: rgba(13, 148, 136, 0.1);
+  font-weight: 600;
+}
+
+/* Login button in navbar */
+.nav-btn {
+  background-color: var(--opes-primary);
+  color: white !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  background-color: var(--opes-primary-dark);
+}
+
+/* Mobile menu toggle button */
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2815, 23, 42, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  border: 1px solid var(--opes-border);
+  box-shadow: var(--opes-shadow-lg);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+}
+
+.dropdown-item {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.dropdown-item:hover {
+  background-color: var(--opes-light);
+  color: var(--opes-primary-dark);
+}

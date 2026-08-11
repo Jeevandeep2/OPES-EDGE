@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Agriculture — OPES EDGE{% endblock %}
+
+{% block content %}
+
+<!-- Placeholder Hero -->
+<section class="placeholder-hero" style="background: linear-gradient(135deg, rgba(25,135,84,0.9), rgba(21,94,57,0.9)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;">
+    <div class="container text-center">
+        <div class="placeholder-icon"><i class="bi bi-flower1"></i></div>
+        <h1 class="fw-bold mb-3">Agriculture</h1>
+        <p class="lead opacity-90 mb-4 max-w-600 mx-auto">Smart farming, crop guidance, soil intelligence, and market connectivity coming soon.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-outline-light btn-lg">
+            <i class="bi bi-arrow-left me-2"></i>Back to Home
+        </a>
+    </div>
+</section>
+
+<!-- Coming Soon Info -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="card border-0 shadow-sm rounded-4 p-5">
+                    <div class="card-body">
+                        <i class="bi bi-tools text-success" style="font-size: 3rem;"></i>
+                        <h3 class="fw-bold mt-3 mb-2">Module Under Development</h3>
+                        <p class="text-muted">
+                            The Agriculture module will include crop recommendations, weather-based guidance, 
+                            soil health tips, market price tracking, and government scheme information.
+                        </p>
+                        <hr class="my-4">
+                        <p class="small text-muted mb-0">Planned features: Crop Advisor, Market Prices, Weather, Soil Guide, Schemes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
