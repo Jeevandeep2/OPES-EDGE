@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= domain.summary %>">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100 module-page module-page--<%= domain.slug %>">
+  <%- include('partials/navbar.html') %>
+  <main class="flex-grow-1">
+    <section class="module-hero"><div class="container py-5"><div class="row align-items-end g-4"><div class="col-lg-7"><p class="section-kicker mb-3"><%= domain.name %></p><h1 class="display-5 fw-bold mb-3"><%= typeof pageHeading !== 'undefined' && pageHeading ? pageHeading : `A clearer way to approach ${domain.name.toLowerCase()}.` %></h1><p class="lead text-white-50 mb-4"><%= domain.summary %></p><div class="d-flex flex-wrap gap-2"><% domain.actions.forEach((action) => { %><a class="btn btn-warning" href="<%= action.href %>"><i class="bi <%= action.icon %> me-1" aria-hidden="true"></i><%= action.label %></a><% }) %></div></div><div class="col-lg-5"><div class="module-hero__image"><img src="<%= domain.image %>" alt="<%= domain.imageAlt %>" loading="eager"><span><i class="bi bi-info-circle me-1" aria-hidden="true"></i><%= domain.demoLabel %></span></div></div></div></div></section>
+    <section class="container py-5">
+      <% if (domain.metrics) { %><div class="row g-3 mb-5" aria-label="<%= domain.demoLabel %>"><% domain.metrics.forEach((metric) => { %><div class="col-12 col-md-4"><div class="card metric-card h-100"><div class="card-body p-4"><span class="metric-label"><%= metric.label %></span><span class="metric-value"><%= metric.value %></span><small class="text-secondary"><%= metric.detail %></small></div></div></div><% }) %></div><% } %>
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-3"><div><p class="section-kicker mb-2">Useful foundations</p><h2 class="h3 mb-0">Start with a practical next step.</h2></div><span class="small text-secondary"><%= domain.demoLabel %></span></div>
+      <div class="row g-3"><% domain.features.forEach((feature, index) => { %><div class="col-12 col-md-4"><article class="card surface-card module-feature-card h-100"><div class="card-body p-4"><span class="service-icon mb-4"><i class="bi <%= feature.icon %>" aria-hidden="true"></i></span><span class="module-feature-number">0<%= index + 1 %></span><h2 class="h5 mt-3"><%= feature.title %></h2><p class="mb-0 text-secondary"><%= feature.text %></p></div></article></div><% }) %></div>
+      <% if (domain.links) { %><section class="surface-card p-4 p-md-5 mt-4" aria-labelledby="official-links"><p class="section-kicker mb-2">Official links</p><h2 class="h4" id="official-links">Go directly to the source.</h2><div class="d-flex flex-wrap gap-2 mt-3"><% domain.links.forEach((link) => { %><a class="btn btn-outline-secondary" href="<%= link.href %>" target="_blank" rel="noopener noreferrer"><%= link.label %><i class="bi bi-box-arrow-up-right ms-1" aria-hidden="true"></i></a><% }) %></div></section><% } %>
+      <div class="alert alert-info border-0 mt-4" role="note"><i class="bi bi-info-circle me-2" aria-hidden="true"></i><%= domain.note %></div>
+    </section>
+  </main>
+  <%- include('partials/footer.html') %>
+</body>
+</html>
