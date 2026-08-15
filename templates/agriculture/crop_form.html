@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if edit else 'Add' }} Crop — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/agriculture.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('agriculture') }}">Agriculture</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('crops') }}">My Crops</a></li>
+                        <li class="breadcrumb-item active">{{ 'Edit' if edit else 'Add' }} Crop</li>
+                    </ol>
+                </nav>
+
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-header bg-success text-white py-4">
+                        <h3 class="fw-bold mb-0"><i class="bi bi-{{ 'pencil' if edit else 'plus-lg' }} me-2"></i>{{ 'Edit' if edit else 'Add' }} Crop</h3>
+                    </div>
+                    <div class="card-body p-4 p-md-5">
+                        
+                        <form method="POST" action="{{ url_for('edit_crop', id=crop.id) if edit else url_for('add_crop') }}">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="crop_name" class="form-label fw-bold">Crop Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="crop_name" name="crop_name" 
+                                           value="{{ crop.crop_name if crop else '' }}" placeholder="e.g., Tomato" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="crop_category" class="form-label fw-bold">Category <span class="text-danger">*</span></label>
+                                    <select class="form-select" id="crop_category" name="crop_category" required>
+                                        <option value="" disabled {{ 'selected' if not crop else '' }}>Select category</option>
+                                        <option value="Flowers" {{ 'selected' if crop and crop.crop_category == 'Flowers' else '' }}>Flowers</option>
+                                        <option value="Cereals" {{ 'selected' if crop and crop.crop_category == 'Cereals' else '' }}>Cereals</option>
+                                        <option value="Fruits" {{ 'selected' if crop and crop.crop_category == 'Fruits' else '' }}>Fruits</option>
+                                        <option value="Vegetables" {{ 'selected' if crop and crop.crop_category == 'Vegetables' else '' }}>Vegetables</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="sowing_date" class="form-label fw-bold">Sowing Date</label>
+                                    <input type="date" class="form-control" id="sowing_date" name="sowing_date" 
+                                           value="{{ crop.sowing_date if crop else '' }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="expected_harvest_date" class="form-label fw-bold">Expected Harvest Date</label>
+                                    <input type="date" class="form-control" id="expected_harvest_date" name="expected_harvest_date" 
+                                           value="{{ crop.expected_harvest_date if crop else '' }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="area" class="form-label fw-bold">Area</label>
+                                    <input type="text" class="form-control" id="area" name="area" 
+                                           value="{{ crop.area if crop else '' }}" placeholder="e.g., 2 acres">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="soil_type" class="form-label fw-bold">Soil Type</label>
+                                    <input type="text" class="form-control" id="soil_type" name="soil_type" 
+                                           value="{{ crop.soil_type if crop else '' }}" placeholder="e.g., Loamy, Clay">
+                                </div>
+                                <div class="col-12">
+                                    <label for="location" class="form-label fw-bold">Location</label>
+                                    <input type="text" class="form-control" id="location" name="location" 
+                                           value="{{ crop.location if crop else '' }}" placeholder="e.g., Field A, Village Name">
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex gap-3 mt-4">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-save me-2"></i>{{ 'Update Crop' if edit else 'Save Crop' }}
+                                </button>
+                                <a href="{{ url_for('crops') }}" class="btn btn-outline-secondary btn-lg">Cancel</a>
+                            </div>
+                        </form>
+
+                        {% if not edit %}
+                        <hr class="my-4">
+                        <h6 class="fw-bold text-muted text-uppercase mb-3" style="font-size: 0.8rem; letter-spacing: 1px;">Common Examples</h6>
+                        <div class="row g-2 small">
+                            <div class="col-md-3"><span class="badge bg-light text-dark border w-100 text-start">Flowers: Rose, Jasmine</span></div>
+                            <div class="col-md-3"><span class="badge bg-light text-dark border w-100 text-start">Cereals: Rice, Wheat</span></div>
+                            <div class="col-md-3"><span class="badge bg-light text-dark border w-100 text-start">Fruits: Mango, Banana</span></div>
+                            <div class="col-md-3"><span class="badge bg-light text-dark border w-100 text-start">Vegetables: Tomato, Potato</span></div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+/* ============================================
+   AGRICULTURE MODULE STYLES
+   ============================================ */
+
+.agri-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(25,135,84,0.92), rgba(21,94,57,0.92)),
+                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 6rem 1rem 4rem;
+}
+
+.agri-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.agri-card {
+    transition: all 0.3s ease;
+    border-radius: 1rem;
+}
+
+.agri-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* Lifecycle Timeline */
+.lifecycle-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.lifecycle-line {
+    position: absolute;
+    top: 24px;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background: linear-gradient(90deg, #198754, #20c997);
+    z-index: 0;
+}
+
+.lifecycle-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.lifecycle-dot {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid #198754;
+    color: #198754;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.75rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Soil dashboard */
+.soil-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e2e8f0;
+    height: 100%;
+}
+
+.soil-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #198754;
+}
+
+/* Chat bubbles */
+.chat-bubble-user {
+    background: #e9ecef;
+    border-radius: 1rem 1rem 0.25rem 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.chat-bubble-bot {
+    background: #d1e7dd;
+    border-radius: 1rem 1rem 1rem 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    max-width: 80%;
+    border: 1px solid #badbcc;
+}
+
+/* Market table */
+.market-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive lifecycle */
+@media (max-width: 768px) {
+    .lifecycle-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .lifecycle-line {
+        display: none;
+    }
+    .lifecycle-step {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        gap: 1rem;
+    }
+    .lifecycle-dot {
+        margin: 0;
+        flex-shrink: 0;
+    }
+}

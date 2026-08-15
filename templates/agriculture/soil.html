@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Soil Intelligence — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/agriculture.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('agriculture') }}">Agriculture</a></li>
+                <li class="breadcrumb-item active">Soil Intelligence</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1"><i class="bi bi-globe text-warning me-2"></i>Soil Intelligence</h2>
+                <p class="text-muted mb-0">Understand your soil health and get recommendations.</p>
+            </div>
+            <span class="badge bg-warning text-dark"><i class="bi bi-info-circle me-1"></i>Demo Data</span>
+        </div>
+
+        <div class="alert alert-light border mb-4">
+            <i class="bi bi-info-circle-fill text-warning me-2"></i>
+            <strong>Note:</strong> These are demonstration values. Connect real sensors or lab tests in the future for live data.
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">Soil Type</small>
+                    <span class="soil-value" style="font-size: 1.3rem;">Loamy</span>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">pH Level</small>
+                    <span class="soil-value">6.8</span>
+                    <small class="text-success d-block">Optimal</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">Moisture</small>
+                    <span class="soil-value">42%</span>
+                    <small class="text-primary d-block">Good</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">Nitrogen (N)</small>
+                    <span class="soil-value">180</span>
+                    <small class="text-muted d-block">kg/ha</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">Phosphorus (P)</small>
+                    <span class="soil-value">45</span>
+                    <small class="text-muted d-block">kg/ha</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="soil-card text-center">
+                    <small class="text-muted d-block mb-1">Potassium (K)</small>
+                    <span class="soil-value">210</span>
+                    <small class="text-muted d-block">kg/ha</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-lightbulb text-warning me-2"></i>Recommendations</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Add organic compost to improve microbial activity.</li>
+                            <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Maintain current pH — slightly acidic is ideal for most crops.</li>
+                            <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Consider green manure before next sowing season.</li>
+                            <li class="list-group-item px-0"><i class="bi bi-check-circle-fill text-success me-2"></i>Monitor moisture during dry weeks — do not over-irrigate.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-calendar-check text-success me-2"></i>Next Steps</h5>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2">1</span></div>
+                            <div class="ms-3"><h6 class="fw-bold mb-1">Soil Testing</h6><p class="small text-muted mb-0">Get a lab test every 6 months for accurate NPK values.</p></div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2">2</span></div>
+                            <div class="ms-3"><h6 class="fw-bold mb-1">Composting</h6><p class="small text-muted mb-0">Start a compost pit with crop residue and cattle manure.</p></div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2">3</span></div>
+                            <div class="ms-3"><h6 class="fw-bold mb-1">Crop Rotation</h6><p class="small text-muted mb-0">Rotate legumes with cereals to naturally fix nitrogen.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

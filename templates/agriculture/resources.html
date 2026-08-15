@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}Farming Resources — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/agriculture.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('agriculture') }}">Agriculture</a></li>
+                <li class="breadcrumb-item active">Farming Resources</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-journal-bookmark text-success me-2"></i>Farming Resources</h2>
+            <p class="text-muted">Trusted guides, government links, and best practices for farmers.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Crop Guidance -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success p-2 rounded-3 me-3"><i class="bi bi-seedling text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Crop Guidance</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://farmer.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Farmer Portal (Govt. of India) <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://www.india.gov.in/topics/agriculture" target="_blank" rel="noopener noreferrer" class="text-decoration-none">India.gov Agriculture <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://agricoop.nic.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Ministry of Agriculture <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soil Management -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning p-2 rounded-3 me-3"><i class="bi bi-globe text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Soil Management</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://www.nbsslup.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">NBSS & LUP (Soil Survey) <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://www.fao.org/soils-portal/en/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">FAO Soils Portal <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://www.icar.org.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">ICAR Research <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Management -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-info p-2 rounded-3 me-3"><i class="bi bi-droplet text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Water Management</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://pmksy.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">PMKSY (Irrigation Scheme) <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://jalshakti-dowr.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Jal Shakti Ministry <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://www.fao.org/land-water/overview/en/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">FAO Land & Water <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sustainable Farming -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success p-2 rounded-3 me-3"><i class="bi bi-leaf text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Sustainable Farming</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://pgsindia-ncof.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">PGS India (Organic) <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://www.napof.dac.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">National Organic Farming <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://www.fao.org/sustainability/en/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">FAO Sustainability <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Government Schemes -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-primary p-2 rounded-3 me-3"><i class="bi bi-bank text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Government Schemes</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://pmkisan.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">PM-KISAN <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://soilhealth.dac.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Soil Health Card <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://www.enam.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">eNAM (National Market) <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Farmer Awareness -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-secondary p-2 rounded-3 me-3"><i class="bi bi-megaphone text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Farmer Awareness</h5>
+                        </div>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-2"><a href="https://www.maanews.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Agriculture News <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-2"><a href="https://kvk.icar.gov.in/" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Find Your KVK <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                            <li class="mb-0"><a href="https://www.iffco.in/en/crop-calendar" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Crop Calendar <i class="bi bi-box-arrow-up-right ms-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-light border mt-5 text-center">
+            <i class="bi bi-info-circle text-muted me-2"></i>
+            External links open in a new tab. OPES EDGE does not control third-party websites.
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

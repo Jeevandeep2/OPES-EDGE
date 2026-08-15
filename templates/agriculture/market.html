@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Market Information — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/agriculture.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('agriculture') }}">Agriculture</a></li>
+                <li class="breadcrumb-item active">Market Information</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1"><i class="bi bi-graph-up-arrow text-danger me-2"></i>Market Information</h2>
+                <p class="text-muted mb-0">Track crop prices and market trends.</p>
+            </div>
+            <span class="badge bg-danger mt-2 mt-md-0"><i class="bi bi-info-circle me-1"></i>Demo Data</span>
+        </div>
+
+        <div class="alert alert-light border mb-4">
+            <i class="bi bi-info-circle-fill text-danger me-2"></i>
+            <strong>Note:</strong> These are demonstration prices for reference only. Not live market data. Always verify with your local mandi or market before selling.
+        </div>
+
+        <!-- Search / Filter -->
+        <div class="card border-0 shadow-sm rounded-4 mb-4">
+            <div class="card-body p-3">
+                <div class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="Search crop..." id="marketSearch">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="marketFilter">
+                            <option value="all">All Categories</option>
+                            <option value="cereals">Cereals</option>
+                            <option value="vegetables">Vegetables</option>
+                            <option value="fruits">Fruits</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="marketSort">
+                            <option value="default">Sort by</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="price-low">Price: Low to High</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-outline-danger w-100" onclick="document.getElementById('marketSearch').value='';document.getElementById('marketFilter').value='all';document.getElementById('marketSort').value='default';">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0 market-table">
+                    <thead>
+                        <tr>
+                            <th>Crop</th>
+                            <th>Market</th>
+                            <th>Price</th>
+                            <th>Unit</th>
+                            <th>Last Updated</th>
+                            <th>Trend</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-success me-2" style="font-size:0.5rem;"></i>Rice</td>
+                            <td>Bangalore Mandi</td>
+                            <td class="fw-bold text-success">₹ 2,150</td>
+                            <td>per quintal</td>
+                            <td>Today, 9:00 AM</td>
+                            <td><span class="badge bg-success bg-opacity-10 text-success"><i class="bi bi-arrow-up me-1"></i>+2%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-success me-2" style="font-size:0.5rem;"></i>Wheat</td>
+                            <td>Hubli Market</td>
+                            <td class="fw-bold text-success">₹ 2,050</td>
+                            <td>per quintal</td>
+                            <td>Today, 8:30 AM</td>
+                            <td><span class="badge bg-secondary bg-opacity-10 text-secondary"><i class="bi bi-dash me-1"></i>0%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-warning me-2" style="font-size:0.5rem;"></i>Tomato</td>
+                            <td>Mysore APMC</td>
+                            <td class="fw-bold text-success">₹ 24</td>
+                            <td>per kg</td>
+                            <td>Today, 7:00 AM</td>
+                            <td><span class="badge bg-danger bg-opacity-10 text-danger"><i class="bi bi-arrow-down me-1"></i>-5%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-warning me-2" style="font-size:0.5rem;"></i>Onion</td>
+                            <td>Bangalore Mandi</td>
+                            <td class="fw-bold text-success">₹ 32</td>
+                            <td>per kg</td>
+                            <td>Today, 9:15 AM</td>
+                            <td><span class="badge bg-success bg-opacity-10 text-success"><i class="bi bi-arrow-up me-1"></i>+3%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-info me-2" style="font-size:0.5rem;"></i>Mango</td>
+                            <td>Hassan Market</td>
+                            <td class="fw-bold text-success">₹ 65</td>
+                            <td>per kg</td>
+                            <td>Yesterday</td>
+                            <td><span class="badge bg-success bg-opacity-10 text-success"><i class="bi bi-arrow-up me-1"></i>+8%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-info me-2" style="font-size:0.5rem;"></i>Banana</td>
+                            <td>Chikmagalur APMC</td>
+                            <td class="fw-bold text-success">₹ 38</td>
+                            <td>per dozen</td>
+                            <td>Today, 6:45 AM</td>
+                            <td><span class="badge bg-secondary bg-opacity-10 text-secondary"><i class="bi bi-dash me-1"></i>0%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-success me-2" style="font-size:0.5rem;"></i>Maize</td>
+                            <td>Davangere Market</td>
+                            <td class="fw-bold text-success">₹ 1,850</td>
+                            <td>per quintal</td>
+                            <td>Today, 8:00 AM</td>
+                            <td><span class="badge bg-danger bg-opacity-10 text-danger"><i class="bi bi-arrow-down me-1"></i>-1%</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold"><i class="bi bi-circle-fill text-warning me-2" style="font-size:0.5rem;"></i>Potato</td>
+                            <td>Shimoga Mandi</td>
+                            <td class="fw-bold text-success">₹ 28</td>
+                            <td>per kg</td>
+                            <td>Today, 9:30 AM</td>
+                            <td><span class="badge bg-success bg-opacity-10 text-success"><i class="bi bi-arrow-up me-1"></i>+4%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

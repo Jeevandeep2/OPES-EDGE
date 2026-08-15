@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}Farmer Profile — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/agriculture.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('agriculture') }}">Agriculture</a></li>
+                        <li class="breadcrumb-item active">Farmer Profile</li>
+                    </ol>
+                </nav>
+
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div class="card-header bg-success text-white py-4">
+                        <h3 class="fw-bold mb-0"><i class="bi bi-person-circle me-2"></i>Farmer Profile</h3>
+                    </div>
+                    <div class="card-body p-4 p-md-5">
+                        
+                        {% if profile %}
+                        <div class="alert alert-light border mb-4">
+                            <h6 class="fw-bold text-success mb-2"><i class="bi bi-check-circle me-1"></i>Profile Active</h6>
+                            <p class="mb-0 small text-muted">You can update your profile below. All changes are saved locally in the database.</p>
+                        </div>
+                        {% endif %}
+
+                        <form method="POST" action="{{ url_for('farmer_profile') }}">
+                            <div class="mb-3">
+                                <label for="farmer_name" class="form-label fw-bold">Farmer Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-lg" id="farmer_name" name="farmer_name" 
+                                       value="{{ profile.farmer_name if profile else '' }}" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="experience_years" class="form-label fw-bold">Farming Experience</label>
+                                <input type="text" class="form-control" id="experience_years" name="experience_years" 
+                                       value="{{ profile.experience_years if profile else '' }}" placeholder="e.g., 5 years">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="location" class="form-label fw-bold">Location <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="location" name="location" 
+                                       value="{{ profile.location if profile else '' }}" placeholder="e.g., Karnataka, India" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="preferred_language" class="form-label fw-bold">Preferred Language</label>
+                                <select class="form-select" id="preferred_language" name="preferred_language">
+                                    <option value="English" {{ 'selected' if profile and profile.preferred_language == 'English' else '' }}>English</option>
+                                    <option value="Hindi" {{ 'selected' if profile and profile.preferred_language == 'Hindi' else '' }}>Hindi</option>
+                                    <option value="Kannada" {{ 'selected' if profile and profile.preferred_language == 'Kannada' else '' }}>Kannada</option>
+                                </select>
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="submit" class="btn btn-success btn-lg">
+                                    <i class="bi bi-save me-2"></i>{{ 'Update Profile' if profile else 'Create Profile' }}
+                                </button>
+                                <a href="{{ url_for('agriculture') }}" class="btn btn-outline-secondary btn-lg">Cancel</a>
+                            </div>
+                        </form>
+
+                        {% if profile %}
+                        <hr class="my-4">
+                        <h6 class="fw-bold text-muted text-uppercase" style="font-size: 0.8rem; letter-spacing: 1px;">Current Profile</h6>
+                        <div class="row g-3 mt-1">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block">Name</small>
+                                    <span class="fw-bold">{{ profile.farmer_name }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block">Experience</small>
+                                    <span class="fw-bold">{{ profile.experience_years or 'Not specified' }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block">Location</small>
+                                    <span class="fw-bold">{{ profile.location }}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded-3">
+                                    <small class="text-muted d-block">Language</small>
+                                    <span class="fw-bold">{{ profile.preferred_language }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

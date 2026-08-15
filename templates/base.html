@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OPES EDGE — One Platform for Every Solution. AI-powered smart community and sustainable development platform.">
-    <meta name="keywords" content="OPES EDGE, community platform, agriculture, education, healthcare, sustainability">
+    <meta name="description" content="OPES EDGE — One Platform for Every Solution. AI-powered smart community platform.">
     <meta name="author" content="Logic Legends — EEC2607911">
-    
     <title>{% block title %}OPES EDGE{% endblock %}</title>
     
-    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
@@ -29,40 +22,36 @@
 </head>
 <body>
 
-    <!-- ==================== NAVBAR ==================== -->
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <!-- Brand -->
             <a class="navbar-brand" href="{{ url_for('index') }}">
                 <i class="bi bi-hexagon-fill me-2"></i>OPES EDGE
                 <span class="brand-sub">ONE PLATFORM FOR EVERY SOLUTION</span>
             </a>
             
-            <!-- Hamburger button for mobile -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#opesNavbar" 
                     aria-controls="opesNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <!-- Nav links -->
             <div class="collapse navbar-collapse" id="opesNavbar">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
                         <a class="nav-link {{ 'active' if request.endpoint == 'index' else '' }}" href="{{ url_for('index') }}">Home</a>
                     </li>
                     
-                    <!-- Services Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Services
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ url_for('agriculture') }}"><i class="bi bi-flower1 me-2 text-success"></i>Agriculture</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('education') }}"><i class="bi bi-book me-2 text-primary"></i>Education</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('healthcare') }}"><i class="bi bi-heart-pulse me-2 text-danger"></i>Healthcare</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('community') }}"><i class="bi bi-people me-2 text-warning"></i>Community</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('energy') }}"><i class="bi bi-lightning-charge me-2 text-warning"></i>Energy</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('water') }}"><i class="bi bi-droplet me-2 text-info"></i>Water</a></li>
+                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-book me-2 text-primary"></i>Education</a></li>
+                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-heart-pulse me-2 text-danger"></i>Healthcare</a></li>
+                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-people me-2 text-warning"></i>Community</a></li>
+                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-lightning-charge me-2 text-warning"></i>Energy</a></li>
+                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-droplet me-2 text-info"></i>Water</a></li>
                         </ul>
                     </li>
                     
@@ -82,37 +71,48 @@
         </div>
     </nav>
 
-    <!-- ==================== MAIN CONTENT ==================== -->
+    <!-- FLASH MESSAGES -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="container mt-3 pt-5">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- MAIN CONTENT -->
     <main>
         {% block content %}{% endblock %}
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
+    <!-- FOOTER -->
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
             <div class="row gy-4">
-                <!-- Brand Column -->
                 <div class="col-lg-4 col-md-6">
                     <h4 class="fw-bold mb-3"><i class="bi bi-hexagon-fill me-2 text-primary-brand"></i>OPES EDGE</h4>
                     <p class="text-white-50 mb-3">One Platform for Every Solution. Connecting people, essential services, smart technology and sustainable solutions.</p>
                     <p class="small text-white-50 fst-italic">"Built with technology, creativity & community impact."</p>
                 </div>
                 
-                <!-- Quick Links -->
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3 text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Quick Links</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="{{ url_for('index') }}" class="text-white-50 text-decoration-none hover-white">Home</a></li>
-                        <li class="mb-2"><a href="{{ url_for('agriculture') }}" class="text-white-50 text-decoration-none hover-white">Agriculture</a></li>
-                        <li class="mb-2"><a href="{{ url_for('education') }}" class="text-white-50 text-decoration-none hover-white">Education</a></li>
-                        <li class="mb-2"><a href="{{ url_for('healthcare') }}" class="text-white-50 text-decoration-none hover-white">Healthcare</a></li>
-                        <li class="mb-2"><a href="{{ url_for('community') }}" class="text-white-50 text-decoration-none hover-white">Community</a></li>
-                        <li class="mb-2"><a href="{{ url_for('energy') }}" class="text-white-50 text-decoration-none hover-white">Energy</a></li>
-                        <li class="mb-2"><a href="{{ url_for('water') }}" class="text-white-50 text-decoration-none hover-white">Water</a></li>
+                        <li class="mb-2"><a href="{{ url_for('index') }}" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="{{ url_for('agriculture') }}" class="text-white-50 text-decoration-none">Agriculture</a></li>
+                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Education</a></li>
+                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Healthcare</a></li>
+                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Community</a></li>
+                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Energy</a></li>
+                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Water</a></li>
                     </ul>
                 </div>
                 
-                <!-- Project Info -->
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold mb-3 text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Project</h6>
                     <p class="text-white-50 small mb-1">Engineering Excellence Challenge</p>
@@ -121,10 +121,9 @@
                     <p class="text-white-50 small">ID: EEC2607911 e80Spark</p>
                 </div>
                 
-                <!-- Contact -->
                 <div class="col-lg-3 col-md-6">
                     <h6 class="fw-bold mb-3 text-uppercase" style="font-size: 0.85rem; letter-spacing: 1px;">Connect</h6>
-                    <p class="text-white-50 small">Have questions about OPES EDGE?</p>
+                    <p class="text-white-50 small">Questions about OPES EDGE?</p>
                     <a href="mailto:logiclegends.eec2026@example.com" class="btn btn-outline-light btn-sm">
                         <i class="bi bi-envelope me-1"></i>Contact Team
                     </a>
@@ -135,7 +134,7 @@
             
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="small text-white-50 mb-0">&copy; 2026 Logic Legends. EEC2607911 e80Spark. All rights reserved.</p>
+                    <p class="small text-white-50 mb-0">&copy; 2026 Logic Legends. EEC2607911 e80Spark.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="small text-white-50 mb-0">Designed for community impact.</p>
@@ -144,12 +143,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5.3 JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JS -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
     {% block extra_js %}{% endblock %}
 </body>
 </html>

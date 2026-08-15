@@ -1,20 +1,14 @@
 import sqlite3
 import os
 
-# This file lives in the database/ folder
-# We want the database file to be created in the main project root
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATABASE = os.path.join(BASE_DIR, 'database.db')
 
 def init_db():
-    """
-    Creates the SQLite database and tables if they don't exist.
-    Run this once before starting the app for the first time.
-    """
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
 
-    # Users table: stores login information for the platform
+    # Phase 1 tables
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,7 +20,6 @@ def init_db():
         )
     ''')
 
-    # Contacts table: stores messages from the "Contact Us" or CTA forms
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS contacts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,9 +30,35 @@ def init_db():
         )
     ''')
 
+    # Phase 2 tables
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS farmer_profiles (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            farmer_name TEXT NOT NULL,
+            experience_years TEXT,
+            location TEXT NOT NULL,
+            preferred_language TEXT DEFAULT 'English',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS crops (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            crop_name TEXT NOT NULL,
+            crop_category TEXT NOT NULL,
+            sowing_date TEXT,
+            expected_harvest_date TEXT,
+            area TEXT,
+            soil_type TEXT,
+            location TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+
     conn.commit()
     conn.close()
-    print("✅ Database initialized successfully at:", DATABASE)
+    print("Database initialized at:", DATABASE)
 
 if __name__ == '__main__':
     init_db()

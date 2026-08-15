@@ -1,0 +1,925 @@
+{% extends "base.html" %}
+
+{% block title %}Agriculture — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/agriculture.css') }}">
+
+<style>
+    /* =========================================================
+       AGRICULTURE PREMIUM UI
+       ========================================================= */
+
+    .agri-hero {
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                rgba(0, 80, 45, 0.72),
+                rgba(0, 45, 30, 0.78)
+            ),
+            url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85")
+            center/cover no-repeat;
+    }
+
+    .agri-hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            120deg,
+            rgba(0, 128, 96, 0.25),
+            transparent,
+            rgba(255, 255, 255, 0.08)
+        );
+        pointer-events: none;
+    }
+
+    .agri-hero .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .agri-badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 50px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        font-weight: 600;
+        margin-bottom: 18px;
+    }
+
+    .agri-hero h1 {
+        text-shadow: 0 4px 20px rgba(0,0,0,0.35);
+    }
+
+    .agri-hero p {
+        font-size: 1.15rem;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
+
+    /* =========================================================
+       SERVICE CARDS
+       ========================================================= */
+
+    .agri-card {
+        overflow: hidden;
+        border-radius: 20px !important;
+        transition: all 0.35s ease;
+        background: #ffffff;
+    }
+
+    .agri-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.13) !important;
+    }
+
+    .agri-card-img {
+        height: 190px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .agri-card:hover .agri-card-img {
+        transform: scale(1.07);
+    }
+
+    .agri-card-image-wrapper {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .agri-card-image-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,0.25),
+            transparent 55%
+        );
+    }
+
+    .agri-icon {
+        width: 58px;
+        height: 58px;
+        margin-top: -29px;
+        position: relative;
+        z-index: 2;
+        border-radius: 50%;
+        background: white;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    }
+
+    .agri-card-content {
+        padding: 0 22px 25px;
+    }
+
+    .agri-card h5 {
+        margin-top: 12px;
+    }
+
+    .agri-card .btn {
+        transition: all 0.25s ease;
+    }
+
+    .agri-card .btn:hover {
+        transform: scale(1.04);
+    }
+
+    /* =========================================================
+       LIFECYCLE
+       ========================================================= */
+
+    .lifecycle-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+    }
+
+    .lifecycle-step {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    .lifecycle-dot {
+        width: 55px;
+        height: 55px;
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #198754;
+        color: white;
+        font-weight: bold;
+        font-size: 1.15rem;
+        box-shadow: 0 8px 20px rgba(25,135,84,0.25);
+    }
+
+    .lifecycle-line {
+        position: absolute;
+        top: 27px;
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background: #198754;
+        opacity: 0.25;
+        z-index: 1;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 768px) {
+
+        .agri-hero {
+            min-height: 460px;
+        }
+
+        .agri-hero h1 {
+            font-size: 2.4rem;
+        }
+
+        .lifecycle-container {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .lifecycle-line {
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            right: auto;
+            width: 3px;
+            height: auto;
+        }
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="agri-hero">
+    <div class="container">
+
+        <div class="agri-badge">
+            <i class="bi bi-flower1 me-2"></i>
+            Agriculture Module
+        </div>
+
+        <h1 class="fw-bold display-4">
+            Smarter Farming.<br>
+            Better Decisions.
+        </h1>
+
+        <p class="lead opacity-90 mx-auto mt-3"
+           style="max-width: 720px;">
+
+            Practical agricultural information, crop guidance
+            and sustainable farming support — connected through
+            OPES EDGE.
+
+        </p>
+
+        <a href="{{ url_for('farmer_profile') }}"
+           class="btn btn-light btn-lg fw-bold text-success mt-4 rounded-pill px-4">
+
+            <i class="bi bi-person-circle me-2"></i>
+            Farmer Profile
+
+        </a>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+     SERVICE CARDS
+     ========================================================= -->
+
+<section class="py-5 my-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-uppercase fw-bold text-success mb-2"
+                style="letter-spacing: 2px; font-size: 0.85rem;">
+
+                Agriculture Services
+
+            </h6>
+
+            <h2 class="section-title">
+                Everything for Your Farm
+            </h2>
+
+            <p class="text-muted mx-auto"
+               style="max-width: 650px;">
+
+                Explore smart agricultural tools designed to help
+                farmers make better decisions.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- =================================================
+                 1. MY CROPS
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Green agricultural crops">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-success">
+
+                            <i class="bi bi-seedling fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            My Crops
+                        </h5>
+
+                        <p class="text-muted small">
+                            Manage your crop records, sowing dates,
+                            and harvest plans.
+                        </p>
+
+                        <a href="{{ url_for('crops') }}"
+                           class="btn btn-outline-success btn-sm rounded-pill px-3">
+
+                            View Crops
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 2. SOIL INTELLIGENCE
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://img.magnific.com/premium-photo/seedlings-are-growing-from-fertile-soil-environment-concept_38663-996.jpg?semt=ais_test_b&w=740&q=80"
+                            class="agri-card-img"
+                            alt="Healthy soil and agriculture">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-warning">
+
+                            <i class="bi bi-globe fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Soil Intelligence
+                        </h5>
+
+                        <p class="text-muted small">
+                            Understand soil health with demo data
+                            and recommendations.
+                        </p>
+
+                        <a href="{{ url_for('soil') }}"
+                           class="btn btn-outline-warning btn-sm rounded-pill px-3">
+
+                            Check Soil
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 3. CROP GUIDE
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Farmer working in crop field">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-info">
+
+                            <i class="bi bi-book fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Crop Guide
+                        </h5>
+
+                        <p class="text-muted small">
+                            Learn about crop seasons, soil needs,
+                            and growth requirements.
+                        </p>
+
+                        <a href="{{ url_for('crops') }}"
+                           class="btn btn-outline-info btn-sm rounded-pill px-3">
+
+                            Explore
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 4. WEATHER
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://img.magnific.com/premium-photo/weather-transitions-showing-different-atmospheric-conditions-including-rain-sunlight-clouds-clear-skies-vibrant-colors-nature-showcases-diverse-weather-systems-harmoniously_1080238-14861.jpg?semt=ais_hybrid&w=740&q=80"
+                            class="agri-card-img"
+                            alt="Weather over agricultural field">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-primary">
+
+                            <i class="bi bi-cloud-sun fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Weather
+                        </h5>
+
+                        <p class="text-muted small">
+                            Plan farming activities with weather
+                            insights and conditions.
+                        </p>
+
+                        <a href="{{ url_for('weather') }}"
+                           class="btn btn-outline-primary btn-sm rounded-pill px-3">
+
+                            Check Weather
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 5. MARKET INFORMATION
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Fresh agricultural market">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-danger">
+
+                            <i class="bi bi-graph-up-arrow fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Market Information
+                        </h5>
+
+                        <p class="text-muted small">
+                            Track crop prices and market trends
+                            with demo data.
+                        </p>
+
+                        <a href="{{ url_for('market') }}"
+                           class="btn btn-outline-danger btn-sm rounded-pill px-3">
+
+                            View Market
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 6. CROP HEALTH
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Healthy green plants">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-secondary">
+
+                            <i class="bi bi-heart-pulse fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Crop Health
+                        </h5>
+
+                        <p class="text-muted small">
+                            Identify symptoms and get informational
+                            farming guidance.
+                        </p>
+
+                        <a href="{{ url_for('crop_health') }}"
+                           class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+
+                            Check Health
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 7. FARMING ASSISTANT
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Artificial intelligence technology">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-dark">
+
+                            <i class="bi bi-robot fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Farming Assistant
+                        </h5>
+
+                        <p class="text-muted small">
+                            Ask farming questions and get prototype
+                            AI-powered guidance.
+                        </p>
+
+                        <a href="{{ url_for('assistant') }}"
+                           class="btn btn-outline-dark btn-sm rounded-pill px-3">
+
+                            Ask Assistant
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 8. FARMING RESOURCES
+                 ================================================= -->
+
+            <div class="col-12 col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm agri-card">
+
+                    <div class="agri-card-image-wrapper">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&w=900&q=85"
+                            class="agri-card-img"
+                            alt="Agricultural field and farming">
+
+                    </div>
+
+                    <div class="text-center">
+
+                        <div class="agri-icon mx-auto d-flex
+                                    align-items-center
+                                    justify-content-center
+                                    text-success">
+
+                            <i class="bi bi-journal-bookmark fs-4"></i>
+
+                        </div>
+
+                    </div>
+
+                    <div class="agri-card-content text-center">
+
+                        <h5 class="fw-bold">
+                            Farming Resources
+                        </h5>
+
+                        <p class="text-muted small">
+                            Curated guides, government links,
+                            and farming best practices.
+                        </p>
+
+                        <a href="{{ url_for('resources') }}"
+                           class="btn btn-outline-success btn-sm rounded-pill px-3">
+
+                            Browse
+                            <i class="bi bi-arrow-right ms-1"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FARMING IMPACT BANNER
+     ========================================================= -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="rounded-4 overflow-hidden shadow-lg position-relative"
+             style="
+                min-height:300px;
+                background:
+                linear-gradient(
+                    rgba(0,70,40,0.78),
+                    rgba(0,40,25,0.82)
+                ),
+                url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=85')
+                center/cover;
+             ">
+
+            <div class="p-5 text-center text-white position-relative">
+
+                <div class="mb-3">
+                    <i class="bi bi-tree-fill"
+                       style="font-size:3rem;"></i>
+                </div>
+
+                <h2 class="fw-bold">
+                    Building a Smarter Future for Farming
+                </h2>
+
+                <p class="lead mx-auto"
+                   style="max-width:700px;">
+
+                    From crop planning to market awareness,
+                    OPES EDGE brings useful agricultural tools
+                    together in one platform.
+
+                </p>
+
+                <a href="{{ url_for('farmer_profile') }}"
+                   class="btn btn-light text-success fw-bold rounded-pill px-4 mt-2">
+
+                    <i class="bi bi-arrow-right-circle me-2"></i>
+                    Start Your Farming Journey
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CROP LIFECYCLE
+     ========================================================= -->
+
+<section class="py-5 bg-light-brand">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h6 class="text-uppercase fw-bold text-success mb-2"
+                style="letter-spacing:2px;font-size:0.85rem;">
+
+                Crop Lifecycle
+
+            </h6>
+
+            <h2 class="section-title">
+                From Seed to Harvest
+            </h2>
+
+            <p class="text-muted">
+                Understand the major stages of crop development.
+            </p>
+
+        </div>
+
+
+        <div class="lifecycle-container">
+
+            <div class="lifecycle-line"></div>
+
+
+            <div class="lifecycle-step">
+
+                <div class="lifecycle-dot">
+                    1
+                </div>
+
+                <h6 class="fw-bold mb-1">
+                    Seed / Sowing
+                </h6>
+
+                <p class="small text-muted mb-0">
+                    Select quality seeds and sow at the right depth.
+                </p>
+
+            </div>
+
+
+            <div class="lifecycle-step">
+
+                <div class="lifecycle-dot">
+                    2
+                </div>
+
+                <h6 class="fw-bold mb-1">
+                    Germination
+                </h6>
+
+                <p class="small text-muted mb-0">
+                    Maintain moisture and temperature for sprouting.
+                </p>
+
+            </div>
+
+
+            <div class="lifecycle-step">
+
+                <div class="lifecycle-dot">
+                    3
+                </div>
+
+                <h6 class="fw-bold mb-1">
+                    Growth
+                </h6>
+
+                <p class="small text-muted mb-0">
+                    Provide nutrients, water, and pest protection.
+                </p>
+
+            </div>
+
+
+            <div class="lifecycle-step">
+
+                <div class="lifecycle-dot">
+                    4
+                </div>
+
+                <h6 class="fw-bold mb-1">
+                    Development
+                </h6>
+
+                <p class="small text-muted mb-0">
+                    Monitor flowering and fruit formation stages.
+                </p>
+
+            </div>
+
+
+            <div class="lifecycle-step">
+
+                <div class="lifecycle-dot">
+                    5
+                </div>
+
+                <h6 class="fw-bold mb-1">
+                    Harvest
+                </h6>
+
+                <p class="small text-muted mb-0">
+                    Harvest at peak maturity for best yield.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
