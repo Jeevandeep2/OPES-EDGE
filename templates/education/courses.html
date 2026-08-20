@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Courses — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Courses</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-laptop text-success me-2"></i>Course Catalogue</h2>
+            <p class="text-muted">Structured learning paths from beginner to advanced.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        {% set demo_courses = [
+            {'title': 'Python Programming', 'level': 'Beginner', 'duration': '8 Weeks', 'category': 'Programming', 'desc': 'Master Python from basics to file handling and OOP.', 'img': 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'Machine Learning', 'level': 'Intermediate', 'duration': '12 Weeks', 'category': 'AI & ML', 'desc': 'Build predictive models using scikit-learn and pandas.', 'img': 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'Web Development', 'level': 'Beginner', 'duration': '10 Weeks', 'category': 'Development', 'desc': 'HTML, CSS, JavaScript, Flask, and deployment basics.', 'img': 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'Data Science Basics', 'level': 'Beginner', 'duration': '8 Weeks', 'category': 'Data Science', 'desc': 'Data analysis, visualization, and statistical thinking.', 'img': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'C Programming', 'level': 'Beginner', 'duration': '6 Weeks', 'category': 'Programming', 'desc': 'Pointers, memory management, and data structures in C.', 'img': 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'C++ & OOP', 'level': 'Intermediate', 'duration': '8 Weeks', 'category': 'Programming', 'desc': 'Object-oriented programming, STL, and competitive coding.', 'img': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'Artificial Intelligence', 'level': 'Advanced', 'duration': '14 Weeks', 'category': 'AI & ML', 'desc': 'Search algorithms, NLP, computer vision, and ethics.', 'img': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80'},
+            {'title': 'Git & GitHub', 'level': 'Beginner', 'duration': '2 Weeks', 'category': 'Tools', 'desc': 'Version control, branching, collaboration, and CI/CD.', 'img': 'https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=600&q=80'}
+        ] %}
+
+        <div class="row g-4">
+            {% for course in demo_courses %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="course-card h-100">
+                    <div class="position-relative overflow-hidden">
+                        <img src="{{ course.img }}" class="course-img" alt="{{ course.title }}" onerror="this.style.display='none'">
+                        <span class="course-level text-primary">{{ course.level }}</span>
+                    </div>
+                    <div class="p-4">
+                        <span class="badge bg-success bg-opacity-10 text-success mb-2">{{ course.category }}</span>
+                        <h5 class="fw-bold mb-1">{{ course.title }}</h5>
+                        <small class="text-muted d-block mb-2"><i class="bi bi-clock me-1"></i>{{ course.duration }}</small>
+                        <p class="text-muted small mb-3">{{ course.desc }}</p>
+                        <button class="btn btn-outline-success btn-sm rounded-pill w-100">View Course</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

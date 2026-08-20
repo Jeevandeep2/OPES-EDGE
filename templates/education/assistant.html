@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Education Assistant — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Education Assistant</li>
+            </ol>
+        </nav>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                
+                <div class="text-center mb-4">
+                    <h2 class="fw-bold mb-1"><i class="bi bi-robot text-primary me-2"></i>OPES EDGE Education Assistant</h2>
+                    <p class="text-muted">Ask questions about learning, careers, exams, and skills.</p>
+                    <span class="badge bg-primary"><i class="bi bi-cpu me-1"></i>Prototype Mode — No API Key Required</span>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+                    <div class="card-body p-4" style="min-height: 300px; background: linear-gradient(180deg, #f8f9fa, #eef2ff);">
+                        
+                        {% if response %}
+                        <div class="edu-chat-user">
+                            <p class="mb-0 fw-bold text-primary"><i class="bi bi-person-circle me-2"></i>You</p>
+                            <p class="mb-0 mt-1">{{ question }}</p>
+                        </div>
+                        <div class="edu-chat-bot">
+                            <p class="mb-0 fw-bold text-success"><i class="bi bi-robot me-2"></i>Assistant</p>
+                            <p class="mb-0 mt-1">{{ response }}</p>
+                        </div>
+                        {% else %}
+                        <div class="text-center py-5">
+                            <i class="bi bi-robot text-primary" style="font-size: 3rem;"></i>
+                            <h5 class="fw-bold mt-3">How can I help you today?</h5>
+                            <p class="text-muted small">Select a suggested question or type your own.</p>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+                <!-- Suggested Questions -->
+                <div class="mb-4">
+                    <h6 class="fw-bold text-muted text-uppercase mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">Suggested Questions</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <form method="POST" action="{{ url_for('education_assistant') }}" class="d-inline">
+                            <input type="hidden" name="question" value="What should I learn for AI?">
+                            <button type="submit" class="btn btn-outline-primary btn-sm rounded-pill">What should I learn for AI?</button>
+                        </form>
+                        <form method="POST" action="{{ url_for('education_assistant') }}" class="d-inline">
+                            <input type="hidden" name="question" value="How can I prepare for exams?">
+                            <button type="submit" class="btn btn-outline-primary btn-sm rounded-pill">How can I prepare for exams?</button>
+                        </form>
+                        <form method="POST" action="{{ url_for('education_assistant') }}" class="d-inline">
+                            <input type="hidden" name="question" value="Which programming language should I learn?">
+                            <button type="submit" class="btn btn-outline-primary btn-sm rounded-pill">Which programming language should I learn?</button>
+                        </form>
+                        <form method="POST" action="{{ url_for('education_assistant') }}" class="d-inline">
+                            <input type="hidden" name="question" value="What skills are needed for data science?">
+                            <button type="submit" class="btn btn-outline-primary btn-sm rounded-pill">What skills are needed for data science?</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Input Form -->
+                <div class="card border-0 shadow-sm rounded-4">
+                    <div class="card-body p-3">
+                        <form method="POST" action="{{ url_for('education_assistant') }}" class="d-flex gap-2">
+                            <input type="text" class="form-control form-control-lg" name="question" placeholder="Type your education question..." required autocomplete="off">
+                            <button type="submit" class="btn btn-edu-primary btn-lg px-4"><i class="bi bi-send"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="alert alert-light border mt-4 text-center">
+                    <i class="bi bi-info-circle text-muted me-2"></i>
+                    This is a prototype assistant. Responses are pre-programmed for demonstration. Real AI integration is planned for a future update.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

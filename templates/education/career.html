@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Career Guidance — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Career Guidance</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-briefcase text-primary me-2"></i>Career Guidance</h2>
+            <p class="text-muted">Explore in-demand tech careers and the skills you need.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        {% set careers = [
+            {'title': 'AI Engineer', 'img': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80', 'desc': 'Design and deploy intelligent systems using machine learning and deep learning.', 'skills': 'Python, TensorFlow, NLP, Mathematics'},
+            {'title': 'Data Scientist', 'img': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', 'desc': 'Extract insights from data using statistics, visualization, and modeling.', 'skills': 'Python, SQL, Statistics, Tableau'},
+            {'title': 'Software Developer', 'img': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80', 'desc': 'Build applications, websites, and systems that power modern businesses.', 'skills': 'JavaScript, React, Node.js, Git'},
+            {'title': 'Data Analyst', 'img': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', 'desc': 'Analyze datasets to support business decisions and strategy.', 'skills': 'Excel, SQL, Python, Power BI'},
+            {'title': 'Cloud Engineer', 'img': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80', 'desc': 'Design and manage cloud infrastructure on AWS, Azure, or GCP.', 'skills': 'AWS, Docker, Kubernetes, Linux'},
+            {'title': 'Cybersecurity Engineer', 'img': 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80', 'desc': 'Protect systems and networks from threats and vulnerabilities.', 'skills': 'Networking, Ethical Hacking, SIEM, Python'},
+            {'title': 'IoT Engineer', 'img': 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80', 'desc': 'Build connected devices and smart systems for automation.', 'skills': 'Embedded C, Arduino, Raspberry Pi, MQTT'},
+            {'title': 'Researcher', 'img': 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80', 'desc': 'Advance knowledge in science and technology through research.', 'skills': 'Critical Thinking, LaTeX, Python, Statistics'}
+        ] %}
+
+        <div class="row g-4">
+            {% for career in careers %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="course-card h-100">
+                    <div class="position-relative overflow-hidden">
+                        <img src="{{ career.img }}" class="course-img" alt="{{ career.title }}" onerror="this.style.display='none'">
+                    </div>
+                    <div class="p-4">
+                        <h5 class="fw-bold mb-1">{{ career.title }}</h5>
+                        <p class="text-muted small mb-2">{{ career.desc }}</p>
+                        <small class="text-primary d-block mb-3"><i class="bi bi-tools me-1"></i>{{ career.skills }}</small>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill w-100">Explore Career</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

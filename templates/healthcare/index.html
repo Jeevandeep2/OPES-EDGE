@@ -1,0 +1,704 @@
+{% extends "base.html" %}
+
+{% block title %}Healthcare — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/healthcare.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO CAROUSEL (CLEAR IMAGES) ==================== -->
+<section class="health-carousel" id="health-hero">
+    
+    <!-- Slide 1 -->
+    <div class="health-slide active">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=85" alt="Modern healthcare facility" class="health-slide-img">
+        <div class="health-slide-overlay"></div>
+        <div class="health-slide-content">
+            <div class="health-badge"><i class="bi bi-shield-check me-2"></i>Trusted Health Information</div>
+            <h1>Your Health,<br><span class="health-gradient-text">Our Priority</span></h1>
+            <p class="health-slide-desc">Access verified health resources, government schemes, and wellness guidance — all in one trusted platform.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#health-services" class="btn btn-health-primary btn-lg">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>Explore Services
+                </a>
+                <a href="#emergency" class="btn btn-health-outline btn-lg">
+                    <i class="bi bi-telephone-plus me-2"></i>Emergency Numbers
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="health-slide">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1920&q=85" alt="Wellness and yoga" class="health-slide-img">
+        <div class="health-slide-overlay"></div>
+        <div class="health-slide-content">
+            <div class="health-badge"><i class="bi bi-heart-pulse me-2"></i>Prevention First</div>
+            <h1>Prevention is Better<br><span class="health-gradient-text">Than Cure</span></h1>
+            <p class="health-slide-desc">Discover vaccination schedules, nutrition guides, exercise tips, and mental wellness resources for your family.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#wellness" class="btn btn-health-primary btn-lg">
+                    <i class="bi bi-heart me-2"></i>Wellness Guide
+                </a>
+                <a href="#schemes" class="btn btn-health-outline btn-lg">
+                    <i class="bi bi-shield-check me-2"></i>Govt Schemes
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 3 -->
+    <div class="health-slide">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=85" alt="Medical technology" class="health-slide-img">
+        <div class="health-slide-overlay"></div>
+        <div class="health-slide-content">
+            <div class="health-badge"><i class="bi bi-cpu me-2"></i>AI-Powered</div>
+            <h1>Smart Health<br><span class="health-gradient-text">Guidance</span></h1>
+            <p class="health-slide-desc">Ask general health questions and get instant informational answers. Always consult a doctor for serious concerns.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#assistant" class="btn btn-health-primary btn-lg">
+                    <i class="bi bi-chat-dots me-2"></i>Ask Assistant
+                </a>
+                <a href="#resources" class="btn btn-health-outline btn-lg">
+                    <i class="bi bi-link-45deg me-2"></i>Resources
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carousel Controls -->
+    <div class="health-carousel-dots">
+        <button class="health-dot active" onclick="showHealthSlide(0)" aria-label="Slide 1"></button>
+        <button class="health-dot" onclick="showHealthSlide(1)" aria-label="Slide 2"></button>
+        <button class="health-dot" onclick="showHealthSlide(2)" aria-label="Slide 3"></button>
+    </div>
+    
+    <button class="health-carousel-prev" onclick="prevHealthSlide()" aria-label="Previous slide">
+        <i class="bi bi-chevron-left"></i>
+    </button>
+    <button class="health-carousel-next" onclick="nextHealthSlide()" aria-label="Next slide">
+        <i class="bi bi-chevron-right"></i>
+    </button>
+    
+    <div class="scroll-hint">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+</section>
+
+<!-- ==================== FLOATING STATS BAR ==================== -->
+<section class="health-stats-bar">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <div class="health-stat-item">
+                    <i class="bi bi-hospital text-health-primary"></i>
+                    <div class="health-stat-num">1.5L+</div>
+                    <div class="health-stat-label">Health Centres</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="health-stat-item">
+                    <i class="bi bi-people text-health-secondary"></i>
+                    <div class="health-stat-num">50Cr+</div>
+                    <div class="health-stat-label">Ayushman Beneficiaries</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="health-stat-item">
+                    <i class="bi bi-shield-plus text-success"></i>
+                    <div class="health-stat-num">12</div>
+                    <div class="health-stat-label">Essential Vaccines</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="health-stat-item">
+                    <i class="bi bi-telephone-plus text-danger"></i>
+                    <div class="health-stat-num">108</div>
+                    <div class="health-stat-label">Free Ambulance</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== QUICK SERVICES GRID (WITH IMAGES) ==================== -->
+<section class="py-5 my-5" id="health-services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-health-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">What You Need</h6>
+            <h2 class="section-title">Healthcare Services at a Glance</h2>
+            <p class="section-subtitle">Everything you need for better health decisions, in one trusted hub.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Service 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80" alt="Government hospital" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float">
+                            <i class="bi bi-hospital"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">Government Schemes</h5>
+                        <p class="text-muted small mb-3">Ayushman Bharat, PMJAY, and other national health programs explained with eligibility and application guidance.</p>
+                        <a href="#schemes" class="health-link">View Schemes <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=600&q=80" alt="Emergency medical care" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float bg-danger">
+                            <i class="bi bi-telephone-plus"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">Emergency Help</h5>
+                        <p class="text-muted small mb-3">Critical helpline numbers, first-aid basics, and guidance on when to seek immediate medical attention.</p>
+                        <a href="#emergency" class="health-link text-danger">Emergency Info <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80" alt="Wellness and yoga" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float bg-success">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">Wellness & Prevention</h5>
+                        <p class="text-muted small mb-3">Nutrition tips, exercise guidance, mental wellness resources, and preventive care for your family.</p>
+                        <a href="#wellness" class="health-link text-success">Explore Wellness <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=600&q=80" alt="AI chatbot technology" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float bg-info">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">AI Health Assistant</h5>
+                        <p class="text-muted small mb-3">Ask general health questions and get informational guidance. Not a replacement for a doctor.</p>
+                        <a href="#assistant" class="health-link text-info">Try Assistant <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=600&q=80" alt="Vaccination and immunization" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float bg-warning">
+                            <i class="bi bi-shield-plus"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">Vaccination Guide</h5>
+                        <p class="text-muted small mb-3">Universal Immunization Program schedules for children and recommended adult vaccinations.</p>
+                        <a href="#wellness" class="health-link text-warning-dark">View Schedule <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="health-service-card h-100">
+                    <div class="health-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Medical resources and books" class="health-service-img">
+                        <div class="health-service-img-overlay"></div>
+                        <div class="health-service-icon-float bg-health-primary">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                    </div>
+                    <div class="health-service-body">
+                        <h5 class="fw-bold mb-2">Trusted Resources</h5>
+                        <p class="text-muted small mb-3">Direct links to WHO India, Ministry of Health, National Health Portal, and other verified sources.</p>
+                        <a href="#resources" class="health-link">Browse Resources <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GOVERNMENT HEALTH SCHEMES (WITH IMAGES) ==================== -->
+<section class="py-5 bg-health-light" id="schemes">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-health-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Government Support</h6>
+            <h2 class="section-title">National Health Schemes</h2>
+            <p class="section-subtitle">Know your rights. Access the benefits designed for you and your family.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="scheme-card-v2 h-100">
+                    <div class="scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400&q=80" alt="Hospital care" class="scheme-img">
+                        <div class="scheme-img-overlay"></div>
+                        <div class="scheme-icon-float"><i class="bi bi-shield-check"></i></div>
+                    </div>
+                    <div class="scheme-body-v2">
+                        <h6 class="fw-bold">Ayushman Bharat</h6>
+                        <p class="small text-muted mb-2">Health coverage up to ₹5 lakh per family per year for secondary and tertiary care hospitalization.</p>
+                        <span class="badge bg-light text-dark mb-2 border">PMJAY</span>
+                        <a href="https://pmjay.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-health w-100">
+                            Visit Portal <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="scheme-card-v2 h-100">
+                    <div class="scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=400&q=80" alt="Mother and child care" class="scheme-img">
+                        <div class="scheme-img-overlay"></div>
+                        <div class="scheme-icon-float bg-teal"><i class="bi bi-heart"></i></div>
+                    </div>
+                    <div class="scheme-body-v2">
+                        <h6 class="fw-bold">Janani Suraksha</h6>
+                        <p class="small text-muted mb-2">Cash assistance for institutional delivery to reduce maternal and neonatal mortality.</p>
+                        <span class="badge bg-light text-dark mb-2 border">Maternal Care</span>
+                        <a href="https://nhm.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-health w-100">
+                            Learn More <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="scheme-card-v2 h-100">
+                    <div class="scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=400&q=80" alt="Medicines and pharmacy" class="scheme-img">
+                        <div class="scheme-img-overlay"></div>
+                        <div class="scheme-icon-float bg-indigo"><i class="bi bi-capsule"></i></div>
+                    </div>
+                    <div class="scheme-body-v2">
+                        <h6 class="fw-bold">Free Drug Service</h6>
+                        <p class="small text-muted mb-2">Free essential medicines and diagnostics at public health facilities under NHM.</p>
+                        <span class="badge bg-light text-dark mb-2 border">NHM</span>
+                        <a href="https://nhm.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-health w-100">
+                            Learn More <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="scheme-card-v2 h-100">
+                    <div class="scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=400&q=80" alt="Health checkup" class="scheme-img">
+                        <div class="scheme-img-overlay"></div>
+                        <div class="scheme-icon-float bg-cyan"><i class="bi bi-clipboard-pulse"></i></div>
+                    </div>
+                    <div class="scheme-body-v2">
+                        <h6 class="fw-bold">Health & Wellness Centres</h6>
+                        <p class="small text-muted mb-2">Comprehensive primary care including NCD screening and free essential drugs.</p>
+                        <span class="badge bg-light text-dark mb-2 border">AB-HWC</span>
+                        <a href="https://ab-hwc.nhp.gov.in" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-health w-100">
+                            Find Centre <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== EMERGENCY SECTION (WITH BACKGROUND IMAGE) ==================== -->
+<section class="py-5 my-5" id="emergency">
+    <div class="container">
+        <div class="emergency-banner-v2">
+            <img src="https://images.unsplash.com/photo-1516574187841-69301976e499?auto=format&fit=crop&w=1200&q=80" alt="Emergency medical response" class="emergency-banner-img">
+            <div class="emergency-banner-overlay"></div>
+            <div class="emergency-banner-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="emergency-pulse me-3"></span>
+                            <h3 class="fw-bold text-white mb-0"><i class="bi bi-telephone-plus me-2"></i>Emergency Helplines</h3>
+                        </div>
+                        <p class="text-white-75 mb-0">In a medical emergency, every second counts. Save these numbers. Do not rely on online advice for life-threatening situations.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                        <span class="badge bg-white text-danger fs-6 px-3 py-2">Call Immediately</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4 mt-2">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-truck-front"></i></div>
+                    <div class="helpline-number">108</div>
+                    <div class="helpline-label">Ambulance</div>
+                    <div class="helpline-desc">National Emergency</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-heart-fill"></i></div>
+                    <div class="helpline-number">102</div>
+                    <div class="helpline-label">Mother & Child</div>
+                    <div class="helpline-desc">Maternal Emergency</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-telephone-fill"></i></div>
+                    <div class="helpline-number">104</div>
+                    <div class="helpline-label">Health Helpline</div>
+                    <div class="helpline-desc">Medical Advice</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-shield-fill"></i></div>
+                    <div class="helpline-number">1097</div>
+                    <div class="helpline-label">AIDS Helpline</div>
+                    <div class="helpline-desc">HIV/AIDS Support</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-person-arms-up"></i></div>
+                    <div class="helpline-number">14567</div>
+                    <div class="helpline-label">Senior Citizen</div>
+                    <div class="helpline-desc">Elder Support</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="helpline-card text-center">
+                    <div class="helpline-icon"><i class="bi bi-brain"></i></div>
+                    <div class="helpline-number">1800-599-0019</div>
+                    <div class="helpline-label">Kiran Helpline</div>
+                    <div class="helpline-desc">Mental Health</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-health-info mt-4 mb-0">
+            <div class="d-flex">
+                <div class="flex-shrink-0">
+                    <i class="bi bi-info-circle-fill text-health-primary fs-4"></i>
+                </div>
+                <div class="ms-3">
+                    <h6 class="fw-bold mb-1">When to Call an Ambulance Immediately</h6>
+                    <p class="small mb-0">Chest pain, difficulty breathing, severe bleeding, sudden confusion, severe burns, poisoning, or unconsciousness. Do not drive yourself — call 108.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WELLNESS & PREVENTION (WITH IMAGES) ==================== -->
+<section class="py-5 bg-health-light" id="wellness">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-health-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Stay Healthy</h6>
+            <h2 class="section-title">Wellness & Prevention</h2>
+            <p class="section-subtitle">Small habits create lasting health. Evidence-based guidance for everyday wellness.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="wellness-card-v2 h-100">
+                    <div class="wellness-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" alt="Healthy nutrition" class="wellness-img-v2">
+                    </div>
+                    <div class="wellness-body-v2">
+                        <div class="wellness-icon-v2 text-success"><i class="bi bi-basket"></i></div>
+                        <h6 class="fw-bold">Balanced Nutrition</h6>
+                        <p class="small text-muted">Fill half your plate with vegetables. Include whole grains, lean protein, and healthy fats. Limit sugar and processed foods.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="wellness-card-v2 h-100">
+                    <div class="wellness-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Exercise and fitness" class="wellness-img-v2">
+                    </div>
+                    <div class="wellness-body-v2">
+                        <div class="wellness-icon-v2 text-health-primary"><i class="bi bi-person-walking"></i></div>
+                        <h6 class="fw-bold">Regular Exercise</h6>
+                        <p class="small text-muted">Aim for 150 minutes of moderate activity weekly. Walking, yoga, and swimming are excellent low-impact options.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="wellness-card-v2 h-100">
+                    <div class="wellness-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Mental wellness meditation" class="wellness-img-v2">
+                    </div>
+                    <div class="wellness-body-v2">
+                        <div class="wellness-icon-v2 text-indigo"><i class="bi bi-brain"></i></div>
+                        <h6 class="fw-bold">Mental Wellness</h6>
+                        <p class="small text-muted">Practice mindfulness, stay connected with loved ones, and seek help when needed. Mental health is health.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="wellness-card-v2 h-100">
+                    <div class="wellness-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80" alt="Quality sleep" class="wellness-img-v2">
+                    </div>
+                    <div class="wellness-body-v2">
+                        <div class="wellness-icon-v2 text-warning-dark"><i class="bi bi-moon-stars"></i></div>
+                        <h6 class="fw-bold">Quality Sleep</h6>
+                        <p class="small text-muted">Adults need 7-9 hours of sleep. Maintain a regular schedule, avoid screens before bed, and create a calm environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vaccination Quick Guide -->
+        <div class="vaccination-box mt-5">
+            <div class="row align-items-center">
+                <div class="col-lg-2 text-center mb-3 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=200&q=80" alt="Vaccination" class="vaccine-img rounded-3" onerror="this.style.display='none'">
+                </div>
+                <div class="col-lg-7">
+                    <h5 class="fw-bold text-health-primary mb-2"><i class="bi bi-shield-plus me-2"></i>Vaccination Awareness</h5>
+                    <p class="text-muted mb-0">Stay protected. Follow the Universal Immunization Program for children. Adults should consider annual influenza vaccination and COVID-19 boosters as recommended by health authorities.</p>
+                </div>
+                <div class="col-lg-3 text-lg-end mt-3 mt-lg-0">
+                    <a href="https://nhm.gov.in/index1.php?lang=1&level=2&sublinkid=824&lid=220" target="_blank" rel="noopener noreferrer" class="btn btn-health-primary">
+                        <i class="bi bi-calendar-check me-2"></i>View UIP Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== AI HEALTH ASSISTANT ==================== -->
+<section class="py-5 my-5" id="assistant">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-health-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">AI Support</h6>
+                    <h2 class="section-title">Health Assistant</h2>
+                    <p class="section-subtitle">Ask general health questions. Get informational guidance. Not a substitute for professional medical advice.</p>
+                </div>
+                
+                <div class="assistant-card">
+                    <div class="assistant-header">
+                        <div class="d-flex align-items-center">
+                            <div class="assistant-avatar">
+                                <i class="bi bi-robot"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold text-white mb-0">OPES Health Assistant</h6>
+                                <small class="text-white-50"><i class="bi bi-shield-check me-1"></i>Informational Guidance Only</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="assistant-body">
+                        {% if health_response %}
+                        <div class="health-chat-user">
+                            <small class="text-muted d-block mb-1"><i class="bi bi-person me-1"></i>You</small>
+                            <p class="mb-0">{{ health_question }}</p>
+                        </div>
+                        <div class="health-chat-bot">
+                            <small class="text-health-primary d-block mb-1"><i class="bi bi-robot me-1"></i>Assistant</small>
+                            <p class="mb-0">{{ health_response }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        <form method="POST" action="{{ url_for('healthcare_assistant') }}#assistant">
+                            <div class="input-group">
+                                <input type="text" name="question" class="form-control form-control-lg" 
+                                       placeholder="e.g., What should I do for a fever? or Tips for diabetes..." 
+                                       value="{{ health_question or '' }}" required>
+                                <button class="btn btn-health-primary" type="submit">
+                                    <i class="bi bi-send-fill"></i>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="mt-3">
+                            <small class="text-muted">Try asking about:</small>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge bg-light text-dark border">fever</span>
+                                <span class="badge bg-light text-dark border">nutrition</span>
+                                <span class="badge bg-light text-dark border">mental health</span>
+                                <span class="badge bg-light text-dark border">vaccination</span>
+                                <span class="badge bg-light text-dark border">exercise</span>
+                                <span class="badge bg-light text-dark border">emergency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning mt-3 d-flex align-items-start">
+                    <i class="bi bi-exclamation-triangle-fill text-warning me-2 mt-1"></i>
+                    <div>
+                        <strong>Medical Disclaimer:</strong> This assistant provides general informational guidance only. It does not diagnose conditions or replace consultation with a qualified healthcare professional. For serious symptoms, call 108 or visit a hospital immediately.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TRUSTED RESOURCES (WITH IMAGES) ==================== -->
+<section class="py-5 bg-health-light" id="resources">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-health-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Verified Sources</h6>
+            <h2 class="section-title">Trusted Health Resources</h2>
+            <p class="section-subtitle">Official portals and verified organizations for accurate health information.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <a href="https://www.mohfw.gov.in" target="_blank" rel="noopener noreferrer" class="resource-card-v2 d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=200&q=80" alt="Ministry of Health" class="resource-img">
+                    </div>
+                    <div class="ms-3 flex-grow-1">
+                        <h6 class="fw-bold text-dark mb-1">Ministry of Health & Family Welfare</h6>
+                        <p class="small text-muted mb-0">Official government health policies, advisories, and updates.</p>
+                    </div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-6">
+                <a href="https://www.nhp.gov.in" target="_blank" rel="noopener noreferrer" class="resource-card-v2 d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=200&q=80" alt="National Health Portal" class="resource-img">
+                    </div>
+                    <div class="ms-3 flex-grow-1">
+                        <h6 class="fw-bold text-dark mb-1">National Health Portal</h6>
+                        <p class="small text-muted mb-0">Health directory, disease information, and health calculators.</p>
+                    </div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-6">
+                <a href="https://www.who.int/india" target="_blank" rel="noopener noreferrer" class="resource-card-v2 d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&w=200&q=80" alt="WHO India" class="resource-img">
+                    </div>
+                    <div class="ms-3 flex-grow-1">
+                        <h6 class="fw-bold text-dark mb-1">WHO India</h6>
+                        <p class="small text-muted mb-0">World Health Organization's India-specific health guidance.</p>
+                    </div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            
+            <div class="col-12 col-md-6">
+                <a href="https://www.mygov.in/covid-19" target="_blank" rel="noopener noreferrer" class="resource-card-v2 d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=200&q=80" alt="MyGov Health" class="resource-img">
+                    </div>
+                    <div class="ms-3 flex-grow-1">
+                        <h6 class="fw-bold text-dark mb-1">MyGov Health Updates</h6>
+                        <p class="small text-muted mb-0">Official health campaigns, COVID-19 updates, and public advisories.</p>
+                    </div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DISCLAIMER BANNER ==================== -->
+<section class="py-4">
+    <div class="container">
+        <div class="disclaimer-banner">
+            <div class="d-flex align-items-start">
+                <i class="bi bi-info-circle-fill text-health-primary fs-4 me-3 flex-shrink-0"></i>
+                <div>
+                    <h6 class="fw-bold mb-1">Important Health Disclaimer</h6>
+                    <p class="small text-muted mb-0">OPES EDGE provides general health information and educational resources only. We do not provide medical diagnosis, treatment recommendations, or emergency medical services. Always consult a qualified healthcare professional for personal medical concerns. In emergencies, call 108 immediately.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+/* Health Carousel Logic */
+let currentHealthSlide = 0;
+const healthSlides = document.querySelectorAll('.health-slide');
+const healthDots = document.querySelectorAll('.health-dot');
+
+function showHealthSlide(index) {
+    healthSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
+    healthDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+    currentHealthSlide = index;
+}
+
+function nextHealthSlide() {
+    showHealthSlide((currentHealthSlide + 1) % healthSlides.length);
+}
+
+function prevHealthSlide() {
+    showHealthSlide((currentHealthSlide - 1 + healthSlides.length) % healthSlides.length);
+}
+
+// Auto-advance every 5 seconds
+let slideInterval = setInterval(nextHealthSlide, 5000);
+
+// Pause on hover
+const carousel = document.querySelector('.health-carousel');
+carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+carousel.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(nextHealthSlide, 5000);
+});
+
+// Touch swipe support
+let touchStartX = 0;
+let touchEndX = 0;
+
+carousel.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+carousel.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) nextHealthSlide();
+    if (touchEndX - touchStartX > 50) prevHealthSlide();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}Exam Preparation — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Exam Preparation</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-clipboard-check text-warning me-2"></i>Exam Preparation Hub</h2>
+            <p class="text-muted">Everything you need to ace your exams.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Exam Tips Banner -->
+        <div class="card border-0 shadow-sm rounded-4 mb-5 overflow-hidden" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white;">
+            <div class="card-body p-4 p-md-5">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h4 class="fw-bold mb-2"><i class="bi bi-lightbulb me-2"></i>Pro Exam Tips</h4>
+                        <p class="mb-0 opacity-90">Create a study schedule, solve previous papers, focus on weak topics first, use active recall, and teach concepts to others.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <span class="badge bg-white text-warning fs-6 px-3 py-2">Pomodoro: 25 min + 5 min break</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subjects -->
+        <h5 class="fw-bold mb-3">Subjects</h5>
+        <div class="row g-4 mb-5">
+            {% set subjects = [
+                {'name': 'Mathematics', 'icon': 'bi-calculator', 'color': 'primary', 'topics': 'Calculus, Linear Algebra, Probability'},
+                {'name': 'Programming', 'icon': 'bi-code-slash', 'color': 'dark', 'topics': 'C, Python, OOP, Data Structures'},
+                {'name': 'Data Structures', 'icon': 'bi-diagram-3', 'color': 'success', 'topics': 'Arrays, Trees, Graphs, Sorting'},
+                {'name': 'Digital Principles', 'icon': 'bi-cpu', 'color': 'info', 'topics': 'Logic Gates, Flip-Flops, K-Maps'},
+                {'name': 'Physics', 'icon': 'bi-atom', 'color': 'secondary', 'topics': 'Mechanics, Electromagnetism, Optics'},
+                {'name': 'Chemistry', 'icon': 'bi-droplet', 'color': 'warning', 'topics': 'Organic, Inorganic, Physical'}
+            ] %}
+            {% for sub in subjects %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-{{ sub.color }} p-2 rounded-3 me-3"><i class="bi {{ sub.icon }} text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">{{ sub.name }}</h5>
+                        </div>
+                        <p class="text-muted small mb-3">{{ sub.topics }}</p>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-{{ sub.color }} btn-sm rounded-pill flex-fill">Notes</button>
+                            <button class="btn btn-outline-{{ sub.color }} btn-sm rounded-pill flex-fill">Papers</button>
+                            <button class="btn btn-outline-{{ sub.color }} btn-sm rounded-pill flex-fill">Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Preparation Checklist -->
+        <h5 class="fw-bold mb-3">Preparation Checklist</h5>
+        <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk1">
+                            <label class="form-check-label" for="chk1">Create a study timetable</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk2">
+                            <label class="form-check-label" for="chk2">Collect previous question papers</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk3">
+                            <label class="form-check-label" for="chk3">Identify important topics</label>
+                        </div>
+                        <div class="form-check mb-0">
+                            <input class="form-check-input" type="checkbox" id="chk4">
+                            <label class="form-check-label" for="chk4">Make short revision notes</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk5">
+                            <label class="form-check-label" for="chk5">Solve at least 3 past papers</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk6">
+                            <label class="form-check-label" for="chk6">Practice numerical problems</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="chk7">
+                            <label class="form-check-label" for="chk7">Get adequate sleep before exam</label>
+                        </div>
+                        <div class="form-check mb-0">
+                            <input class="form-check-input" type="checkbox" id="chk8">
+                            <label class="form-check-label" for="chk8">Review formulas on exam day</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

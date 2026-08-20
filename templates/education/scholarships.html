@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Scholarships — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Scholarships</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1"><i class="bi bi-award text-secondary me-2"></i>Scholarships</h2>
+                <p class="text-muted mb-0">Discover funding opportunities for your education.</p>
+            </div>
+            <span class="badge bg-secondary mt-2 mt-md-0"><i class="bi bi-info-circle me-1"></i>Demo Data</span>
+        </div>
+
+        {% set scholarships = [
+            {'name': 'PMSSS (Prime Minister\'s Scholarship)', 'eligibility': 'Engineering & Medical students', 'level': 'Undergraduate', 'deadline': '31 Oct 2026', 'status': 'Open', 'desc': 'Scholarship for wards of ex-servicemen pursuing professional degrees.'},
+            {'name': 'INSPIRE Scholarship', 'eligibility': 'Top 1% in 12th Board', 'level': 'Undergraduate', 'deadline': '15 Nov 2026', 'status': 'Open', 'desc': 'Department of Science & Technology scholarship for science students.'},
+            {'name': 'NTSE (National Talent Search)', 'eligibility': 'Class 10 students', 'level': 'School', 'deadline': 'Closed', 'status': 'Closed', 'desc': 'Prestigious national-level scholarship exam for school students.'},
+            {'name': 'KVPY (Kishore Vaigyanik Protsahan)', 'eligibility': 'Science stream students', 'level': '11th - 1st Year UG', 'deadline': '30 Aug 2026', 'status': 'Closing Soon', 'desc': 'Fellowship program to attract students to research careers in science.'},
+            {'name': 'State Merit Scholarship', 'eligibility': 'State domicile students', 'level': 'All Levels', 'deadline': '30 Sep 2026', 'status': 'Open', 'desc': 'Merit-based financial aid provided by respective state governments.'},
+            {'name': 'Post-Matric Scholarship', 'eligibility': 'SC/ST/OBC students', 'level': 'Post-Matric', 'deadline': '31 Dec 2026', 'status': 'Open', 'desc': 'Government scheme to support higher education for reserved category students.'}
+        ] %}
+
+        <div class="row g-4">
+            {% for s in scholarships %}
+            <div class="col-12 col-md-6">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge 
+                                {% if s.status == 'Open' %}bg-success
+                                {% elif s.status == 'Closed' %}bg-secondary
+                                {% else %}bg-warning text-dark{% endif %} 
+                                bg-opacity-10 
+                                {% if s.status == 'Open' %}text-success
+                                {% elif s.status == 'Closed' %}text-secondary
+                                {% else %}text-warning{% endif %}">
+                                {{ s.status }}
+                            </span>
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i>{{ s.deadline }}</small>
+                        </div>
+                        <h5 class="fw-bold mb-1">{{ s.name }}</h5>
+                        <p class="text-muted small mb-2">{{ s.desc }}</p>
+                        <div class="row g-2 small text-muted mb-3">
+                            <div class="col-6"><i class="bi bi-people me-1"></i>{{ s.eligibility }}</div>
+                            <div class="col-6"><i class="bi bi-mortarboard me-1"></i>{{ s.level }}</div>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill w-100">View Details</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

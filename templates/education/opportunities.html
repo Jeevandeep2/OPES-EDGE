@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Opportunities — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Opportunities</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-lightning text-success me-2"></i>Opportunities</h2>
+            <p class="text-muted">Internships, hackathons, workshops, and competitions.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <span class="badge bg-success rounded-pill px-3 py-2">All</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Internships</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Hackathons</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Workshops</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Competitions</span>
+        </div>
+
+        {% set opportunities = [
+            {'title': 'Google Summer of Code 2026', 'category': 'Internship', 'org': 'Google', 'deadline': '15 Mar 2026', 'desc': 'Contribute to open-source projects with mentorship from Google engineers.'},
+            {'title': 'Smart India Hackathon', 'category': 'Hackathon', 'org': 'Govt. of India', 'deadline': '30 Jan 2026', 'desc': 'National-level hackathon to solve real-world problems with technology.'},
+            {'title': 'AWS Cloud Workshop', 'category': 'Workshop', 'org': 'Amazon Web Services', 'deadline': 'Open', 'desc': 'Hands-on workshop covering EC2, S3, Lambda, and cloud architecture.'},
+            {'title': 'Microsoft Imagine Cup', 'category': 'Competition', 'org': 'Microsoft', 'deadline': '28 Feb 2026', 'desc': 'Global student technology competition to solve pressing challenges.'},
+            {'title': 'ISRO Internship Program', 'category': 'Internship', 'org': 'ISRO', 'deadline': '10 Dec 2025', 'desc': 'Research internship at Indian Space Research Organisation centers.'},
+            {'title': 'MLH Local Hack Day', 'category': 'Hackathon', 'org': 'Major League Hacking', 'deadline': 'Rolling', 'desc': 'Beginner-friendly hackathon to learn, build, and share projects.'}
+        ] %}
+
+        <div class="row g-4">
+            {% for opp in opportunities %}
+            <div class="col-12 col-md-6">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge 
+                                {% if opp.category == 'Internship' %}bg-primary bg-opacity-10 text-primary
+                                {% elif opp.category == 'Hackathon' %}bg-warning bg-opacity-10 text-warning
+                                {% elif opp.category == 'Workshop' %}bg-info bg-opacity-10 text-info
+                                {% else %}bg-success bg-opacity-10 text-success{% endif %}">
+                                {{ opp.category }}
+                            </span>
+                            <small class="text-muted"><i class="bi bi-calendar me-1"></i>{{ opp.deadline }}</small>
+                        </div>
+                        <h5 class="fw-bold mb-1">{{ opp.title }}</h5>
+                        <small class="text-muted d-block mb-2"><i class="bi bi-building me-1"></i>{{ opp.org }}</small>
+                        <p class="text-muted small mb-3">{{ opp.desc }}</p>
+                        <button class="btn btn-outline-success btn-sm rounded-pill">Explore</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,67 +1,33 @@
-<div align="center">
-
-# 🌐 OPES EDGE
-
-### **One Platform for Every Solution**
-
-<p>
-  <b>AI-Powered Smart Community & Sustainable Development Platform</b>
-</p>
-
-<p>
-  <i>Connecting people, services, intelligence and sustainability — in one platform.</i>
-</p>
-
-<br>
-
-[![EEC 2026](https://img.shields.io/badge/EEC-2026-00AEEF?style=for-the-badge)](https://jeevandeep2.github.io/OPES-EDGE/)
-[![Team](https://img.shields.io/badge/Team-Logic%20Legends-198754?style=for-the-badge)](https://github.com/Jeevandeep2/OPES-EDGE)
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Flask](https://img.shields.io/badge/Flask-Backend-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
-
-<br>
-
-### 🚀 **[EXPLORE OPES EDGE →](https://jeevandeep2.github.io/OPES-EDGE/)**
-
-<br>
-
-**Engineering Excellence Challenge — EEC-2026**
-
-**Team: Logic Legends**  
-**Team ID: EEC2607911**  
-**e80Spark**
-
-**University of Visvesvaraya College of Engineering (UVCE), Bengaluru**
-
-</div>
+# OPES EDGE
+### visit link of OPES EDGE 
+### https://jeevandeep2.github.io/OPES-EDGE/
+### One Platform for Every Solution
+**Engineering Excellence Challenge — EEC-2026**  
+**Team: Logic Legends | ID: EEC2607911 e80Spark**
+**University of Visvesvaraya College of Engineering (UVCE), Bengalore**
 
 ---
 
-# 🌍 The Vision
+## About
 
-> ### **What if essential community services could exist in one intelligent platform?**
+OPES EDGE is an AI-powered smart community and sustainable development platform.  
+It unifies six essential services into one accessible, modern web application:
 
-Today, agriculture, education, healthcare, energy, water and community
-services often operate as separate systems.
+- 🌾 Agriculture
+- 🎓 Education
+- 🏥 Healthcare
+- 🤝 Community Services
+- ⚡ Energy Management
+- 💧 Water Management
 
-People have to search across different platforms, applications
-and information sources to find what they need.
+## Technology Stack
 
-### OPES EDGE changes that idea.
-
-**OPES EDGE — One Platform for Every Solution**
-
-is designed as an integrated digital platform that brings essential
-community and sustainability-focused services together through one
-modern, accessible and intelligent interface.
-
-Our vision is simple:
-
-> **Connect. Simplify. Empower. Sustain.**
-
----
+| Layer | Technology |
+|-------|------------|
+| Frontend | HTML5, CSS3, Bootstrap 5, Bootstrap Icons, Vanilla JS |
+| Backend | Python 3, Flask |
+| Database | SQLite3 |
+| Fonts | Google Fonts (Inter) |
 
 # 💡 What is OPES EDGE?
 
@@ -179,28 +145,3 @@ A smart sustainability module focused on responsible water usage.
 - Water resource information
 - Sustainable practices
 
----
-
-# 🧠 Intelligence Layer
-
-OPES EDGE is designed with an intelligence-first approach.
-
-The long-term platform architecture can support:
-
-```text
-                 ┌─────────────────────┐
-                 │     OPES EDGE       │
-                 │  Intelligence Layer │
-                 └──────────┬──────────┘
-                            │
-          ┌─────────────────┼─────────────────┐
-          │                 │                 │
-          ▼                 ▼                 ▼
-      Analytics          AI Assistant      Recommendations
-          │                 │                 │
-          └─────────────────┼─────────────────┘
-                            │
-                            ▼
-              ┌────────────────────────┐
-              │   Community Services   │
-              └────────────────────────┘

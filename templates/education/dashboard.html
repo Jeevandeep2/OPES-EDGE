@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}Education Dashboard — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+
+        <!-- Welcome -->
+        <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden" style="background: linear-gradient(135deg, #4f46e5, #8b5cf6); color: white;">
+            <div class="card-body p-4 p-md-5">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="fw-bold mb-2">Welcome to Your Learning Dashboard</h2>
+                        <p class="mb-0 opacity-90">Track your progress, discover new courses, and find opportunities.</p>
+                    </div>
+                    <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                        <a href="{{ url_for('education_profile') }}" class="btn btn-light fw-bold text-primary">
+                            <i class="bi bi-person-circle me-2"></i>My Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-laptop text-primary" style="font-size: 1.5rem;"></i>
+                    <span class="stat-number d-block mt-2">12</span>
+                    <small class="text-muted">Courses</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-journal-text text-success" style="font-size: 1.5rem;"></i>
+                    <span class="stat-number d-block mt-2">48</span>
+                    <small class="text-muted">Materials</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-code-slash text-dark" style="font-size: 1.5rem;"></i>
+                    <span class="stat-number d-block mt-2">24</span>
+                    <small class="text-muted">Challenges</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-lightning text-warning" style="font-size: 1.5rem;"></i>
+                    <span class="stat-number d-block mt-2">8</span>
+                    <small class="text-muted">Opportunities</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress & Quick Actions -->
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4"><i class="bi bi-bar-chart-line text-primary me-2"></i>Learning Progress</h5>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="fw-bold">Python Programming</small>
+                                <small class="text-primary">75%</small>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-primary" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="fw-bold">Data Structures</small>
+                                <small class="text-success">60%</small>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-success" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="fw-bold">Web Development</small>
+                                <small class="text-info">40%</small>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-info" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-0">
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="fw-bold">Machine Learning</small>
+                                <small class="text-warning">25%</small>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar bg-warning" style="width: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-lightning-charge text-warning me-2"></i>Quick Actions</h5>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('education_courses') }}" class="btn btn-outline-primary text-start">
+                                <i class="bi bi-laptop me-2"></i>Browse Courses
+                            </a>
+                            <a href="{{ url_for('education_coding') }}" class="btn btn-outline-dark text-start">
+                                <i class="bi bi-code-slash me-2"></i>Coding Practice
+                            </a>
+                            <a href="{{ url_for('education_exams') }}" class="btn btn-outline-warning text-start">
+                                <i class="bi bi-clipboard-check me-2"></i>Exam Prep
+                            </a>
+                            <a href="{{ url_for('education_scholarships') }}" class="btn btn-outline-success text-start">
+                                <i class="bi bi-award me-2"></i>Scholarships
+                            </a>
+                            <a href="{{ url_for('education_opportunities') }}" class="btn btn-outline-info text-start">
+                                <i class="bi bi-lightning me-2"></i>Opportunities
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

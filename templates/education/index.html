@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block title %}Education — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<!-- HERO -->
+<section class="edu-hero">
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="edu-badge"><i class="bi bi-mortarboard me-1"></i> Education Module</div>
+        <h1 class="fw-bold display-4">Learn. Grow. Build Your Future.</h1>
+        <p class="lead opacity-90 mx-auto mt-3" style="max-width: 700px;">
+            Access learning resources, courses, exam preparation, coding practice and career opportunities — all in one place.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="#services" class="btn btn-light btn-lg fw-bold text-primary">
+                <i class="bi bi-compass me-2"></i>Explore Learning
+            </a>
+            <a href="{{ url_for('education_profile') }}" class="btn btn-outline-light btn-lg">
+                <i class="bi bi-person-circle me-2"></i>Student Profile
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="py-4" style="margin-top: -2rem; position: relative; z-index: 2;">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <span class="stat-number">50+</span>
+                    <small class="text-muted d-block">Courses</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <span class="stat-number">200+</span>
+                    <small class="text-muted d-block">Resources</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <span class="stat-number">100+</span>
+                    <small class="text-muted d-block">Challenges</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <span class="stat-number">∞</span>
+                    <small class="text-muted d-block">Opportunities</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICE CARDS -->
+<section class="py-5 my-5" id="services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Education Services</h6>
+            <h2 class="section-title">Your Learning Journey Starts Here</h2>
+            <div class="section-divider"></div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Learning resources" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-primary text-white"><i class="bi bi-collection"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Learning Resources</h5>
+                        <p class="text-muted small">Curated books, articles, and guides across all subjects.</p>
+                        <a href="{{ url_for('education_resources') }}" class="btn btn-outline-primary btn-sm rounded-pill">Browse</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Online courses" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-success text-white"><i class="bi bi-laptop"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Courses</h5>
+                        <p class="text-muted small">Structured learning paths from beginner to advanced.</p>
+                        <a href="{{ url_for('education_courses') }}" class="btn btn-outline-success btn-sm rounded-pill">View Courses</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Study materials" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-info text-white"><i class="bi bi-journal-text"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Study Materials</h5>
+                        <p class="text-muted small">Notes, PDFs, lab manuals, and previous papers.</p>
+                        <a href="{{ url_for('education_materials') }}" class="btn btn-outline-info btn-sm rounded-pill">Access</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Exam preparation" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-warning text-dark"><i class="bi bi-clipboard-check"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Exam Preparation</h5>
+                        <p class="text-muted small">Practice tests, important questions, and revision guides.</p>
+                        <a href="{{ url_for('education_exams') }}" class="btn btn-outline-warning btn-sm rounded-pill">Prepare</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Coding practice" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-dark text-white"><i class="bi bi-code-slash"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Coding Practice</h5>
+                        <p class="text-muted small">Solve challenges in Python, C, C++, Java, and SQL.</p>
+                        <a href="{{ url_for('education_coding') }}" class="btn btn-outline-dark btn-sm rounded-pill">Practice</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://scholarshipowl.com/blog/wp-content/uploads/2017/12/scholarship-websites.jpg" class="card-img-top" alt="Scholarships" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-secondary text-white"><i class="bi bi-award"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Scholarships</h5>
+                        <p class="text-muted small">Discover funding opportunities for your education.</p>
+                        <a href="{{ url_for('education_scholarships') }}" class="btn btn-outline-secondary btn-sm rounded-pill">Discover</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Career guidance" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-primary text-white"><i class="bi bi-briefcase"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Career Guidance</h5>
+                        <p class="text-muted small">Explore career paths and required skills.</p>
+                        <a href="{{ url_for('education_career') }}" class="btn btn-outline-primary btn-sm rounded-pill">Explore</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Opportunities" onerror="this.style.display='none'">
+                    <div class="icon-orb bg-success text-white"><i class="bi bi-lightning"></i></div>
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold">Opportunities</h5>
+                        <p class="text-muted small">Internships, hackathons, workshops, and competitions.</p>
+                        <a href="{{ url_for('education_opportunities') }}" class="btn btn-outline-success btn-sm rounded-pill">Find</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5" style="background: linear-gradient(135deg, #eef2ff, #e0e7ff);">
+    <div class="container text-center">
+        <h2 class="fw-bold gradient-text mb-3">Ready to Start Learning?</h2>
+        <p class="text-muted mb-4">Join thousands of students using OPES EDGE to build their future.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a href="{{ url_for('education_dashboard') }}" class="btn btn-edu-primary btn-lg">
+                <i class="bi bi-grid-3x3-gap me-2"></i>Go to Dashboard
+            </a>
+            <a href="{{ url_for('education_assistant') }}" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-robot me-2"></i>Ask Assistant
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

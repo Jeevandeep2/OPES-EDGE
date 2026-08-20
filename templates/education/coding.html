@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Coding Practice — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Coding Practice</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-code-slash text-dark me-2"></i>Coding Practice</h2>
+            <p class="text-muted">Sharpen your programming skills with hands-on challenges.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- Language Tabs -->
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+            <span class="badge bg-dark rounded-pill px-3 py-2">All</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Python</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">C</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">C++</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Java</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">SQL</span>
+        </div>
+
+        {% set challenges = [
+            {'title': 'Two Sum Problem', 'difficulty': 'Easy', 'lang': 'Python', 'topic': 'Arrays', 'desc': 'Find two numbers in an array that add up to a target sum.'},
+            {'title': 'Reverse a Linked List', 'difficulty': 'Medium', 'lang': 'C++', 'topic': 'Linked List', 'desc': 'Reverse a singly linked list iteratively and recursively.'},
+            {'title': 'Binary Search Tree', 'difficulty': 'Medium', 'lang': 'Java', 'topic': 'Trees', 'desc': 'Implement insertion and search in a binary search tree.'},
+            {'title': 'Palindrome Check', 'difficulty': 'Easy', 'lang': 'C', 'topic': 'Strings', 'desc': 'Check if a given string is a palindrome ignoring case.'},
+            {'title': 'SQL Joins Mastery', 'difficulty': 'Easy', 'lang': 'SQL', 'topic': 'Databases', 'desc': 'Write queries using INNER, LEFT, and RIGHT joins.'},
+            {'title': 'Dynamic Programming: Knapsack', 'difficulty': 'Hard', 'lang': 'Python', 'topic': 'DP', 'desc': 'Solve the 0/1 knapsack problem using dynamic programming.'},
+            {'title': 'Merge Sort Implementation', 'difficulty': 'Medium', 'lang': 'C++', 'topic': 'Sorting', 'desc': 'Implement merge sort and analyze its time complexity.'},
+            {'title': 'REST API with Flask', 'difficulty': 'Medium', 'lang': 'Python', 'topic': 'Web', 'desc': 'Build a simple REST API with GET and POST endpoints.'}
+        ] %}
+
+        <div class="row g-4">
+            {% for ch in challenges %}
+            <div class="col-12 col-md-6">
+                <div class="card h-100 border-0 shadow-sm rounded-4 agri-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <span class="badge 
+                                    {% if ch.difficulty == 'Easy' %}bg-success bg-opacity-10 text-success
+                                    {% elif ch.difficulty == 'Medium' %}bg-warning bg-opacity-10 text-warning
+                                    {% else %}bg-danger bg-opacity-10 text-danger{% endif %} 
+                                    me-2">{{ ch.difficulty }}</span>
+                                <span class="badge bg-light text-dark border">{{ ch.lang }}</span>
+                            </div>
+                            <i class="bi bi-code-square text-muted" style="font-size: 1.2rem;"></i>
+                        </div>
+                        <h5 class="fw-bold mb-1">{{ ch.title }}</h5>
+                        <small class="text-muted d-block mb-2"><i class="bi bi-tag me-1"></i>{{ ch.topic }}</small>
+                        <p class="text-muted small mb-3">{{ ch.desc }}</p>
+                        <button class="btn btn-outline-dark btn-sm rounded-pill">
+                            <i class="bi bi-play-circle me-1"></i>Solve Challenge
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

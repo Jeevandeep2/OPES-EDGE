@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %}Study Materials — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Study Materials</li>
+            </ol>
+        </nav>
+
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-1"><i class="bi bi-journal-text text-info me-2"></i>Study Materials</h2>
+            <p class="text-muted">Notes, PDFs, lab manuals, and previous question papers.</p>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Notes -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-info p-2 rounded-3 me-3"><i class="bi bi-journal-bookmark text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Subject Notes</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Comprehensive handwritten and digital notes for core subjects.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Data Structures & Algorithms</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Operating Systems</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Database Management</li>
+                            <li class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Computer Networks</li>
+                        </ul>
+                        <button class="btn btn-outline-info btn-sm rounded-pill w-100">Browse Notes</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previous Papers -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning p-2 rounded-3 me-3"><i class="bi bi-file-earmark-check text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Previous Papers</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Past exam papers to understand question patterns and difficulty.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Mid-Term Exams 2023-24</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Semester End Exams</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Supplementary Papers</li>
+                            <li class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Model Question Papers</li>
+                        </ul>
+                        <button class="btn btn-outline-warning btn-sm rounded-pill w-100">View Papers</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Manuals -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-success p-2 rounded-3 me-3"><i class="bi bi-tools text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Lab Manuals</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Step-by-step practical guides for laboratory sessions.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>C Programming Lab</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Data Structures Lab</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-text me-2"></i>Python & ML Lab</li>
+                            <li class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Web Development Lab</li>
+                        </ul>
+                        <button class="btn btn-outline-success btn-sm rounded-pill w-100">Access Manuals</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reference Materials -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-primary p-2 rounded-3 me-3"><i class="bi bi-book text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Reference Books</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Recommended textbooks and reference guides for deep learning.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-book me-2"></i>Introduction to Algorithms (CLRS)</li>
+                            <li class="mb-1"><i class="bi bi-book me-2"></i>Computer Networking (Tanenbaum)</li>
+                            <li class="mb-1"><i class="bi bi-book me-2"></i>Database System Concepts</li>
+                            <li class="mb-0"><i class="bi bi-book me-2"></i>Clean Code (Robert Martin)</li>
+                        </ul>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill w-100">View References</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture Materials -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-secondary p-2 rounded-3 me-3"><i class="bi bi-easel text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Lecture Materials</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Presentation slides and lecture recordings summaries.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-file-earmark-slides me-2"></i>Unit 1: Introduction to AI</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-slides me-2"></i>Unit 2: Machine Learning Basics</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-slides me-2"></i>Unit 3: Neural Networks</li>
+                            <li class="mb-0"><i class="bi bi-file-earmark-slides me-2"></i>Unit 4: Deep Learning</li>
+                        </ul>
+                        <button class="btn btn-outline-secondary btn-sm rounded-pill w-100">Browse Lectures</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Downloads -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-dark p-2 rounded-3 me-3"><i class="bi bi-download text-white" style="font-size:1.2rem;"></i></span>
+                            <h5 class="fw-bold mb-0">Quick Downloads</h5>
+                        </div>
+                        <p class="text-muted small mb-3">Formula sheets, cheat sheets, and quick reference cards.</p>
+                        <ul class="list-unstyled small text-muted mb-3">
+                            <li class="mb-1"><i class="bi bi-file-earmark-arrow-down me-2"></i>Python Cheat Sheet</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-arrow-down me-2"></i>SQL Quick Reference</li>
+                            <li class="mb-1"><i class="bi bi-file-earmark-arrow-down me-2"></i>Big-O Complexity Chart</li>
+                            <li class="mb-0"><i class="bi bi-file-earmark-arrow-down me-2"></i>Git Commands Guide</li>
+                        </ul>
+                        <button class="btn btn-outline-dark btn-sm rounded-pill w-100">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

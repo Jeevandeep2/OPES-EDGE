@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Learning Resources — OPES EDGE{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/education.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="py-5" style="min-height: 80vh;">
+    <div class="container">
+        
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('education') }}">Education</a></li>
+                <li class="breadcrumb-item active">Learning Resources</li>
+            </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1"><i class="bi bi-collection text-primary me-2"></i>Learning Resources</h2>
+                <p class="text-muted mb-0">Curated educational content across multiple domains.</p>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="d-flex flex-wrap gap-2 mb-4">
+            <span class="badge bg-primary rounded-pill px-3 py-2">All</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Programming</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">AI & ML</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Data Science</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Mathematics</span>
+            <span class="badge bg-light text-dark border rounded-pill px-3 py-2">Engineering</span>
+        </div>
+
+        <div class="row g-4">
+            {% set demo_resources = [
+                {'title': 'Python for Beginners', 'category': 'Programming', 'type': 'Guide', 'desc': 'Complete introduction to Python programming with hands-on examples.'},
+                {'title': 'Machine Learning Basics', 'category': 'AI & ML', 'type': 'Course', 'desc': 'Understand supervised and unsupervised learning fundamentals.'},
+                {'title': 'Linear Algebra for Engineers', 'category': 'Mathematics', 'type': 'Notes', 'desc': 'Vectors, matrices, and linear transformations explained simply.'},
+                {'title': 'Data Visualization with Python', 'category': 'Data Science', 'type': 'Tutorial', 'desc': 'Create stunning charts using matplotlib, seaborn, and plotly.'},
+                {'title': 'Digital Electronics', 'category': 'Engineering', 'type': 'Notes', 'desc': 'Logic gates, flip-flops, and sequential circuit design.'},
+                {'title': 'Communication Skills', 'category': 'Soft Skills', 'type': 'Guide', 'desc': 'Improve presentation, writing, and interpersonal skills.'},
+                {'title': 'SQL Mastery', 'category': 'Programming', 'type': 'Tutorial', 'desc': 'From basic queries to advanced database design patterns.'},
+                {'title': 'Deep Learning Fundamentals', 'category': 'AI & ML', 'type': 'Course', 'desc': 'Neural networks, CNNs, RNNs, and practical applications.'}
+            ] %}
+            
+            {% for res in demo_resources %}
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="glass-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary">{{ res.category }}</span>
+                            <span class="badge bg-light text-muted border">{{ res.type }}</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">{{ res.title }}</h5>
+                        <p class="text-muted small mb-3">{{ res.desc }}</p>
+                        <button class="btn btn-outline-primary btn-sm rounded-pill w-100">Access Resource</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

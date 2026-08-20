@@ -47,11 +47,11 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="{{ url_for('agriculture') }}"><i class="bi bi-flower1 me-2 text-success"></i>Agriculture</a></li>
-                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-book me-2 text-primary"></i>Education</a></li>
-                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-heart-pulse me-2 text-danger"></i>Healthcare</a></li>
-                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-people me-2 text-warning"></i>Community</a></li>
-                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-lightning-charge me-2 text-warning"></i>Energy</a></li>
-                            <li><a class="dropdown-item" href="/#services"><i class="bi bi-droplet me-2 text-info"></i>Water</a></li>
+                             <li><a class="dropdown-item" href="{{ url_for('education') }}"><i class="bi bi-book me-2 text-primary"></i>Education</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('healthcare') }}"><i class="bi bi-heart-pulse me-2 text-danger"></i>Healthcare</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('community') }}"><i class="bi bi-people me-2 text-warning"></i>Community</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('energy') }}"><i class="bi bi-lightning-charge me-2 text-warning"></i>Energy</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('water') }}"><i class="bi bi-droplet me-2 text-info"></i>Water</a></li>
                         </ul>
                     </li>
                     
@@ -105,11 +105,11 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="{{ url_for('index') }}" class="text-white-50 text-decoration-none">Home</a></li>
                         <li class="mb-2"><a href="{{ url_for('agriculture') }}" class="text-white-50 text-decoration-none">Agriculture</a></li>
-                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Education</a></li>
-                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Healthcare</a></li>
-                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Community</a></li>
-                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Energy</a></li>
-                        <li class="mb-2"><a href="/#services" class="text-white-50 text-decoration-none">Water</a></li>
+                        <li class="mb-2"><a href="{{ url_for('education') }}" class="text-white-50 text-decoration-none">Education</a></li>
+                        <li class="mb-2"><a href="{{ url_for('healthcare') }}" class="text-white-50 text-decoration-none">Healthcare</a></li>
+                        <li class="mb-2"><a href="{{ url_for('community') }}" class="text-white-50 text-decoration-none">Community</a></li>
+                        <li class="mb-2"><a href="{{ url_for('energy') }}" class="text-white-50 text-decoration-none">Energy</a></li>
+                        <li class="mb-2"><a href="{{ url_for('water') }}" class="text-white-50 text-decoration-none">Water</a></li>
                     </ul>
                 </div>
                 
