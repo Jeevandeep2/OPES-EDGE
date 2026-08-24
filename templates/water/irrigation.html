@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}Smart Irrigation — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1920&q=85" alt="Drip irrigation in farm field" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-moisture me-2"></i>Farm Smart</div>
+            <h1>Smart Irrigation</h1>
+            <p class="lead opacity-90">Use less water, grow more food. Modern techniques for water-efficient farming.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== METHODS COMPARISON ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Compare</h6>
+            <h2 class="section-title">Irrigation Methods</h2>
+            <p class="section-subtitle">Efficiency matters. Choose the right technique for your crop and scale.</p>
+        </div>
+        <div class="table-responsive">
+            <table class="water-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Efficiency</th>
+                        <th>Best For</th>
+                        <th>Water Saved</th>
+                        <th>Initial Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Flood Irrigation</strong></td>
+                        <td><span class="badge bg-danger">40-50%</span></td>
+                        <td>Rice paddies, flat fields</td>
+                        <td>Baseline</td>
+                        <td>Low</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sprinkler</strong></td>
+                        <td><span class="badge bg-warning">60-70%</span></td>
+                        <td>Lawns, orchards, vegetables</td>
+                        <td>20-30%</td>
+                        <td>Medium</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Drip Irrigation</strong></td>
+                        <td><span class="badge bg-success">85-95%</span></td>
+                        <td>Vegetables, fruits, flowers</td>
+                        <td>40-60%</td>
+                        <td>Medium-High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subsurface Drip</strong></td>
+                        <td><span class="badge bg-water-primary">90-95%</span></td>
+                        <td>Row crops, orchards</td>
+                        <td>50-70%</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Micro-Sprinkler</strong></td>
+                        <td><span class="badge bg-info">75-85%</span></td>
+                        <td>Orchards, vineyards</td>
+                        <td>30-40%</td>
+                        <td>Medium</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DRIP IRRIGATION DEEP DIVE ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-12 col-lg-6">
+                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Drip irrigation system close up" class="img-fluid rounded-4 shadow-sm">
+            </div>
+            <div class="col-12 col-lg-6">
+                <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Recommended</h6>
+                <h2 class="section-title text-start">Why Drip Irrigation Wins</h2>
+                <p class="text-muted mb-4">Drip irrigation delivers water directly to the plant root zone, drop by drop. It is the most efficient method for most crops.</p>
+
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-droplet"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Water Directly to Roots</h6>
+                        <p class="small text-muted mb-0">No water wasted on weeds or between rows. Every drop reaches the plant.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-thermometer-half"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Reduces Disease</h6>
+                        <p class="small text-muted mb-0">Dry foliage means fewer fungal diseases. Plants stay healthier with less pesticide.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-graph-up-arrow"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Higher Yields</h6>
+                        <p class="small text-muted mb-0">Consistent moisture improves crop quality and can increase yields by 20-50%.</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-warning text-white"><i class="bi bi-currency-rupee"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Government Subsidy</h6>
+                        <p class="small text-muted mb-0">PMKSY provides 55-75% subsidy on drip irrigation systems for small farmers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SOIL MOISTURE DEMO ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Interactive</h6>
+            <h2 class="section-title">Soil Moisture Awareness</h2>
+            <p class="section-subtitle">Use the simple finger test before watering. Most plants are overwatered, not underwatered.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-4">
+                <div class="water-info-card h-100 text-center p-4" onclick="setMoisture('dry')" style="cursor:pointer">
+                    <div class="water-info-icon bg-warning text-white mx-auto"><i class="bi bi-sun"></i></div>
+                    <h6 class="fw-bold">Dry Soil</h6>
+                    <p class="small text-muted">Soil feels dry 5cm below surface. Crumbly texture. Plant leaves may droop slightly.</p>
+                    <div class="badge bg-warning text-dark">Water Now</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="water-info-card h-100 text-center p-4 border-water-primary" style="border-width: 2px; cursor:pointer" onclick="setMoisture('moist')">
+                    <div class="water-info-icon bg-success text-white mx-auto"><i class="bi bi-check-circle"></i></div>
+                    <h6 class="fw-bold">Moist Soil</h6>
+                    <p class="small text-muted">Soil feels cool and slightly damp 5cm down. Holds shape when squeezed. Ideal condition.</p>
+                    <div class="badge bg-success">Perfect — Wait</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="water-info-card h-100 text-center p-4" onclick="setMoisture('wet')" style="cursor:pointer">
+                    <div class="water-info-icon bg-info text-white mx-auto"><i class="bi bi-droplet-fill"></i></div>
+                    <h6 class="fw-bold">Wet Soil</h6>
+                    <p class="small text-muted">Soil is muddy or water pools on surface. Squeezed soil drips water. Risk of root rot.</p>
+                    <div class="badge bg-info text-dark">Stop Watering</div>
+                </div>
+            </div>
+        </div>
+        <div class="water-calc-box mt-4 text-center" id="moisture-feedback">
+            <p class="text-muted mb-0"><i class="bi bi-hand-index-thumb me-2"></i>Click a card above to see watering guidance.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SCHEDULING TIPS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Timing</h6>
+            <h2 class="section-title">Smart Scheduling</h2>
+            <p class="section-subtitle">When and how much to water for maximum efficiency.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">1</div>
+                    <h6 class="fw-bold">Check Weather First</h6>
+                    <p class="small text-muted mb-0">Skip watering if rain is forecast within 24 hours. Use weather apps or a simple rain gauge.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">2</div>
+                    <h6 class="fw-bold">Deep, Less Often</h6>
+                    <p class="small text-muted mb-0">Water deeply 2-3 times a week instead of light daily watering. Encourages deeper roots.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">3</div>
+                    <h6 class="fw-bold">Morning is Best</h6>
+                    <p class="small text-muted mb-0">Water between 5-8 AM. Cooler temperatures reduce evaporation by 30-50%.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">4</div>
+                    <h6 class="fw-bold">Avoid Evening on Foliage</h6>
+                    <p class="small text-muted mb-0">Wet leaves overnight promote fungal diseases. If evening watering is needed, target roots only.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">5</div>
+                    <h6 class="fw-bold">Group by Water Needs</h6>
+                    <p class="small text-muted mb-0">Plant water-loving crops together and drought-resistant crops separately. Zone your irrigation.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="water-tip-num">6</div>
+                    <h6 class="fw-bold">Use Mulch Everywhere</h6>
+                    <p class="small text-muted mb-0">5cm of organic mulch reduces evaporation by 70% and keeps soil temperature stable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function setMoisture(level) {
+    const fb = document.getElementById('moisture-feedback');
+    let html = '';
+    if (level === 'dry') {
+        html = `
+            <div class="alert alert-warning border-0 rounded-3 mb-0">
+                <h6 class="fw-bold"><i class="bi bi-sun me-2"></i>Soil is Dry — Water Needed</h6>
+                <p class="mb-1">Water slowly and deeply until the top 15cm of soil is moist. For drip systems, run for 45-60 minutes.</p>
+                <small class="text-muted">Check again in 2 days. Sandy soils dry faster than clay soils.</small>
+            </div>
+        `;
+    } else if (level === 'moist') {
+        html = `
+            <div class="alert alert-success border-0 rounded-3 mb-0">
+                <h6 class="fw-bold"><i class="bi bi-check-circle me-2"></i>Soil is Perfect — No Water Needed</h6>
+                <p class="mb-1">The soil has adequate moisture. Check again tomorrow or the day after.</p>
+                <small class="text-muted">This is the ideal state for most crops. Overwatering causes more harm than underwatering.</small>
+            </div>
+        `;
+    } else {
+        html = `
+            <div class="alert alert-info border-0 rounded-3 mb-0">
+                <h6 class="fw-bold"><i class="bi bi-droplet-fill me-2"></i>Soil is Wet — Stop Watering</h6>
+                <p class="mb-1">The soil is saturated. Continuing to water will deprive roots of oxygen and cause root rot.</p>
+                <small class="text-muted">Wait 2-3 days before checking again. Ensure drainage is working properly.</small>
+            </div>
+        `;
+    }
+    fb.innerHTML = html;
+}
+</script>
+{% endblock %}

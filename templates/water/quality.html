@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}Water Quality — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1920&q=85" alt="Water quality testing" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-shield-check me-2"></i>Safe Water</div>
+            <h1>Water Quality</h1>
+            <p class="lead opacity-90">Understand drinking water safety, basic indicators, and when to seek professional testing.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DISCLAIMER ==================== -->
+<section class="py-4">
+    <div class="container">
+        <div class="alert alert-warning rounded-4 border-0">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <strong>Important:</strong> This page provides general awareness only. OPES EDGE cannot certify drinking water safety. For health concerns, always consult a certified laboratory or local health department.
+        </div>
+    </div>
+</section>
+
+<!-- ==================== KEY INDICATORS ==================== -->
+<section class="py-5 my-3">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Indicators</h6>
+            <h2 class="section-title">Key Quality Parameters</h2>
+            <p class="section-subtitle">What to look for in safe drinking water.</p>
+        </div>
+        <div class="table-responsive">
+            <table class="water-table">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Safe Range (BIS)</th>
+                        <th>Why It Matters</th>
+                        <th>Simple Check</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>pH Level</strong></td>
+                        <td>6.5 – 8.5</td>
+                        <td>Too acidic or alkaline water can corrode pipes and affect health.</td>
+                        <td>Use pH test strips (₹100-200)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TDS</strong></td>
+                        <td>Up to 500 mg/L</td>
+                        <td>Total Dissolved Solids. High TDS affects taste and may indicate contamination.</td>
+                        <td>TDS meter (₹200-500)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Turbidity</strong></td>
+                        <td>Up to 1 NTU</td>
+                        <td>Cloudiness from suspended particles. High turbidity hides bacteria.</td>
+                        <td>Visual clarity check</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chloride</strong></td>
+                        <td>Up to 250 mg/L</td>
+                        <td>High chloride makes water salty and can corrode metals.</td>
+                        <td>Taste test + TDS meter</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fluoride</strong></td>
+                        <td>0.5 – 1.0 mg/L</td>
+                        <td>Too much causes dental fluorosis. Too little weakens teeth.</td>
+                        <td>Lab test recommended</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nitrate</strong></td>
+                        <td>Up to 45 mg/L</td>
+                        <td>High nitrate from fertilizers/sewage is dangerous for infants.</td>
+                        <td>Lab test recommended</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coliform Bacteria</strong></td>
+                        <td>0 per 100 mL</td>
+                        <td>Indicates fecal contamination. Must be zero in drinking water.</td>
+                        <td>Lab test required</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Iron</strong></td>
+                        <td>Up to 0.3 mg/L</td>
+                        <td>High iron causes reddish stains, metallic taste, and pipe clogging.</td>
+                        <td>Visual + taste check</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="small text-muted mt-3"><i class="bi bi-info-circle me-1"></i>Source: Bureau of Indian Standards (BIS) IS 10500:2012. Values may vary by region and usage type.</p>
+    </div>
+</section>
+
+<!-- ==================== HOME CHECKS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">DIY</h6>
+            <h2 class="section-title">Simple Home Checks</h2>
+            <p class="section-subtitle">Quick tests anyone can do without special equipment.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-info-icon bg-water-primary text-white mx-auto"><i class="bi bi-eye"></i></div>
+                    <h6 class="fw-bold">Look</h6>
+                    <p class="small text-muted mb-0">Fill a clear glass. Water should be colourless. Brown, yellow, or cloudy water needs attention.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-info-icon bg-success text-white mx-auto"><i class="bi bi-hand-thumbs-up"></i></div>
+                    <h6 class="fw-bold">Smell</h6>
+                    <p class="small text-muted mb-0">Water should be odourless. A rotten egg smell indicates hydrogen sulphide. Chlorine smell is normal for treated water.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-info-icon bg-info text-white mx-auto"><i class="bi bi-droplet"></i></div>
+                    <h6 class="fw-bold">Taste</h6>
+                    <p class="small text-muted mb-0">Should taste neutral. Salty, metallic, or bitter tastes indicate high dissolved minerals or contamination.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-info-icon bg-warning text-white mx-auto"><i class="bi bi-clock"></i></div>
+                    <h6 class="fw-bold">Settle</h6>
+                    <p class="small text-muted mb-0">Let water sit for 30 minutes. Sediment at the bottom suggests suspended particles or pipe corrosion.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PURIFICATION METHODS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Treatment</h6>
+            <h2 class="section-title">Purification Methods</h2>
+            <p class="section-subtitle">Choose the right method for your water source.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1615112836250-9a4f492b45e8?auto=format&fit=crop&w=600&q=80" alt="Boiling water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-fire"></i></div>
+                        <h6 class="fw-bold">Boiling</h6>
+                        <p class="small text-muted">The simplest method. Boil water for 1 minute (3 minutes at high altitude) to kill bacteria, viruses, and parasites.</p>
+                        <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-check-circle me-1"></i>Best for: Emergency, rural areas, microbial contamination</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=600&q=80" alt="RO water purifier" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-funnel"></i></div>
+                        <h6 class="fw-bold">RO + UV + UF</h6>
+                        <p class="small text-muted">Reverse Osmosis removes dissolved salts. UV kills microbes. UF filters particles. The gold standard for urban homes.</p>
+                        <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-check-circle me-1"></i>Best for: High TDS borewell water, urban homes</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Chlorination water treatment" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-droplet-half"></i></div>
+                        <h6 class="fw-bold">Chlorination</h6>
+                        <p class="small text-muted">Adding chlorine tablets or bleaching powder kills most pathogens. Used by municipalities and in emergency relief.</p>
+                        <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-check-circle me-1"></i>Best for: Community supplies, disaster relief</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== WHEN TO TEST ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Professional Help</h6>
+                    <h2 class="section-title">When to Get Lab Testing</h2>
+                    <p class="section-subtitle">Some situations require certified laboratory analysis.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <i class="bi bi-exclamation-circle-fill text-danger fs-4 me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">After Flooding or Contamination Event</h6>
+                                    <p class="small text-muted mb-0">Flood water can carry sewage, chemicals, and industrial waste. Do not drink without testing.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <i class="bi bi-baby-fill text-warning fs-4 me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Newborn or Pregnant Woman in Household</h6>
+                                    <p class="small text-muted mb-0">Infants are vulnerable to nitrates and bacteria. Test well water before use for formula preparation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <i class="bi bi-hammer text-info fs-4 me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">New Borewell or Water Source</h6>
+                                    <p class="small text-muted mb-0">Always test a new water source before regular use. Arsenic, fluoride, and heavy metals vary by geology.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <i class="bi bi-heart-pulse-fill text-success fs-4 me-3 mt-1"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1">Unexplained Health Issues</h6>
+                                    <p class="small text-muted mb-0">Stomach illness, skin rashes, or dental staining may indicate water quality problems. Test immediately.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-water-info mt-4 mb-0">
+                        <i class="bi bi-telephone me-2"></i>
+                        <strong>Contact:</strong> Reach out to your district water testing laboratory, State Pollution Control Board, or certified private labs like SGS, Eurofins, or local NABL-accredited centres.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

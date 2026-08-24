@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Renewable Energy — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO CAROUSEL ==================== -->
+<section class="energy-sub-hero">
+    <div class="energy-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=85" alt="Solar panels field" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-slide">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1920&q=85" alt="Wind turbines landscape" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-content">
+        <div class="energy-badge"><i class="bi bi-sun me-2"></i>Clean Power</div>
+        <h1>Renewable Energy</h1>
+        <p class="lead opacity-90">Solar, wind, and bioenergy solutions for homes, farms, and communities.</p>
+        <a href="#solar" class="btn btn-energy-primary btn-lg"><i class="bi bi-sun me-2"></i>Explore Solar</a>
+    </div>
+    <div class="energy-sub-dots">
+        <button class="energy-sub-dot active" onclick="showSubSlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-sub-dot" onclick="showSubSlide(1)" aria-label="Slide 2"></button>
+    </div>
+</section>
+
+<!-- ==================== SOLAR SECTION ==================== -->
+<section class="py-5 my-5" id="solar">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Solar Power</h6>
+            <h2 class="section-title">Solar Energy for Everyone</h2>
+            <p class="section-subtitle">India receives 300+ sunny days a year. Make the sun work for you.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://bluebirdsolar.com/cdn/shop/articles/pm-suryaghar-yojana_fe91f729-ebc9-4f00-a7dc-15e7d912c5de.jpg?v=1783408434" alt="Rooftop solar panels home" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-warning-light text-warning-dark"><i class="bi bi-house-door"></i></div>
+                        <h6 class="fw-bold">Rooftop Solar</h6>
+                        <p class="small text-muted">1 kW system generates 4-5 units/day. Subsidy up to 40% for homes under 3 kW.</p>
+                        <a href="https://solarrooftop.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-link">Apply for Subsidy <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://shivshaktisolar.com/assets/blog/solar_water_heater.jpeg" alt="Solar water heater" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-danger-light text-danger"><i class="bi bi-droplet-half"></i></div>
+                        <h6 class="fw-bold">Solar Water Heater</h6>
+                        <p class="small text-muted">Saves 1000-1500 units/year. 60°C hot water even in winter. MNRE subsidy available.</p>
+                        <a href="https://mnre.gov.in/solar/schemes/" target="_blank" rel="noopener noreferrer" class="energy-link text-danger">Learn More <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://mahasolars.com/wp-content/uploads/2021/11/Solar-Street-Light-wallapaper.jpg" alt="Solar street lights" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-success-light text-success"><i class="bi bi-lightning-charge"></i></div>
+                        <h6 class="fw-bold">Solar Street Lights</h6>
+                        <p class="small text-muted">Zero electricity cost. Auto on/off with sensors. Ideal for villages and colonies.</p>
+                        <a href="https://mnre.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-link text-success">Explore <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== OTHER RENEWABLES ==================== -->
+<section class="py-5 bg-energy-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Beyond Solar</h6>
+            <h2 class="section-title">Wind, Biogas & More</h2>
+            <p class="section-subtitle">Diverse renewable options for different needs and geographies.</p>
+        </div>
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80" alt="Wind turbines" class="img-fluid rounded-4 shadow-lg" onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0"><span class="badge bg-energy-primary rounded-circle p-2"><i class="bi bi-wind"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Wind Energy</h6><p class="text-muted small mb-0">Best for coastal and hilly regions. Small wind turbines (1-10 kW) can power farms and institutions.</p></div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2"><i class="bi bi-recycle"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Biogas Plants</h6><p class="text-muted small mb-0">Convert kitchen and farm waste into cooking gas. 2-cubic-meter plants serve a family of 5 daily.</p></div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0"><span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-fire"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Biomass Energy</h6><p class="text-muted small mb-0">Agricultural residue can power rural industries. MNRE supports biomass gasifier projects.</p></div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><span class="badge bg-info rounded-circle p-2"><i class="bi bi-droplet"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Small Hydro</h6><p class="text-muted small mb-0">Micro-hydro plants (up to 100 kW) work in hilly areas with streams and waterfalls.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let subIndex = 0;
+const subSlides = document.querySelectorAll('.energy-sub-slide');
+function showSubSlide(i) {
+    subSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.querySelectorAll('.energy-sub-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    subIndex = i;
+}
+setInterval(() => { showSubSlide((subIndex + 1) % subSlides.length); }, 4000);
+</script>
+{% endblock %}

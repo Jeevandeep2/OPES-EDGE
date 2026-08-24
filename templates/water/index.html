@@ -1,0 +1,431 @@
+{% extends "base.html" %}
+
+{% block title %}Water Management — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO CAROUSEL ==================== -->
+<section class="water-carousel" id="water-hero">
+    <div class="water-slide active">
+        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=85" alt="Clean flowing water over rocks" class="water-slide-img">
+        <div class="water-slide-overlay"></div>
+        <div class="water-slide-content">
+            <div class="water-badge"><i class="bi bi-droplet-fill me-2"></i>Every Drop Counts</div>
+            <h1>Smart Water<br><span class="water-gradient-text">Management</span></h1>
+            <p class="water-slide-desc">Conserve, harvest, and manage water intelligently for homes, farms, and communities.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#water-services" class="btn btn-water-primary btn-lg"><i class="bi bi-grid-3x3-gap me-2"></i>Explore Water</a>
+                <a href="{{ url_for('water_rainwater') }}" class="btn btn-water-outline btn-lg"><i class="bi bi-cloud-rain me-2"></i>Rainwater</a>
+            </div>
+        </div>
+    </div>
+    <div class="water-slide">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=85" alt="Agriculture irrigation in green fields" class="water-slide-img">
+        <div class="water-slide-overlay"></div>
+        <div class="water-slide-content">
+            <div class="water-badge"><i class="bi bi-plant me-2"></i>Farm & Field</div>
+            <h1>Smart Irrigation<br><span class="water-gradient-text">For Farmers</span></h1>
+            <p class="water-slide-desc">Drip systems, soil moisture awareness, and weather-based watering to save water and boost yields.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="{{ url_for('water_irrigation') }}" class="btn btn-water-primary btn-lg"><i class="bi bi-moisture me-2"></i>Smart Irrigation</a>
+                <a href="{{ url_for('water_conservation') }}" class="btn btn-water-outline btn-lg"><i class="bi bi-shield-check me-2"></i>Save Water</a>
+            </div>
+        </div>
+    </div>
+    <div class="water-slide">
+        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=85" alt="Green nature water conservation" class="water-slide-img">
+        <div class="water-slide-overlay"></div>
+        <div class="water-slide-content">
+            <div class="water-badge"><i class="bi bi-recycle me-2"></i>Sustainable Living</div>
+            <h1>Conserve Today.<br><span class="water-gradient-text">Sustain Tomorrow.</span></h1>
+            <p class="water-slide-desc">Simple habits and community actions that protect our most precious resource.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="{{ url_for('water_conservation') }}" class="btn btn-water-primary btn-lg"><i class="bi bi-heart me-2"></i>Conservation Guide</a>
+                <a href="#assistant" class="btn btn-water-outline btn-lg"><i class="bi bi-chat-dots me-2"></i>Ask Assistant</a>
+            </div>
+        </div>
+    </div>
+    <div class="water-carousel-dots">
+        <button class="water-dot active" onclick="showWaterSlide(0)" aria-label="Slide 1"></button>
+        <button class="water-dot" onclick="showWaterSlide(1)" aria-label="Slide 2"></button>
+        <button class="water-dot" onclick="showWaterSlide(2)" aria-label="Slide 3"></button>
+    </div>
+    <button class="water-carousel-prev" onclick="prevWaterSlide()" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+    <button class="water-carousel-next" onclick="nextWaterSlide()" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+    <div class="scroll-hint"><i class="bi bi-chevron-down"></i></div>
+</section>
+
+<!-- ==================== FLOATING STATS ==================== -->
+<section class="water-stats-bar">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <div class="water-stat-item"><i class="bi bi-droplet text-water-primary"></i><div class="water-stat-num">2.5%</div><div class="water-stat-label">Fresh Water on Earth</div></div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="water-stat-item"><i class="bi bi-people text-water-secondary"></i><div class="water-stat-num">12Cr+</div><div class="water-stat-label">Rural Homes with Tap Water</div></div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="water-stat-item"><i class="bi bi-cloud-rain text-info"></i><div class="water-stat-num">100+ cm</div><div class="water-stat-label">India's Avg Rainfall</div></div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="water-stat-item"><i class="bi bi-plant text-water-accent"></i><div class="water-stat-num">~80%</div><div class="water-stat-label">Agriculture Water Use</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICE CARDS ==================== -->
+<section class="py-5 my-5" id="water-services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Discover</h6>
+            <h2 class="section-title">Water Management Services</h2>
+            <p class="section-subtitle">Tools and guidance for smarter water use in every part of life.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Water tap conservation at home" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float"><i class="bi bi-heart"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Conservation</h5>
+                        <p class="text-muted small mb-3">Daily habits and home improvements that cut water waste by up to 50% without sacrificing comfort.</p>
+                        <a href="{{ url_for('water_conservation') }}" class="water-link">Save Water <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=600&q=80" alt="Rainwater harvesting from rooftop" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float bg-info"><i class="bi bi-cloud-rain"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Rainwater Harvesting</h5>
+                        <p class="text-muted small mb-3">Capture monsoon rain for reuse and groundwater recharge. Simple systems for homes and communities.</p>
+                        <a href="{{ url_for('water_rainwater') }}" class="water-link text-info">Harvest Rain <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Water usage tracking dashboard" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float bg-water-secondary"><i class="bi bi-graph-up"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Usage & Calculator</h5>
+                        <p class="text-muted small mb-3">Estimate household water consumption and discover where you can save the most.</p>
+                        <a href="{{ url_for('water_usage') }}" class="water-link text-water-secondary">Calculate <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=600&q=80" alt="Smart drip irrigation on farm" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float bg-success"><i class="bi bi-moisture"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Smart Irrigation</h5>
+                        <p class="text-muted small mb-3">Drip irrigation, scheduling, and soil moisture tips to farm with less water and better yields.</p>
+                        <a href="{{ url_for('water_irrigation') }}" class="water-link text-success">Farm Smart <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80" alt="Water quality testing laboratory" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float bg-warning"><i class="bi bi-shield-check"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Water Quality</h5>
+                        <p class="text-muted small mb-3">Understand safe drinking water indicators, testing, and purification methods.</p>
+                        <a href="{{ url_for('water_quality') }}" class="water-link text-warning">Check Quality <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-service-card h-100">
+                    <div class="water-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Water resources and earth view" class="water-service-img">
+                        <div class="water-service-img-overlay"></div>
+                        <div class="water-service-icon-float bg-water-primary"><i class="bi bi-link-45deg"></i></div>
+                    </div>
+                    <div class="water-service-body">
+                        <h5 class="fw-bold mb-2">Resources</h5>
+                        <p class="text-muted small mb-3">Official portals, government schemes, and trusted organizations for water management.</p>
+                        <a href="{{ url_for('water_resources') }}" class="water-link">Browse <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GOVT SCHEMES ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Government Support</h6>
+            <h2 class="section-title">National Water Missions</h2>
+            <p class="section-subtitle">Programs bringing clean water to every home and farm.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80" alt="Jal Jeevan Mission clean water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-droplet-half"></i></div>
+                        <h6 class="fw-bold">Jal Jeevan Mission</h6>
+                        <p class="small text-muted">Tap water connection to every rural household. 12+ crore connections already made.</p>
+                        <a href="https://jaljeevanmission.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-water w-100">Visit Portal <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=400&q=80" alt="Catch the Rain campaign" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-cloud-rain"></i></div>
+                        <h6 class="fw-bold">Catch the Rain</h6>
+                        <p class="small text-muted">Jal Shakti Abhiyan campaign to promote rainwater harvesting before every monsoon.</p>
+                        <a href="https://jalshakti-ddws.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-water w-100">Learn More <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="PMKSY irrigation scheme" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-plant"></i></div>
+                        <h6 class="fw-bold">PMKSY</h6>
+                        <p class="small text-muted">Pradhan Mantri Krishi Sinchayee Yojana — "Har Khet Ko Pani" for micro-irrigation.</p>
+                        <a href="https://pmksy.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-water w-100">Explore <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=400&q=80" alt="Swajal community water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-warning text-white"><i class="bi bi-shield-check"></i></div>
+                        <h6 class="fw-bold">Swajal</h6>
+                        <p class="small text-muted">Community-managed rural water supply with solar-powered purification systems.</p>
+                        <a href="https://jalshakti-ddws.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-water w-100">Learn More <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== QUICK TIPS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Quick Wins</h6>
+            <h2 class="section-title">5-Minute Water Savers</h2>
+            <p class="section-subtitle">Small changes that make a big difference every day.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">1</div>
+                    <h6 class="fw-bold">Fix Leaky Taps</h6>
+                    <p class="small text-muted mb-0">A single dripping tap wastes up to 20 litres per day. Fix it today and save 7,000+ litres a year.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">2</div>
+                    <h6 class="fw-bold">Use a Bucket</h6>
+                    <p class="small text-muted mb-0">A bucket bath uses 15-20 litres. A shower can use 80+. Switch and save 60+ litres per bath.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">3</div>
+                    <h6 class="fw-bold">Full Load Only</h6>
+                    <p class="small text-muted mb-0">Run washing machines and dishwashers only with full loads. Saves water, energy, and money.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">4</div>
+                    <h6 class="fw-bold">Reuse RO Water</h6>
+                    <p class="small text-muted mb-0">RO reject water is perfect for mopping, gardening, and flushing. Don't let it go down the drain.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">5</div>
+                    <h6 class="fw-bold">Water Plants Early</h6>
+                    <p class="small text-muted mb-0">Water gardens early morning or evening to reduce evaporation losses by up to 30%.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card">
+                    <div class="water-tip-num">6</div>
+                    <h6 class="fw-bold">Install Aerators</h6>
+                    <p class="small text-muted mb-0">Tap aerators mix air with water, cutting flow by 50% without reducing pressure. Costs under ₹50.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CROSS-DOMAIN CONNECTIONS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Connected Ecosystem</h6>
+            <h2 class="section-title">Water Across OPES EDGE</h2>
+            <p class="section-subtitle">How water connects with every domain on our platform.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-success text-white mx-auto"><i class="bi bi-plant"></i></div>
+                    <h6 class="fw-bold">Agriculture</h6>
+                    <p class="small text-muted">Smart irrigation, drip systems, and soil moisture management for higher yields with less water.</p>
+                    <a href="{{ url_for('water_irrigation') }}" class="water-link">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-warning text-white mx-auto"><i class="bi bi-heart-pulse"></i></div>
+                    <h6 class="fw-bold">Healthcare</h6>
+                    <p class="small text-muted">Clean water and hygiene awareness. Safe drinking practices to prevent waterborne diseases.</p>
+                    <a href="{{ url_for('water_quality') }}" class="water-link text-warning">Learn <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-info text-white mx-auto"><i class="bi bi-people"></i></div>
+                    <h6 class="fw-bold">Community</h6>
+                    <p class="small text-muted">Community rainwater harvesting, shared borewell management, and group conservation drives.</p>
+                    <a href="{{ url_for('water_rainwater') }}" class="water-link text-info">Join <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-water-primary text-white mx-auto"><i class="bi bi-lightning"></i></div>
+                    <h6 class="fw-bold">Energy</h6>
+                    <p class="small text-muted">Water-energy nexus awareness. Saving water also saves the energy used to pump and heat it.</p>
+                    <a href="{{ url_for('water_conservation') }}" class="water-link">Discover <i class="bi bi-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ASSISTANT ==================== -->
+<section class="py-5 my-5" id="assistant">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">AI Support</h6>
+                    <h2 class="section-title">Water Assistant</h2>
+                    <p class="section-subtitle">Ask about conservation, harvesting, irrigation, and water quality.</p>
+                </div>
+                <div class="water-assistant-card">
+                    <div class="water-assistant-header">
+                        <div class="d-flex align-items-center">
+                            <div class="water-assistant-avatar"><i class="bi bi-robot"></i></div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold text-white mb-0">OPES Water Assistant</h6>
+                                <small class="text-white-50"><i class="bi bi-droplet me-1"></i>Smart Guidance</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="water-assistant-body">
+                        {% if water_response %}
+                        <div class="water-chat-user"><small class="text-muted d-block mb-1"><i class="bi bi-person me-1"></i>You</small><p class="mb-0">{{ water_question }}</p></div>
+                        <div class="water-chat-bot"><small class="text-water-primary d-block mb-1"><i class="bi bi-robot me-1"></i>Assistant</small><p class="mb-0">{{ water_response }}</p></div>
+                        {% endif %}
+                        <form method="POST" action="{{ url_for('water_assistant') }}#assistant">
+                            <div class="input-group">
+                                <input type="text" name="question" class="form-control form-control-lg" placeholder="e.g., How to harvest rainwater? or Drip irrigation benefits..." value="{{ water_question or '' }}" required>
+                                <button class="btn btn-water-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            <small class="text-muted">Try asking about:</small>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge bg-light text-dark border">rainwater</span>
+                                <span class="badge bg-light text-dark border">drip</span>
+                                <span class="badge bg-light text-dark border">save water</span>
+                                <span class="badge bg-light text-dark border">quality</span>
+                                <span class="badge bg-light text-dark border">leak</span>
+                                <span class="badge bg-light text-dark border">jal jeevan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentWaterSlide = 0;
+const waterSlides = document.querySelectorAll('.water-slide');
+const waterDots = document.querySelectorAll('.water-dot');
+
+function showWaterSlide(index) {
+    waterSlides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        waterDots[i].classList.remove('active');
+    });
+    waterSlides[index].classList.add('active');
+    waterDots[index].classList.add('active');
+    currentWaterSlide = index;
+}
+
+function nextWaterSlide() {
+    let next = currentWaterSlide + 1;
+    if (next >= waterSlides.length) next = 0;
+    showWaterSlide(next);
+}
+
+function prevWaterSlide() {
+    let prev = currentWaterSlide - 1;
+    if (prev < 0) prev = waterSlides.length - 1;
+    showWaterSlide(prev);
+}
+
+// Auto-advance carousel every 6 seconds
+let waterSlideInterval = setInterval(nextWaterSlide, 6000);
+
+// Pause on hover
+const carousel = document.getElementById('water-hero');
+carousel.addEventListener('mouseenter', () => clearInterval(waterSlideInterval));
+carousel.addEventListener('mouseleave', () => {
+    waterSlideInterval = setInterval(nextWaterSlide, 6000);
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextWaterSlide();
+    if (e.key === 'ArrowLeft') prevWaterSlide();
+});
+</script>
+{% endblock %}

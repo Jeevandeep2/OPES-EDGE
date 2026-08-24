@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block title %}Water Reuse — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=85" alt="Water recycling and reuse" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-recycle me-2"></i>Use Twice</div>
+            <h1>Water Reuse</h1>
+            <p class="lead opacity-90">Not all used water is waste. Learn what can be reused safely and what needs treatment first.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SAFETY FIRST ==================== -->
+<section class="py-4">
+    <div class="container">
+        <div class="alert alert-danger rounded-4 border-0 d-flex align-items-start">
+            <i class="bi bi-shield-exclamation fs-3 me-3"></i>
+            <div>
+                <h6 class="fw-bold mb-1">Safety First</h6>
+                <p class="mb-0 small">Never drink or cook with reused water unless it has been treated to potable standards by a certified system. This page covers non-potable reuse only. When in doubt, consult a water quality professional.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GREY WATER ==================== -->
+<section class="py-5 my-3">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Greywater</h6>
+            <h2 class="section-title">Reusing Greywater</h2>
+            <p class="section-subtitle">Water from sinks, showers, and washing machines can have a second life.</p>
+        </div>
+        <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-6">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" alt="Greywater reuse for garden" class="img-fluid rounded-4 shadow-sm">
+            </div>
+            <div class="col-12 col-lg-6">
+                <h5 class="fw-bold text-water-dark mb-3">What is Greywater?</h5>
+                <p class="text-muted">Greywater is gently used water from bathroom sinks, showers, tubs, and washing machines. It does not include water from toilets (blackwater) or kitchen sinks with food waste.</p>
+
+                <div class="alert alert-water-info mb-3">
+                    <i class="bi bi-check-circle me-2"></i><strong>Safe for:</strong> Garden irrigation, toilet flushing, floor cleaning, car washing (with biodegradable soap)
+                </div>
+
+                <h6 class="fw-bold mt-4">Simple Greywater Rules</h6>
+                <ul class="text-muted small">
+                    <li>Use within 24 hours to prevent bacterial growth</li>
+                    <li>Never store greywater without treatment</li>
+                    <li>Avoid water with bleach, strong detergents, or fabric softeners</li>
+                    <li>Do not use on root vegetables or edible leaves</li>
+                    <li>Apply directly to soil, not on plant foliage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== REUSE APPLICATIONS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Applications</h6>
+            <h2 class="section-title">Practical Reuse Ideas</h2>
+            <p class="section-subtitle">Match the water source to the right reuse application.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80" alt="Garden with reused water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-plant"></i></div>
+                        <h6 class="fw-bold">Garden Irrigation</h6>
+                        <p class="small text-muted mb-2">RO reject water, AC condensate, and cooled cooking water are perfect for gardens. Nutrients in greywater can even fertilize plants.</p>
+                        <div class="badge bg-success">Low Effort</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Toilet flushing with reused water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-droplet-half"></i></div>
+                        <h6 class="fw-bold">Toilet Flushing</h6>
+                        <p class="small text-muted mb-2">Toilets use 30-40% of household water. A simple bucket system or dual plumbing can redirect greywater to flush tanks.</p>
+                        <div class="badge bg-water-primary">High Impact</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80" alt="Floor cleaning with reused water" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-brush"></i></div>
+                        <h6 class="fw-bold">Floor & Car Cleaning</h6>
+                        <p class="small text-muted mb-2">Water used for rinsing clothes or washing vegetables can be collected for mopping floors and washing vehicles.</p>
+                        <div class="badge bg-info">Easy Start</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== TREATMENT LEVELS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Treatment</h6>
+            <h2 class="section-title">Treatment Required</h2>
+            <p class="section-subtitle">Different uses need different levels of treatment.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100 p-4 border-success" style="border-width: 2px;">
+                    <div class="text-center mb-3">
+                        <div class="water-info-icon bg-success text-white mx-auto"><i class="bi bi-check-lg"></i></div>
+                        <h6 class="fw-bold">No Treatment Needed</h6>
+                    </div>
+                    <ul class="small text-muted mb-0">
+                        <li>RO reject water for gardening</li>
+                        <li>AC condensate for plants</li>
+                        <li>Cooled cooking water for gardens</li>
+                        <li>Rainwater for gardening (after basic filtration)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100 p-4 border-warning" style="border-width: 2px;">
+                    <div class="text-center mb-3">
+                        <div class="water-info-icon bg-warning text-white mx-auto"><i class="bi bi-funnel"></i></div>
+                        <h6 class="fw-bold">Basic Filtration</h6>
+                    </div>
+                    <ul class="small text-muted mb-0">
+                        <li>Greywater for garden (sand filter + settling)</li>
+                        <li>Washing machine water for toilet flushing</li>
+                        <li>Shower water for floor cleaning</li>
+                        <li>Requires: mesh filter + 24-hour use rule</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100 p-4 border-danger" style="border-width: 2px;">
+                    <div class="text-center mb-3">
+                        <div class="water-info-icon bg-danger text-white mx-auto"><i class="bi bi-shield-check"></i></div>
+                        <h6 class="fw-bold">Advanced Treatment</h6>
+                    </div>
+                    <ul class="small text-muted mb-0">
+                        <li>Any reuse for human contact (play areas)</li>
+                        <li>Reuse in food processing</li>
+                        <li>Requires: biological + disinfection treatment</li>
+                        <li>Must meet local reuse standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== RO REUSE CALCULATOR ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Quick Estimate</h6>
+                    <h2 class="section-title">RO Reject Water Recovery</h2>
+                    <p class="section-subtitle">See how much water you can recover from your RO purifier.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Daily RO Output (Litres)</label>
+                            <input type="number" class="form-control" id="ro-output" placeholder="e.g. 10" min="1">
+                            <small class="text-muted">How much purified water you use daily</small>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">RO Rejection Ratio</label>
+                            <select class="form-select" id="ro-ratio">
+                                <option value="2">1:2 (1L pure : 2L reject)</option>
+                                <option value="3" selected>1:3 (Common domestic)</option>
+                                <option value="4">1:4 (High TDS input)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-water-primary" onclick="calculateRO()"><i class="bi bi-calculator me-2"></i>Calculate Recovery</button>
+                    </div>
+                    <div class="calc-result mt-4 d-none" id="ro-result">
+                        <div class="row text-center g-3">
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 border">
+                                    <div class="fw-bold text-water-primary fs-4" id="ro-reject">0</div>
+                                    <small class="text-muted">Litres Rejected/Day</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-3 bg-white rounded-3 border">
+                                    <div class="fw-bold text-success fs-4" id="ro-year">0</div>
+                                    <small class="text-muted">Litres Recoverable/Year</small>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-muted mt-3 mb-0"><i class="bi bi-lightbulb me-1"></i>At ₹0.05/L, that's ₹<span id="ro-cost">0</span> worth of water saved every year. Enough to water a 100 sq ft garden daily.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function calculateRO() {
+    const output = parseFloat(document.getElementById('ro-output').value);
+    const ratio = parseFloat(document.getElementById('ro-ratio').value);
+
+    if (!output || output <= 0) {
+        alert('Please enter your daily RO output.');
+        return;
+    }
+
+    const rejectDaily = Math.round(output * ratio);
+    const rejectYear = rejectDaily * 365;
+    const cost = Math.round(rejectYear * 0.05);
+
+    document.getElementById('ro-reject').textContent = rejectDaily.toLocaleString();
+    document.getElementById('ro-year').textContent = rejectYear.toLocaleString();
+    document.getElementById('ro-cost').textContent = cost.toLocaleString();
+    document.getElementById('ro-result').classList.remove('d-none');
+}
+</script>
+{% endblock %}

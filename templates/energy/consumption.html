@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}Energy Consumption — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO CAROUSEL ==================== -->
+<section class="energy-sub-hero">
+    <div class="energy-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=85" alt="Energy monitoring dashboard" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-slide">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=85" alt="Smart meter and electricity" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-content">
+        <div class="energy-badge"><i class="bi bi-graph-up me-2"></i>Track & Understand</div>
+        <h1>Energy Consumption</h1>
+        <p class="lead opacity-90">Know your usage. Control your costs. Reduce your footprint.</p>
+        <a href="#calculator" class="btn btn-energy-primary btn-lg"><i class="bi bi-calculator me-2"></i>Bill Calculator</a>
+    </div>
+    <div class="energy-sub-dots">
+        <button class="energy-sub-dot active" onclick="showSubSlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-sub-dot" onclick="showSubSlide(1)" aria-label="Slide 2"></button>
+    </div>
+</section>
+
+<!-- ==================== UNDERSTANDING SECTION ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Basics</h6>
+            <h2 class="section-title">Understanding Your Energy Bill</h2>
+            <p class="section-subtitle">Learn what consumes the most power in your home and how charges are calculated.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=400&q=80" alt="Air conditioner" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-danger-light text-danger"><i class="bi bi-thermometer-high"></i></div>
+                        <h6 class="fw-bold">Air Conditioner</h6>
+                        <p class="small text-muted">Biggest consumer. Uses 1.5-2.5 kW per hour. Set at 24°C and clean filters monthly.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80" alt="Refrigerator" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-info-light text-info"><i class="bi bi-snow"></i></div>
+                        <h6 class="fw-bold">Refrigerator</h6>
+                        <p class="small text-muted">Runs 24/7. Uses 100-250W. Keep coils clean and set temperature to 3-5°C.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=400&q=80" alt="Water heater geyser" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-warning-light text-warning-dark"><i class="bi bi-droplet-half"></i></div>
+                        <h6 class="fw-bold">Water Heater</h6>
+                        <p class="small text-muted">Uses 2-3 kW. Use solar heaters or set timer to heat only when needed.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Fans and lights" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-success-light text-success"><i class="bi bi-lightbulb"></i></div>
+                        <h6 class="fw-bold">Fans & Lights</h6>
+                        <p class="small text-muted">Fans use 50-75W. LEDs use 7-10W. Together they run for hours — efficiency matters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CALCULATOR ==================== -->
+<section class="py-5 bg-energy-light" id="calculator">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Tools</h6>
+                    <h2 class="section-title">Electricity Bill Estimator</h2>
+                    <p class="section-subtitle">Estimate your monthly consumption based on appliance usage.</p>
+                </div>
+                <div class="energy-calc-box">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">AC (hours/day)</label>
+                            <input type="number" id="ac-hours" class="form-control" value="6" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Fridge (always on)</label>
+                            <input type="number" id="fridge-watts" class="form-control" value="150" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Lights (hours/day)</label>
+                            <input type="number" id="light-hours" class="form-control" value="5" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Fan (hours/day)</label>
+                            <input type="number" id="fan-hours" class="form-control" value="8" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Geyser (hours/day)</label>
+                            <input type="number" id="geyser-hours" class="form-control" value="1" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Other (Watts)</label>
+                            <input type="number" id="other-watts" class="form-control" value="200" min="0">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Rate per kWh (₹)</label>
+                            <input type="number" id="unit-rate" class="form-control" value="7" min="1">
+                        </div>
+                        <div class="col-md-6 d-flex align-items-end">
+                            <button class="btn btn-energy-primary w-100" onclick="calculateBill()"><i class="bi bi-calculator me-2"></i>Calculate</button>
+                        </div>
+                    </div>
+                    <div class="calc-result mt-4" id="calc-result" style="display:none;">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <div class="text-muted small">Daily Units</div>
+                                <div class="fw-bold text-energy-primary fs-4" id="daily-units">0</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-muted small">Monthly Units</div>
+                                <div class="fw-bold text-energy-secondary fs-4" id="monthly-units">0</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-muted small">Est. Bill (₹)</div>
+                                <div class="fw-bold text-success fs-4" id="monthly-bill">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== APPLIANCE COMPARISON ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Comparison</h6>
+            <h2 class="section-title">Appliance Power Comparison</h2>
+            <p class="section-subtitle">See how much energy common appliances use per hour.</p>
+        </div>
+        <div class="table-responsive">
+            <table class="energy-table">
+                <thead>
+                    <tr>
+                        <th>Appliance</th>
+                        <th>Power (Watts)</th>
+                        <th>Usage (hrs/day)</th>
+                        <th>Daily Cost (₹7/unit)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><i class="bi bi-thermometer-high me-2 text-danger"></i>Air Conditioner (1.5 Ton)</td><td>1,500W</td><td>6</td><td>₹63</td></tr>
+                    <tr><td><i class="bi bi-droplet-half me-2 text-warning"></i>Water Heater</td><td>2,000W</td><td>1</td><td>₹14</td></tr>
+                    <tr><td><i class="bi bi-snow me-2 text-info"></i>Refrigerator</td><td>150W</td><td>24</td><td>₹25</td></tr>
+                    <tr><td><i class="bi bi-tv me-2 text-primary"></i>Television (LED)</td><td>100W</td><td>4</td><td>₹2.80</td></tr>
+                    <tr><td><i class="bi bi-lightbulb me-2 text-success"></i>LED Bulb</td><td>9W</td><td>5</td><td>₹0.32</td></tr>
+                    <tr><td><i class="bi bi-fan me-2 text-energy-primary"></i>Ceiling Fan</td><td>75W</td><td>8</td><td>₹4.20</td></tr>
+                    <tr><td><i class="bi bi-laptop me-2 text-secondary"></i>Laptop</td><td>65W</td><td>6</td><td>₹2.73</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let subIndex = 0;
+const subSlides = document.querySelectorAll('.energy-sub-slide');
+function showSubSlide(i) {
+    subSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.querySelectorAll('.energy-sub-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    subIndex = i;
+}
+setInterval(() => { showSubSlide((subIndex + 1) % subSlides.length); }, 4000);
+
+function calculateBill() {
+    const ac = parseFloat(document.getElementById('ac-hours').value) || 0;
+    const fridge = parseFloat(document.getElementById('fridge-watts').value) || 0;
+    const light = parseFloat(document.getElementById('light-hours').value) || 0;
+    const fan = parseFloat(document.getElementById('fan-hours').value) || 0;
+    const geyser = parseFloat(document.getElementById('geyser-hours').value) || 0;
+    const other = parseFloat(document.getElementById('other-watts').value) || 0;
+    const rate = parseFloat(document.getElementById('unit-rate').value) || 7;
+
+    const daily = (ac * 1.5) + (fridge * 24 / 1000) + (light * 0.05) + (fan * 0.075) + (geyser * 2) + (other * 3 / 1000);
+    const monthly = daily * 30;
+    const bill = monthly * rate;
+
+    document.getElementById('daily-units').innerText = daily.toFixed(1);
+    document.getElementById('monthly-units').innerText = monthly.toFixed(0);
+    document.getElementById('monthly-bill').innerText = '₹' + bill.toFixed(0);
+    document.getElementById('calc-result').style.display = 'block';
+}
+</script>
+{% endblock %}

@@ -1,0 +1,250 @@
+{% extends "base.html" %}
+
+{% block title %}Water Usage Calculator — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=85" alt="Water usage data visualization" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-graph-up me-2"></i>Know Your Use</div>
+            <h1>Water Usage Calculator</h1>
+            <p class="lead opacity-90">Estimate your household consumption and discover where you can save the most.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== HOUSEHOLD CALCULATOR ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Estimate</h6>
+                    <h2 class="section-title">Household Water Calculator</h2>
+                    <p class="section-subtitle">Enter your daily habits to estimate monthly consumption. All values are estimates.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Family Members</label>
+                            <input type="number" class="form-control" id="fam-members" value="4" min="1" max="20">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Baths per Person/Day</label>
+                            <select class="form-select" id="baths">
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Bath Type</label>
+                            <select class="form-select" id="bath-type">
+                                <option value="15">Bucket (15 L)</option>
+                                <option value="80" selected>Shower (80 L)</option>
+                                <option value="150">Tub Bath (150 L)</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Toilet Flushes/Day</label>
+                            <input type="number" class="form-control" id="flushes" value="5" min="0">
+                            <small class="text-muted">5 flushes x 10 L = 50 L/day</small>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Washing Machine/Week</label>
+                            <input type="number" class="form-control" id="washing" value="4" min="0">
+                            <small class="text-muted">4 loads x 60 L = 240 L/week</small>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Dishwashing/Day</label>
+                            <select class="form-select" id="dish">
+                                <option value="10">By Hand (10 L)</option>
+                                <option value="15" selected>Dishwasher (15 L)</option>
+                                <option value="30">Running Tap (30 L)</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Cooking & Drinking (L/day)</label>
+                            <input type="number" class="form-control" id="cooking" value="10" min="0">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Garden Watering (L/day)</label>
+                            <input type="number" class="form-control" id="garden" value="30" min="0">
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <label class="form-label fw-bold">Car Wash/Week</label>
+                            <select class="form-select" id="car">
+                                <option value="0">None</option>
+                                <option value="100" selected>Bucket (100 L)</option>
+                                <option value="300">Hose (300 L)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-water-primary btn-lg" onclick="calculateUsage()"><i class="bi bi-calculator me-2"></i>Calculate My Usage</button>
+                    </div>
+                </div>
+
+                <div class="calc-result mt-4 d-none" id="usage-result">
+                    <h4 class="fw-bold text-water-dark mb-3">Your Estimated Usage</h4>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 bg-white rounded-3 border">
+                                <div class="fw-bold text-water-primary fs-4" id="res-daily">0</div>
+                                <small class="text-muted">Litres/Day</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 bg-white rounded-3 border">
+                                <div class="fw-bold text-water-primary fs-4" id="res-month">0</div>
+                                <small class="text-muted">Litres/Month</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 bg-white rounded-3 border">
+                                <div class="fw-bold text-water-primary fs-4" id="res-person">0</div>
+                                <small class="text-muted">Litres/Person/Day</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="p-3 bg-white rounded-3 border">
+                                <div class="fw-bold text-water-primary fs-4" id="res-cost">₹0</div>
+                                <small class="text-muted">Est. Monthly Cost</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold text-water-dark mb-3">Usage Breakdown</h6>
+                    <div id="usage-breakdown"></div>
+
+                    <div class="alert alert-water-info mt-4 mb-0">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong>Benchmark:</strong> The WHO recommends 50-100 litres per person per day for basic needs. India's average urban household uses 135-200 LPCD.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SAVING TIPS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Action</h6>
+            <h2 class="section-title">Where to Save the Most</h2>
+            <p class="section-subtitle">Highest-impact changes for typical Indian households.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-water-primary text-white mx-auto"><i class="bi bi-droplet"></i></div>
+                    <h6 class="fw-bold">Bathing</h6>
+                    <p class="small text-muted mb-2">Switch from shower to bucket</p>
+                    <div class="fw-bold text-water-primary">Save 65 L/day</div>
+                    <small class="text-muted">per person</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-success text-white mx-auto"><i class="bi bi-recycle"></i></div>
+                    <h6 class="fw-bold">Toilet</h6>
+                    <p class="small text-muted mb-2">Install dual-flush system</p>
+                    <div class="fw-bold text-success">Save 30 L/day</div>
+                    <small class="text-muted">per person</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-info text-white mx-auto"><i class="bi bi-moisture"></i></div>
+                    <h6 class="fw-bold">Garden</h6>
+                    <p class="small text-muted mb-2">Water early + mulch</p>
+                    <div class="fw-bold text-info">Save 40%</div>
+                    <small class="text-muted">of garden water</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-info-card h-100 text-center p-4">
+                    <div class="water-info-icon bg-warning text-white mx-auto"><i class="bi bi-car-front"></i></div>
+                    <h6 class="fw-bold">Car Wash</h6>
+                    <p class="small text-muted mb-2">Use bucket instead of hose</p>
+                    <div class="fw-bold text-warning">Save 200 L</div>
+                    <small class="text-muted">per wash</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function calculateUsage() {
+    const members = parseInt(document.getElementById('fam-members').value) || 1;
+    const baths = parseInt(document.getElementById('baths').value) || 0;
+    const bathType = parseInt(document.getElementById('bath-type').value) || 0;
+    const flushes = parseInt(document.getElementById('flushes').value) || 0;
+    const washing = parseInt(document.getElementById('washing').value) || 0;
+    const dish = parseInt(document.getElementById('dish').value) || 0;
+    const cooking = parseInt(document.getElementById('cooking').value) || 0;
+    const garden = parseInt(document.getElementById('garden').value) || 0;
+    const car = parseInt(document.getElementById('car').value) || 0;
+
+    const bathDaily = members * baths * bathType;
+    const toiletDaily = members * flushes * 10;
+    const washDaily = (washing * 60) / 7;
+    const dishDaily = dish;
+    const carDaily = car / 7;
+
+    const totalDaily = bathDaily + toiletDaily + washDaily + dishDaily + cooking + garden + carDaily;
+    const totalMonth = Math.round(totalDaily * 30);
+    const perPerson = Math.round(totalDaily / members);
+    const cost = Math.round(totalMonth * 0.05);
+
+    document.getElementById('res-daily').textContent = Math.round(totalDaily).toLocaleString();
+    document.getElementById('res-month').textContent = totalMonth.toLocaleString();
+    document.getElementById('res-person').textContent = perPerson.toLocaleString();
+    document.getElementById('res-cost').textContent = '₹' + cost.toLocaleString();
+
+    const breakdown = document.getElementById('usage-breakdown');
+    const categories = [
+        { name: 'Bathing', val: bathDaily, color: 'var(--water-primary)' },
+        { name: 'Toilet', val: toiletDaily, color: '#10b981' },
+        { name: 'Washing Machine', val: washDaily, color: '#06b6d4' },
+        { name: 'Dishwashing', val: dishDaily, color: '#f59e0b' },
+        { name: 'Cooking & Drinking', val: cooking, color: '#8b5cf6' },
+        { name: 'Garden', val: garden, color: '#22c55e' },
+        { name: 'Car Wash', val: carDaily, color: '#ef4444' }
+    ];
+
+    let html = '';
+    categories.forEach(cat => {
+        const pct = (cat.val / totalDaily * 100).toFixed(1);
+        html += `
+            <div class="mb-3">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="fw-bold">${cat.name}</span>
+                    <span class="text-muted">${Math.round(cat.val)} L/day (${pct}%)</span>
+                </div>
+                <div class="water-progress">
+                    <div class="water-progress-bar" style="width: ${pct}%; background: ${cat.color};"></div>
+                </div>
+            </div>
+        `;
+    });
+    breakdown.innerHTML = html;
+
+    document.getElementById('usage-result').classList.remove('d-none');
+    document.getElementById('usage-result').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+{% endblock %}

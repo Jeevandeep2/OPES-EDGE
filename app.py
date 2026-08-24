@@ -49,6 +49,7 @@ def healthcare():
 @app.route('/community')
 def community():
     """Community Services module placeholder."""
+    """Community Services — main hub."""
     return render_template('community/index.html')
 
 
@@ -385,6 +386,45 @@ def healthcare_assistant():
         response = get_healthcare_response(question)
     return render_template('healthcare/index.html', health_response=response, health_question=question)
 
+#Energy roots
+# @app.route('/energy')
+# def energy():
+#     """Energy Management — main hub."""
+#     return render_template('energy/index.html')
+
+@app.route('/energy/consumption')
+def energy_consumption():
+    """Energy consumption tracking and calculator."""
+    return render_template('energy/consumption.html')
+
+@app.route('/energy/efficiency')
+def energy_efficiency():
+    """Energy efficiency tips and guides."""
+    return render_template('energy/efficiency.html')
+
+@app.route('/energy/renewable')
+def energy_renewable():
+    """Renewable energy information."""
+    return render_template('energy/renewable.html')
+
+@app.route('/energy/conservation')
+def energy_conservation():
+    """Energy conservation practices."""
+    return render_template('energy/conservation.html')
+
+@app.route('/energy/resources')
+def energy_resources():
+    """Energy resources and external links."""
+    return render_template('energy/resources.html')
+
+@app.route('/energy/assistant', methods=['GET', 'POST'])
+def energy_assistant():
+    response = None
+    question = ''
+    if request.method == 'POST':
+        question = request.form.get('question', '').strip().lower()
+        response = get_energy_response(question)
+    return render_template('energy/index.html', energy_response=response, energy_question=question)
 # ============================================================
 # HELPERS
 # ============================================================
@@ -439,6 +479,7 @@ def get_education_response(question):
 
 # healthcare assistance responces
 def get_healthcare_response(question):
+
     responses = {
         'fever': "Fever is usually a sign your body is fighting infection. Rest, stay hydrated, and monitor temperature. If fever exceeds 103°F (39.4°C) or lasts more than 3 days, consult a doctor immediately.",
         'cough': "For common cold and cough: rest, drink warm fluids, use saline nasal drops, and consider steam inhalation. If symptoms worsen or breathing becomes difficult, seek medical care.",
@@ -498,6 +539,184 @@ def get_healthcare_response(question):
         if key in question:
             return resp
     return "Thank you for your health question. Our AI assistant provides general informational guidance only. For personalized medical advice, please consult a qualified healthcare professional or visit your nearest government health center."
+
+#community assistance
+@app.route('/community/assistant', methods=['GET', 'POST'])
+def community_assistant():
+    response = None
+    question = ''
+    if request.method == 'POST':
+        question = request.form.get('question', '').strip().lower()
+        response = get_community_response(question)
+    return render_template('community/index.html', comm_response=response, comm_question=question)
+
+#community assistance responses
+def get_community_response(question):
+    responses = {
+        'volunteer': "You can volunteer through platforms like India.gov.in Volunteer India, MyGov, or local NGOs registered on NGO Darpan. Teaching, disaster relief, and elderly care are always in demand.",
+        'ngo': "Find verified NGOs on NGO Darpan (ngodarpan.gov.in). You can search by state, cause, and registration status. Always verify an NGO before donating.",
+        'teach': "You can volunteer through platforms like India.gov.in Volunteer India, MyGov, or local NGOs registered on NGO Darpan. Teaching, disaster relief, and elderly care are always in demand.",
+        'mentor': "You can volunteer through platforms like India.gov.in Volunteer India, MyGov, or local NGOs registered on NGO Darpan. Teaching, disaster relief, and elderly care are always in demand.",
+        'event': "Check MyGov (mygov.in) for national campaigns, or contact your local municipal corporation for neighbourhood events. Blood donation camps and health camps happen regularly.",
+        'events': "Check MyGov (mygov.in) for national campaigns, or contact your local municipal corporation for neighbourhood events. Blood donation camps and health camps happen regularly.",
+        'report': "For civic issues, use Swachh Bharat portal for sanitation, or contact your municipal corporation. For crimes, dial 100. For emergencies, dial 108. For women safety, call 1091.",
+        'complaint': "For civic issues, use Swachh Bharat portal for sanitation, or contact your municipal corporation. For crimes, dial 100. For emergencies, dial 108. For women safety, call 1091.",
+        'pothole': "Report road issues to your municipal corporation or use the Swachh Bharat portal. Include exact location and photos for faster resolution.",
+        'road': "Report road issues to your municipal corporation or use the Swachh Bharat portal. Include exact location and photos for faster resolution.",
+        'water': "For water supply issues, contact your local municipal corporation or visit Jal Jeevan Mission portal (jaljeevanmission.gov.in). For drinking water complaints, call 1916 in many cities.",
+        'sanitation': "For sanitation issues, use the Swachh Bharat portal (swachhbharat.mygov.in) or contact your local municipal health officer.",
+        'garbage': "For sanitation issues, use the Swachhbharat portal (swachhbharat.mygov.in) or contact your local municipal health officer.",
+        'scheme': "Key government schemes: PMJAY (health insurance), Janani Suraksha (maternal care), National Pension Scheme, and PMAY (housing). Visit india.gov.in for full details.",
+        'schemes': "Key government schemes: PMJAY (health insurance), Janani Suraksha (maternal care), National Pension Scheme, and PMAY (housing). Visit india.gov.in for full details.",
+        'government': "Key government schemes: PMJAY (health insurance), Janani Suraksha (maternal care), National Pension Scheme, and PMAY (housing). Visit india.gov.in for full details.",
+        'govt': "Key government schemes: PMJAY (health insurance), Janani Suraksha (maternal care), National Pension Scheme, and PMAY (housing). Visit india.gov.in for full details.",
+        'shelter': "Contact your district administration or visit the National Urban Livelihoods Mission portal. For immediate shelter needs, contact local police stations or municipal offices.",
+        'food': "Contact your district administration or visit the National Urban Livelihoods Mission portal. For immediate food needs, contact local NGOs or Anganwadi centres.",
+        'blood': "Find blood banks through the National Health Portal (nhp.gov.in) or contact your nearest government hospital. Many cities have 24/7 blood bank helplines.",
+        'donation': "Verify NGOs on NGO Darpan before donating. For disaster relief, donate through PM CARES or Chief Minister Relief Funds. Always ask for receipts.",
+        'donate': "Verify NGOs on NGO Darpan before donating. For disaster relief, donate through PM CARES or Chief Minister Relief Funds. Always ask for receipts.",
+        'tree': "Join tree plantation drives through MyGov, local municipal corporations, or environmental NGOs like SayTrees. Monsoon season (June-September) is ideal for planting.",
+        'plant': "Join tree plantation drives through MyGov, local municipal corporations, or environmental NGOs like SayTrees. Monsoon season (June-September) is ideal for planting.",
+        'green': "Join tree plantation drives through MyGov, local municipal corporations, or environmental NGOs like SayTrees. Monsoon season (June-September) is ideal for planting.",
+        'environment': "Participate in Swachh Bharat drives, tree plantations, and waste segregation. Contact your municipal corporation for local environmental initiatives.",
+        'clean': "Participate in Swachh Bharat drives, tree plantations, and waste segregation. Contact your municipal corporation for local environmental initiatives.",
+        'swachh': "Participate in Swachh Bharat drives, tree plantations, and waste segregation. Contact your municipal corporation for local environmental initiatives.",
+        'skill': "Learn skills through NSDC, PMKVY centres, or local community skill centres. Digital literacy, tailoring, and plumbing courses are widely available.",
+        'training': "Learn skills through NSDC, PMKVY centres, or local community skill centres. Digital literacy, tailoring, and plumbing courses are widely available.",
+        'digital': "Digital literacy camps are organized by CSC (Common Service Centres) and local NGOs. Check mygov.in for upcoming camps in your area.",
+        'library': "Find public libraries through your district administration or municipal corporation. Many offer free internet, reading rooms, and skill books.",
+        'emergency': "For police: 100 | Ambulance: 108 | Fire: 101 | Women Helpline: 1091 | Child Helpline: 1098 | Senior Citizen: 14567 | Mental Health: 1800-599-0019",
+        'help': "For police: 100 | Ambulance: 108 | Fire: 101 | Women Helpline: 1091 | Child Helpline: 1098 | Senior Citizen: 14567 | Mental Health: 1800-599-0019",
+        'safety': "For police: 100 | Ambulance: 108 | Fire: 101 | Women Helpline: 1091 | Child Helpline: 1098 | Senior Citizen: 14567 | Mental Health: 1800-599-0019",
+        'women': "Women Helpline: 1091 | National Commission for Women: ncw.nic.in | One Stop Centres provide medical, legal, and counselling support.",
+        'child': "Child Helpline: 1098 | NCPCR: ncPCR.gov.in | For child labour or abuse, contact local police or district child protection unit immediately.",
+        'senior': "Senior Citizen Helpline: 14567 | National Portal for Senior Citizens: socialjustice.gov.in | Many cities have dedicated elderly care centres.",
+        'elderly': "Senior Citizen Helpline: 14567 | National Portal for Senior Citizens: socialjustice.gov.in | Many cities have dedicated elderly care centres.",
+        'disaster': "NDMA (ndma.gov.in) provides disaster preparedness guides. During emergencies, follow local administration instructions and tune into All India Radio.",
+        'flood': "NDMA (ndma.gov.in) provides disaster preparedness guides. During emergencies, follow local administration instructions and tune into All India Radio.",
+        'earthquake': "NDMA (ndma.gov.in) provides disaster preparedness guides. During emergencies, follow local administration instructions and tune into All India Radio.",
+        'mygov': "MyGov (mygov.in) is the citizen engagement platform of India. Participate in surveys, discussions, volunteer programs, and government campaigns.",
+        'india.gov': "India.gov.in is the national portal for government information, services, and schemes. It is the best starting point for any government-related query.",
+        'nss': "National Service Scheme (NSS) is for college students. Contact your college NSS coordinator to join community service activities and earn certificates.",
+        'ncc': "National Cadet Corps (NCC) trains school and college students in discipline and leadership. Contact your institution's NCC unit to enroll.",
+        'youth': "National Service Scheme (NSS) and National Cadet Corps (NCC) offer youth engagement. MY Bharat (mybharat.gov.in) is a new platform for youth participation.",
+    }
+    for key, resp in responses.items():
+        if key in question:
+            return resp
+    return "Thanks for your question! Our Community Assistant provides general guidance. For specific local information, contact your municipal corporation or visit india.gov.in. For emergencies, dial 100 (Police) or 108 (Ambulance)."
+
+#energy responce assistence 
+
+def get_energy_response(question):
+    responses = {
+        'solar': "Rooftop solar is ideal for Indian homes. 1 kW generates 4-5 units/day. Subsidy up to 40% for systems under 3 kW via solarrooftop.gov.in. Payback period is 4-6 years.",
+        'panel': "Rooftop solar is ideal for Indian homes. 1 kW generates 4-5 units/day. Subsidy up to 40% for systems under 3 kW via solarrooftop.gov.in. Payback period is 4-6 years.",
+        'subsidy': "Central subsidy: 40% up to 3 kW, 20% above 3 kW. Apply via solarrooftop.gov.in. State subsidies may add extra benefits.",
+        'bill': "To reduce electricity bills: switch to LED, set AC at 24°C, use 5-star appliances, and unplug devices. Use our calculator in the Consumption section.",
+        'save': "To reduce electricity bills: switch to LED, set AC at 24°C, use 5-star appliances, and unplug devices. Use our calculator in the Consumption section.",
+        'led': "LED bulbs use 75% less energy than incandescent and last 25x longer. Under UJALA scheme, get them at ₹10-20 per bulb.",
+        'bulb': "LED bulbs use 75% less energy than incandescent and last 25x longer. Under UJALA scheme, get them at ₹10-20 per bulb.",
+        'ac': "Set AC to 24°C. Clean filters monthly. Use ceiling fans to circulate cool air. Inverter ACs save 30-40% compared to normal ACs.",
+        'fan': "Ceiling fans use 50-75W. BLDC fans use only 30-35W and can save ₹1,500/year. Look for BEE 5-star rated fans.",
+        'fridge': "Keep fridge at 3-5°C. Ensure 6-inch gap from walls for ventilation. Defrost regularly. A 5-star fridge saves ₹800-1,000/year.",
+        'inverter': "Pure sine wave inverters are best for homes. Maintain battery water levels. A 150Ah battery with 850VA inverter powers 3-4 fans and lights for 6-8 hours.",
+        'battery': "Pure sine wave inverters are best for homes. Maintain battery water levels. A 150Ah battery with 850VA inverter powers 3-4 fans and lights for 6-8 hours.",
+        'geyser': "Solar water heaters save 1,000-1,500 units/year. If using electric, set timer to heat water only when needed. Insulate pipes.",
+        'heater': "Solar water heaters save 1,000-1,500 units/year. If using electric, set timer to heat water only when needed. Insulate pipes.",
+        'star': "BEE star ratings: 5-star is most efficient. A 5-star AC uses 30% less power than 3-star. Check ratings at beestarlabel.com before buying.",
+        'rating': "BEE star ratings: 5-star is most efficient. A 5-star AC uses 30% less power than 3-star. Check ratings at beestarlabel.com before buying.",
+        '5 star': "BEE star ratings: 5-star is most efficient. A 5-star AC uses 30% less power than 3-star. Check ratings at beestarlabel.com before buying.",
+        'wind': "Small wind turbines (1-10 kW) work well in coastal and hilly areas with average wind speeds above 12 km/h. MNRE provides subsidies.",
+        'biogas': "A 2-cubic-meter biogas plant converts kitchen waste into cooking gas for a family of 5. Contact your district Khadi Board for installation support.",
+        'waste': "A 2-cubic-meter biogas plant converts kitchen waste into cooking gas for a family of 5. Contact your district Khadi Board for installation support.",
+        'green': "Green energy refers to renewable sources like solar, wind, and biogas. India targets 50% non-fossil capacity by 2030.",
+        'renewable': "Green energy refers to renewable sources like solar, wind, and biogas. India targets 50% non-fossil capacity by 2030.",
+        'pm-kusum': "PM-KUSUM provides 60% subsidy for solar pumps for farmers. Apply through your state nodal agency or mnre.gov.in.",
+        'kusum': "PM-KUSUM provides 60% subsidy for solar pumps for farmers. Apply through your state nodal agency or mnre.gov.in.",
+        'pump': "PM-KUSUM provides 60% subsidy for solar pumps for farmers. Apply through your state nodal agency or mnre.gov.in.",
+        'ujala': "UJALA scheme provides LED bulbs at ₹10, tube lights at ₹85, and fans at ₹1,150. Available at DISCOM offices and select retailers.",
+        'discom': "Pay bills and register complaints via your state DISCOM website. Common ones: BSES Delhi, MSEDCL, TANGEDCO, BESCOM, KSEB.",
+        'calculator': "Use our Electricity Bill Estimator in the Consumption section. Enter your appliance hours and get daily/monthly estimates instantly.",
+        'unit': "1 unit = 1 kWh = running a 1000W appliance for 1 hour. Your bill = Total units × Rate per unit (typically ₹5-8).",
+        'kwh': "1 unit = 1 kWh = running a 1000W appliance for 1 hour. Your bill = Total units × Rate per unit (typically ₹5-8).",
+        'voltage': "Ideal voltage in India is 230V ± 10%. Use stabilizers for ACs and fridges. Voltage fluctuations damage appliances and waste energy.",
+        'stabilizer': "Ideal voltage in India is 230V ± 10%. Use stabilizers for ACs and fridges. Voltage fluctuations damage appliances and waste energy.",
+    }
+    for key, resp in responses.items():
+        if key in question:
+            return resp
+    return "Great energy question! Our assistant provides general guidance. For specific technical advice, consult a licensed electrician or visit mnre.gov.in. For billing issues, contact your state DISCOM."
+
+# ============================================
+# WATER MANAGEMENT ROUTES
+# ============================================
+
+# @app.route('/water')
+# def water_home():
+#     return render_template('water/index.html')
+
+@app.route('/water/conservation')
+def water_conservation():
+    return render_template('water/conservation.html')
+
+@app.route('/water/rainwater')
+def water_rainwater():
+    return render_template('water/rainwater.html')
+
+@app.route('/water/usage')
+def water_usage():
+    return render_template('water/usage.html')
+
+@app.route('/water/quality')
+def water_quality():
+    return render_template('water/quality.html')
+
+@app.route('/water/irrigation')
+def water_irrigation():
+    return render_template('water/irrigation.html')
+
+@app.route('/water/reuse')
+def water_reuse():
+    return render_template('water/reuse.html')
+
+@app.route('/water/resources')
+def water_resources():
+    return render_template('water/resources.html')
+
+@app.route('/water/assistant', methods=['GET', 'POST'])
+def water_assistant():
+    water_response = None
+    water_question = None
+    if request.method == 'POST':
+        water_question = request.form.get('question', '').strip().lower()
+        
+        # Simple rule-based responses (no database needed)
+        responses = {
+            'rainwater': 'Rainwater harvesting captures rain from rooftops and stores it for reuse. Start with gutters, a first-flush diverter, and a storage tank. Visit the Rainwater page for a full guide and calculator.',
+            'harvest': 'Rainwater harvesting captures rain from rooftops and stores it for reuse. Start with gutters, a first-flush diverter, and a storage tank. Visit the Rainwater page for a full guide and calculator.',
+            'drip': 'Drip irrigation delivers water directly to plant roots with 85-95% efficiency. It can save 40-60% water compared to flood irrigation and increase yields by 20-50%. Check the Smart Irrigation page for details.',
+            'irrigation': 'Drip irrigation delivers water directly to plant roots with 85-95% efficiency. It can save 40-60% water compared to flood irrigation and increase yields by 20-50%. Check the Smart Irrigation page for details.',
+            'save water': 'Top ways to save water: fix leaks, use bucket baths, install tap aerators, run appliances only on full load, and reuse RO reject water for gardening. See the Conservation page for more tips.',
+            'conservation': 'Top ways to save water: fix leaks, use bucket baths, install tap aerators, run appliances only on full load, and reuse RO reject water for gardening. See the Conservation page for more tips.',
+            'quality': 'Safe drinking water should have TDS under 500 mg/L, pH between 6.5-8.5, and zero coliform bacteria. Use the Quality page to learn about home checks and when to get lab testing.',
+            'leak': 'A dripping tap wastes 20+ litres/day. Check under sinks, behind toilets, and in common pipes. Add food colouring to the toilet tank — if colour appears in the bowl without flushing, you have a leak.',
+            'jal jeevan': 'Jal Jeevan Mission aims to provide tap water to every rural household. Over 12 crore connections have been made. Visit jaljeevanmission.gov.in for more information.',
+            'ro': 'RO purifiers reject 2-3 litres for every 1 litre purified. Collect this reject water for mopping, gardening, or flushing. Use the Reuse page calculator to see how much you can recover.',
+            'reuse': 'Greywater from sinks and showers can be reused for gardening and flushing. Never drink reused water without advanced treatment. See the Reuse page for safety guidelines.',
+            'groundwater': 'Groundwater levels are falling in many parts of India. Recharge pits and rainwater harvesting help replenish aquifers. Visit the Rainwater page for recharge pit designs.',
+        }
+        
+        # Find matching response
+        water_response = "I'm here to help with water conservation, harvesting, irrigation, and quality questions. Try asking about rainwater, drip irrigation, saving water, or water quality."
+        for key, resp in responses.items():
+            if key in water_question:
+                water_response = resp
+                break
+                
+    return render_template('water/index.html', water_response=water_response, water_question=water_question)
+
+
 # ============================
 # ERROR HANDLERS
 # ============================

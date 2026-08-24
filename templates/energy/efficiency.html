@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}Energy Efficiency — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO CAROUSEL ==================== -->
+<section class="energy-sub-hero">
+    <div class="energy-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=85" alt="Energy efficient LED lighting" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-slide">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=85" alt="Modern green building" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-content">
+        <div class="energy-badge"><i class="bi bi-lightbulb me-2"></i>Work Smarter</div>
+        <h1>Energy Efficiency</h1>
+        <p class="lead opacity-90">Do more with less. Optimize your home and workplace for maximum savings.</p>
+        <a href="#tips" class="btn btn-energy-primary btn-lg"><i class="bi bi-stars me-2"></i>Top Tips</a>
+    </div>
+    <div class="energy-sub-dots">
+        <button class="energy-sub-dot active" onclick="showSubSlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-sub-dot" onclick="showSubSlide(1)" aria-label="Slide 2"></button>
+    </div>
+</section>
+
+<!-- ==================== TIPS SECTION ==================== -->
+<section class="py-5 my-5" id="tips">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Practical Guide</h6>
+            <h2 class="section-title">10 Ways to Boost Efficiency</h2>
+            <p class="section-subtitle">Simple, proven methods to cut your energy use without sacrificing comfort.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">1</div>
+                    <h6 class="fw-bold">Switch to 5-Star Appliances</h6>
+                    <p class="small text-muted mb-0">BEE 5-star rated ACs, fridges, and fans can save 20-30% electricity compared to 3-star models.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">2</div>
+                    <h6 class="fw-bold">Use Smart Power Strips</h6>
+                    <p class="small text-muted mb-0">Cut phantom loads from TVs, chargers, and computers that consume power even when "off".</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">3</div>
+                    <h6 class="fw-bold">Insulate Your Home</h6>
+                    <p class="small text-muted mb-0">Proper insulation reduces heating and cooling needs by up to 40%. Seal windows and doors.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">4</div>
+                    <h6 class="fw-bold">Clean AC Filters Monthly</h6>
+                    <p class="small text-muted mb-0">Dirty filters force ACs to work harder. Cleaning them improves airflow and saves 5-15% energy.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">5</div>
+                    <h6 class="fw-bold">Use Natural Ventilation</h6>
+                    <p class="small text-muted mb-0">Open windows during cool hours. Use exhaust fans to remove hot air before turning on AC.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">6</div>
+                    <h6 class="fw-bold">Install Motion Sensors</h6>
+                    <p class="small text-muted mb-0">Automatic lights in corridors, bathrooms, and outdoor areas ensure lights are never left on.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">7</div>
+                    <h6 class="fw-bold">Cook with Lids On</h6>
+                    <p class="small text-muted mb-0">Covering pots reduces cooking time by 30%. Use pressure cookers and induction for efficiency.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">8</div>
+                    <h6 class="fw-bold">Defrost Regularly</h6>
+                    <p class="small text-muted mb-0">Frost buildup in freezers increases energy use. Defrost when ice exceeds 6mm thickness.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">9</div>
+                    <h6 class="fw-bold">Use Task Lighting</h6>
+                    <p class="small text-muted mb-0">Table lamps and under-cabinet lights use less energy than full room lighting for focused work.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="energy-tip-card">
+                    <div class="energy-tip-num">10</div>
+                    <h6 class="fw-bold">Maintain Your Inverter Battery</h6>
+                    <p class="small text-muted mb-0">Keep battery terminals clean and water levels checked. A healthy battery charges faster and wastes less.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== STAR RATING INFO ==================== -->
+<section class="py-5 bg-energy-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=700&q=80" alt="BEE star rated appliances" class="img-fluid rounded-4 shadow-lg" onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-7 ps-lg-5">
+                <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">BEE Ratings</h6>
+                <h3 class="fw-bold mb-3">Understanding Star Ratings</h3>
+                <p class="text-muted mb-4">The Bureau of Energy Efficiency (BEE) star rating helps you choose appliances that use less electricity for the same output.</p>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2"><i class="bi bi-5-circle"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">5-Star = Most Efficient</h6><p class="text-muted small mb-0">Highest upfront cost but lowest running cost. Best for heavy daily use.</p></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-3-circle"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">3-Star = Balanced</h6><p class="text-muted small mb-0">Moderate efficiency. Good for occasional use or budget constraints.</p></div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><span class="badge bg-danger rounded-circle p-2"><i class="bi bi-1-circle"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">1-Star = Least Efficient</h6><p class="text-muted small mb-0">Cheapest to buy but consumes the most power. Avoid for daily-use appliances.</p></div>
+                </div>
+                <a href="https://www.beestarlabel.com/" target="_blank" rel="noopener noreferrer" class="btn btn-energy-primary mt-3"><i class="bi bi-box-arrow-up-right me-2"></i>Check BEE Ratings</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let subIndex = 0;
+const subSlides = document.querySelectorAll('.energy-sub-slide');
+function showSubSlide(i) {
+    subSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.querySelectorAll('.energy-sub-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    subIndex = i;
+}
+setInterval(() => { showSubSlide((subIndex + 1) % subSlides.length); }, 4000);
+</script>
+{% endblock %}

@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+
+{% block title %}Water Conservation — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=85" alt="Water conservation tap" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-heart me-2"></i>Save Every Drop</div>
+            <h1>Water Conservation</h1>
+            <p class="lead opacity-90">Practical, actionable ways to reduce water waste at home, on the farm, and in your community.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== HOME CONSERVATION ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">At Home</h6>
+            <h2 class="section-title">Home Water Savers</h2>
+            <p class="section-subtitle">Simple changes that cut household water use by 30-50%.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">1</div>
+                        <h6 class="fw-bold mb-0">Fix Leaks Immediately</h6>
+                    </div>
+                    <p class="small text-muted mb-2">A dripping tap wastes 20+ litres/day. A running toilet wastes 200+ litres/day. Check under sinks and behind toilets monthly.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-lightbulb me-1"></i><strong>Tip:</strong> Add food colouring to the toilet tank. If colour appears in the bowl without flushing, you have a leak.</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">2</div>
+                        <h6 class="fw-bold mb-0">Install Low-Flow Fixtures</h6>
+                    </div>
+                    <p class="small text-muted mb-2">Low-flow showerheads use 6-8 L/min vs 15-20 L/min for regular ones. Aerators on taps cut flow by 50% without losing pressure.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-currency-rupee me-1"></i><strong>Cost:</strong> Aerators cost ₹30-80. Showerheads ₹200-500. Payback in 1-2 months.</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">3</div>
+                        <h6 class="fw-bold mb-0">Reuse Greywater</h6>
+                    </div>
+                    <p class="small text-muted mb-2">Water from washing machines, sinks, and baths can water plants, flush toilets, and clean floors. Never use for drinking or cooking.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-exclamation-triangle me-1"></i><strong>Note:</strong> Use biodegradable soaps if reusing for gardening.</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">4</div>
+                        <h6 class="fw-bold mb-0">Smart Appliances</h6>
+                    </div>
+                    <p class="small text-muted mb-2">Always run washing machines and dishwashers with full loads. A half-load uses nearly as much water as a full load.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-graph-up me-1"></i><strong>Save:</strong> Full loads can save 15,000+ litres per year for a family of four.</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">5</div>
+                        <h6 class="fw-bold mb-0">RO Reject Water</h6>
+                    </div>
+                    <p class="small text-muted mb-2">RO purifiers reject 2-3 litres for every 1 litre purified. Collect this water in a bucket for mopping, gardening, or flushing.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-droplet me-1"></i><strong>Save:</strong> A typical home RO can recover 15-25 litres/day of reject water.</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-tip-card h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="water-tip-num me-3">6</div>
+                        <h6 class="fw-bold mb-0">Turn Off While Soaping</h6>
+                    </div>
+                    <p class="small text-muted mb-2">Turn off the tap while brushing teeth, soaping hands, or shampooing. This simple habit saves 10-15 litres per person daily.</p>
+                    <div class="alert alert-water-info p-2 small mb-0"><i class="bi bi-people me-1"></i><strong>Impact:</strong> A family of 4 can save 20,000+ litres/year with this alone.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GARDEN & OUTDOOR ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Outdoors</h6>
+            <h2 class="section-title">Garden & Outdoor Tips</h2>
+            <p class="section-subtitle">Keep your garden green without wasting water.</p>
+        </div>
+        <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-6">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=800&q=80" alt="Garden watering early morning" class="img-fluid rounded-4 shadow-sm">
+            </div>
+            <div class="col-12 col-lg-6">
+                <h5 class="fw-bold text-water-dark mb-3">Smart Outdoor Watering</h5>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-sun"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Water Early or Late</h6>
+                        <p class="small text-muted mb-0">Water between 5-8 AM or 6-9 PM to reduce evaporation by up to 30%. Midday watering loses 50%+ to evaporation.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-moisture"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Mulch Your Soil</h6>
+                        <p class="small text-muted mb-0">A 5cm layer of mulch (dry leaves, straw, or wood chips) reduces evaporation by 70% and suppresses weeds.</p>
+                    </div>
+                </div>
+                <div class="d-flex mb-4">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-droplet-half"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Drip Over Spray</h6>
+                        <p class="small text-muted mb-0">Drip irrigation delivers water directly to roots with 90%+ efficiency. Sprinklers lose 30-50% to wind and evaporation.</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0">
+                        <div class="water-info-icon bg-warning text-white"><i class="bi bi-flower1"></i></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold">Choose Native Plants</h6>
+                        <p class="small text-muted mb-0">Native and drought-resistant plants need 50-80% less water than exotic lawns and gardens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== COMMUNITY ACTIONS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Together</h6>
+            <h2 class="section-title">Community Conservation</h2>
+            <p class="section-subtitle">When neighbours act together, the impact multiplies.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <div class="water-info-card h-100 p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="water-info-icon bg-water-primary text-white flex-shrink-0"><i class="bi bi-building"></i></div>
+                        <div class="ms-3">
+                            <h6 class="fw-bold">Apartment Complex Audits</h6>
+                            <p class="small text-muted mb-2">Conduct a water audit in your apartment complex. Check for leaks in common pipes, optimize pump timings, and install dual-flush toilets in all units.</p>
+                            <p class="small text-muted mb-0"><strong>Potential savings:</strong> 20-40% reduction in common area water bills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="water-info-card h-100 p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="water-info-icon bg-success text-white flex-shrink-0"><i class="bi bi-people"></i></div>
+                        <div class="ms-3">
+                            <h6 class="fw-bold">Community Rain Gardens</h6>
+                            <p class="small text-muted mb-2">Create rain gardens in common areas to capture runoff, recharge groundwater, and reduce flooding. Use native plants that tolerate both wet and dry conditions.</p>
+                            <p class="small text-muted mb-0"><strong>Benefit:</strong> Recharges groundwater and reduces stormwater runoff by 30%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="water-info-card h-100 p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="water-info-icon bg-info text-white flex-shrink-0"><i class="bi bi-megaphone"></i></div>
+                        <div class="ms-3">
+                            <h6 class="fw-bold">Awareness Drives</h6>
+                            <p class="small text-muted mb-2">Organize monthly water awareness sessions in your community. Share bills publicly, celebrate the lowest-use household, and teach children about water conservation.</p>
+                            <p class="small text-muted mb-0"><strong>Impact:</strong> Communities with awareness programs reduce use by 15-25%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="water-info-card h-100 p-4">
+                    <div class="d-flex align-items-start">
+                        <div class="water-info-icon bg-warning text-white flex-shrink-0"><i class="bi bi-tools"></i></div>
+                        <div class="ms-3">
+                            <h6 class="fw-bold">Shared Maintenance</h6>
+                            <p class="small text-muted mb-2">Form a volunteer team to check community taps, pipes, and tanks monthly. Early leak detection prevents massive water loss and property damage.</p>
+                            <p class="small text-muted mb-0"><strong>Tip:</strong> Use a simple logbook to track readings and spot anomalies early.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CONSERVATION SCORE ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Self Assessment</h6>
+                    <h2 class="section-title">Quick Conservation Check</h2>
+                    <p class="section-subtitle">Check the habits you already follow and see your conservation level.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-3" id="conservation-check">
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c1" data-val="15">
+                                <label class="form-check-label" for="c1">I fix leaks within a week</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c2" data-val="15">
+                                <label class="form-check-label" for="c2">I use a bucket for bathing</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c3" data-val="10">
+                                <label class="form-check-label" for="c3">I turn off tap while brushing</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c4" data-val="15">
+                                <label class="form-check-label" for="c4">I run appliances full load only</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c5" data-val="15">
+                                <label class="form-check-label" for="c5">I reuse RO/washing machine water</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c6" data-val="15">
+                                <label class="form-check-label" for="c6">I water plants early morning</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c7" data-val="10">
+                                <label class="form-check-label" for="c7">I have low-flow fixtures installed</label>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="form-check">
+                                <input class="form-check-input cons-check" type="checkbox" id="c8" data-val="5">
+                                <label class="form-check-label" for="c8">I use a mug instead of running tap</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-result mt-4">
+                        <h4 class="fw-bold text-water-dark mb-2">Your Conservation Score: <span id="cons-score" class="text-water-primary">0</span>/100</h4>
+                        <div class="water-progress mb-2">
+                            <div class="water-progress-bar" id="cons-bar" style="width: 0%"></div>
+                        </div>
+                        <p class="small text-muted mb-0" id="cons-msg">Check the boxes above to see your score.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.querySelectorAll('.cons-check').forEach(cb => {
+    cb.addEventListener('change', () => {
+        let score = 0;
+        document.querySelectorAll('.cons-check:checked').forEach(c => score += parseInt(c.dataset.val));
+        document.getElementById('cons-score').textContent = score;
+        document.getElementById('cons-bar').style.width = score + '%';
+        let msg = '';
+        if (score < 30) msg = 'Great start! Every small step counts. Pick 2 habits to adopt this week.';
+        else if (score < 60) msg = 'Good progress! You are already saving thousands of litres. Keep going!';
+        else if (score < 90) msg = 'Excellent! You are a water champion. Share your habits with neighbours.';
+        else msg = 'Outstanding! You are a Water Warrior. Consider mentoring others in your community.';
+        document.getElementById('cons-msg').textContent = msg;
+    });
+});
+</script>
+{% endblock %}

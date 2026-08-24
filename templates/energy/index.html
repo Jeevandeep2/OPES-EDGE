@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+
+{% block title %}Energy Management — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO CAROUSEL ==================== -->
+<section class="energy-carousel" id="energy-hero">
+    <div class="energy-slide active">
+        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=85" alt="Solar panels and renewable energy" class="energy-slide-img">
+        <div class="energy-slide-overlay"></div>
+        <div class="energy-slide-content">
+            <div class="energy-badge"><i class="bi bi-sun-fill me-2"></i>Sustainable Future</div>
+            <h1>Powering a<br><span class="energy-gradient-text">Greener Tomorrow</span></h1>
+            <p class="energy-slide-desc">Discover smart energy solutions, renewable resources, and conservation strategies for homes and communities.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#energy-services" class="btn btn-energy-primary btn-lg"><i class="bi bi-grid-3x3-gap me-2"></i>Explore Energy</a>
+                <a href="{{ url_for('energy_renewable') }}" class="btn btn-energy-outline btn-lg"><i class="bi bi-sun me-2"></i>Go Solar</a>
+            </div>
+        </div>
+    </div>
+    <div class="energy-slide">
+        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=85" alt="Smart energy grid technology" class="energy-slide-img">
+        <div class="energy-slide-overlay"></div>
+        <div class="energy-slide-content">
+            <div class="energy-badge"><i class="bi bi-lightning-charge-fill me-2"></i>Smart Energy</div>
+            <h1>Smart Consumption,<br><span class="energy-gradient-text">Smarter Savings</span></h1>
+            <p class="energy-slide-desc">Track, understand, and reduce your energy footprint with practical tools and expert guidance.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="{{ url_for('energy_consumption') }}" class="btn btn-energy-primary btn-lg"><i class="bi bi-graph-up me-2"></i>Track Usage</a>
+                <a href="{{ url_for('energy_efficiency') }}" class="btn btn-energy-outline btn-lg"><i class="bi bi-lightbulb me-2"></i>Save Energy</a>
+            </div>
+        </div>
+    </div>
+    <div class="energy-slide">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1920&q=85" alt="Wind turbines sustainable energy" class="energy-slide-img">
+        <div class="energy-slide-overlay"></div>
+        <div class="energy-slide-content">
+            <div class="energy-badge"><i class="bi bi-wind me-2"></i>Renewable Power</div>
+            <h1>Clean Energy<br><span class="energy-gradient-text">For Everyone</span></h1>
+            <p class="energy-slide-desc">Explore solar, wind, and government schemes that make renewable energy accessible and affordable.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="{{ url_for('energy_renewable') }}" class="btn btn-energy-primary btn-lg"><i class="bi bi-sun me-2"></i>Renewable Guide</a>
+                <a href="#schemes" class="btn btn-energy-outline btn-lg"><i class="bi bi-shield-check me-2"></i>Govt Schemes</a>
+            </div>
+        </div>
+    </div>
+    <div class="energy-carousel-dots">
+        <button class="energy-dot active" onclick="showEnergySlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-dot" onclick="showEnergySlide(1)" aria-label="Slide 2"></button>
+        <button class="energy-dot" onclick="showEnergySlide(2)" aria-label="Slide 3"></button>
+    </div>
+    <button class="energy-carousel-prev" onclick="prevEnergySlide()" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+    <button class="energy-carousel-next" onclick="nextEnergySlide()" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+    <div class="scroll-hint"><i class="bi bi-chevron-down"></i></div>
+</section>
+
+<!-- ==================== FLOATING STATS ==================== -->
+<section class="energy-stats-bar">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <div class="energy-stat-item">
+                    <i class="bi bi-sun text-energy-primary"></i>
+                    <div class="energy-stat-num">75 GW</div>
+                    <div class="energy-stat-label">Solar Installed</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="energy-stat-item">
+                    <i class="bi bi-lightning-charge text-energy-accent"></i>
+                    <div class="energy-stat-num">40%</div>
+                    <div class="energy-stat-label">Non-Fossil Target</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="energy-stat-item">
+                    <i class="bi bi-house-door text-energy-secondary"></i>
+                    <div class="energy-stat-num">3 Cr+</div>
+                    <div class="energy-stat-label">Rooftop Solar Homes</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="energy-stat-item">
+                    <i class="bi bi-cash-stack text-success"></i>
+                    <div class="energy-stat-num">30-50%</div>
+                    <div class="energy-stat-label">Potential Savings</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SERVICE CARDS ==================== -->
+<section class="py-5 my-5" id="energy-services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Explore</h6>
+            <h2 class="section-title">Energy Management Services</h2>
+            <p class="section-subtitle">Everything you need to understand, save, and sustain energy.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Energy consumption dashboard" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float"><i class="bi bi-graph-up"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Consumption</h5>
+                        <p class="text-muted small mb-3">Understand your energy usage patterns and calculate your monthly consumption with simple tools.</p>
+                        <a href="{{ url_for('energy_consumption') }}" class="energy-link">Track Usage <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="Energy efficient LED lighting" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float bg-energy-secondary"><i class="bi bi-lightbulb"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Efficiency</h5>
+                        <p class="text-muted small mb-3">Discover practical tips to reduce waste, choose efficient appliances, and lower your electricity bills.</p>
+                        <a href="{{ url_for('energy_efficiency') }}" class="energy-link text-energy-secondary">Save Energy <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80" alt="Solar renewable energy" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float bg-warning"><i class="bi bi-sun"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Renewable Energy</h5>
+                        <p class="text-muted small mb-3">Explore solar, wind, and bioenergy options. Learn about government subsidies and installation.</p>
+                        <a href="{{ url_for('energy_renewable') }}" class="energy-link text-warning">Go Renewable <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Energy conservation nature" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float bg-success"><i class="bi bi-leaf"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Conservation</h5>
+                        <p class="text-muted small mb-3">Daily habits and community actions that make a real difference in reducing energy waste.</p>
+                        <a href="{{ url_for('energy_conservation') }}" class="energy-link text-success">Conserve <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Government energy schemes" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float bg-info"><i class="bi bi-shield-check"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Govt Schemes</h5>
+                        <p class="text-muted small mb-3">PM-KUSUM, rooftop solar subsidies, and other national energy programs explained.</p>
+                        <a href="#schemes" class="energy-link text-info">View Schemes <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="energy-service-card h-100">
+                    <div class="energy-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Energy resources and tools" class="energy-service-img">
+                        <div class="energy-service-img-overlay"></div>
+                        <div class="energy-service-icon-float bg-energy-primary"><i class="bi bi-link-45deg"></i></div>
+                    </div>
+                    <div class="energy-service-body">
+                        <h5 class="fw-bold mb-2">Resources</h5>
+                        <p class="text-muted small mb-3">Trusted portals, calculators, and official links for energy information and services.</p>
+                        <a href="{{ url_for('energy_resources') }}" class="energy-link">Browse <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GOVT SCHEMES ==================== -->
+<section class="py-5 bg-energy-light" id="schemes">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Government Support</h6>
+            <h2 class="section-title">National Energy Schemes</h2>
+            <p class="section-subtitle">Programs designed to make clean energy affordable and accessible.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-scheme-card h-100">
+                    <div class="energy-scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=80" alt="Solar panels on farmland" class="energy-scheme-img">
+                    </div>
+                    <div class="energy-scheme-body">
+                        <h6 class="fw-bold">PM-KUSUM</h6>
+                        <p class="small text-muted mb-2">Solar pumps and grid-connected solar plants for farmers with up to 60% subsidy.</p>
+                        <a href="https://mnre.gov.in/solar/schemes/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-energy w-100">Learn More <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-scheme-card h-100">
+                    <div class="energy-scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=400&q=80" alt="Rooftop solar installation" class="energy-scheme-img">
+                    </div>
+                    <div class="energy-scheme-body">
+                        <h6 class="fw-bold">Rooftop Solar</h6>
+                        <p class="small text-muted mb-2">Subsidy up to 40% for residential rooftop solar installations across India.</p>
+                        <a href="https://solarrooftop.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-energy w-100">Apply Now <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-scheme-card h-100">
+                    <div class="energy-scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=80" alt="Smart grid and LED" class="energy-scheme-img">
+                    </div>
+                    <div class="energy-scheme-body">
+                        <h6 class="fw-bold">UJALA</h6>
+                        <p class="small text-muted mb-2">LED bulbs, tube lights, and energy-efficient fans at subsidized rates.</p>
+                        <a href="https://www.umang.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-energy w-100">Get LED <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-scheme-card h-100">
+                    <div class="energy-scheme-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=400&q=80" alt="Wind energy green power" class="energy-scheme-img">
+                    </div>
+                    <div class="energy-scheme-body">
+                        <h6 class="fw-bold">National Green Mission</h6>
+                        <p class="small text-muted mb-2">Enhancing energy efficiency in industries, buildings, and appliances nationwide.</p>
+                        <a href="https://mnre.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-energy w-100">Explore <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== QUICK TIPS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="Energy efficient home" class="img-fluid rounded-4 shadow-lg" onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Quick Wins</h6>
+                <h2 class="section-title">Save Energy Today</h2>
+                <p class="text-muted mb-4">Small changes in daily habits can reduce your electricity bill by 20-30%.</p>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-energy-primary rounded-circle p-2"><i class="bi bi-lightbulb"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Switch to LED</h6><p class="text-muted small mb-0">LEDs use 75% less energy and last 25x longer than incandescent bulbs.</p></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-energy-secondary rounded-circle p-2"><i class="bi bi-thermometer-half"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Set AC to 24°C</h6><p class="text-muted small mb-0">Every 1°C lower increases energy use by 6%. 24°C is optimal for comfort and savings.</p></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-plug"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Unplug Devices</h6><p class="text-muted small mb-0">Phantom load from standby devices can account for 10% of your bill.</p></div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><span class="badge bg-info rounded-circle p-2"><i class="bi bi-sun"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Use Natural Light</h6><p class="text-muted small mb-0">Open curtains during the day. It's free, healthy, and reduces electricity use.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ASSISTANT ==================== -->
+<section class="py-5 bg-energy-light" id="assistant">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">AI Support</h6>
+                    <h2 class="section-title">Energy Assistant</h2>
+                    <p class="section-subtitle">Ask about solar, savings, appliances, and government schemes.</p>
+                </div>
+                <div class="energy-assistant-card">
+                    <div class="energy-assistant-header">
+                        <div class="d-flex align-items-center">
+                            <div class="energy-assistant-avatar"><i class="bi bi-robot"></i></div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold text-white mb-0">OPES Energy Assistant</h6>
+                                <small class="text-white-50"><i class="bi bi-lightning-charge me-1"></i>Smart Guidance</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="energy-assistant-body">
+                        {% if energy_response %}
+                        <div class="energy-chat-user">
+                            <small class="text-muted d-block mb-1"><i class="bi bi-person me-1"></i>You</small>
+                            <p class="mb-0">{{ energy_question }}</p>
+                        </div>
+                        <div class="energy-chat-bot">
+                            <small class="text-energy-primary d-block mb-1"><i class="bi bi-robot me-1"></i>Assistant</small>
+                            <p class="mb-0">{{ energy_response }}</p>
+                        </div>
+                        {% endif %}
+                        <form method="POST" action="{{ url_for('energy_assistant') }}#assistant">
+                            <div class="input-group">
+                                <input type="text" name="question" class="form-control form-control-lg" placeholder="e.g., How do I apply for rooftop solar? or Tips to save electricity..." value="{{ energy_question or '' }}" required>
+                                <button class="btn btn-energy-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            <small class="text-muted">Try asking about:</small>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge bg-light text-dark border">solar</span>
+                                <span class="badge bg-light text-dark border">LED</span>
+                                <span class="badge bg-light text-dark border">bill</span>
+                                <span class="badge bg-light text-dark border">subsidy</span>
+                                <span class="badge bg-light text-dark border">AC</span>
+                                <span class="badge bg-light text-dark border">inverter</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentEnergySlide = 0;
+const energySlides = document.querySelectorAll('.energy-slide');
+const energyDots = document.querySelectorAll('.energy-dot');
+
+function showEnergySlide(index) {
+    energySlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    energyDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    currentEnergySlide = index;
+}
+function nextEnergySlide() { showEnergySlide((currentEnergySlide + 1) % energySlides.length); }
+function prevEnergySlide() { showEnergySlide((currentEnergySlide - 1 + energySlides.length) % energySlides.length); }
+
+let energyInterval = setInterval(nextEnergySlide, 5000);
+const energyCarousel = document.querySelector('.energy-carousel');
+energyCarousel.addEventListener('mouseenter', () => clearInterval(energyInterval));
+energyCarousel.addEventListener('mouseleave', () => { energyInterval = setInterval(nextEnergySlide, 5000); });
+
+let eTouchStart = 0;
+energyCarousel.addEventListener('touchstart', e => { eTouchStart = e.changedTouches[0].screenX; });
+energyCarousel.addEventListener('touchend', e => {
+    let diff = eTouchStart - e.changedTouches[0].screenX;
+    if (diff > 50) nextEnergySlide();
+    if (diff < -50) prevEnergySlide();
+});
+</script>
+{% endblock %}

@@ -1,0 +1,268 @@
+{% extends "base.html" %}
+
+{% block title %}Rainwater Harvesting — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?auto=format&fit=crop&w=1920&q=85" alt="Rain falling on green landscape" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-cloud-rain me-2"></i>Catch the Rain</div>
+            <h1>Rainwater Harvesting</h1>
+            <p class="lead opacity-90">Capture monsoon blessings. Store, filter, and reuse rain for a water-secure future.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FLOW DIAGRAM ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">The Journey</h6>
+            <h2 class="section-title">From Sky to Supply</h2>
+            <p class="section-subtitle">How rainwater travels from clouds to your tap.</p>
+        </div>
+        <div class="row g-4 align-items-center text-center">
+            <div class="col-6 col-md">
+                <div class="water-flow-step">
+                    <div class="water-flow-icon"><i class="bi bi-cloud-rain"></i></div>
+                    <h6 class="fw-bold">Rain</h6>
+                    <p class="small text-muted">Monsoon clouds deliver pure, soft water free of salts and chemicals.</p>
+                </div>
+            </div>
+            <div class="col-6 col-md position-relative">
+                <div class="water-flow-step">
+                    <div class="water-flow-icon"><i class="bi bi-house"></i></div>
+                    <h6 class="fw-bold">Collection</h6>
+                    <p class="small text-muted">Rooftops, courtyards, and paved areas channel water into pipes.</p>
+                </div>
+                <div class="water-flow-arrow d-none d-md-block"><i class="bi bi-arrow-right"></i></div>
+            </div>
+            <div class="col-6 col-md position-relative">
+                <div class="water-flow-step">
+                    <div class="water-flow-icon"><i class="bi bi-funnel"></i></div>
+                    <h6 class="fw-bold">Filtration</h6>
+                    <p class="small text-muted">First-flush diverters and sand filters remove leaves, dust, and debris.</p>
+                </div>
+                <div class="water-flow-arrow d-none d-md-block"><i class="bi bi-arrow-right"></i></div>
+            </div>
+            <div class="col-6 col-md position-relative">
+                <div class="water-flow-step">
+                    <div class="water-flow-icon"><i class="bi bi-database"></i></div>
+                    <h6 class="fw-bold">Storage</h6>
+                    <p class="small text-muted">Underground sumps, overhead tanks, or recharge pits hold the water.</p>
+                </div>
+                <div class="water-flow-arrow d-none d-md-block"><i class="bi bi-arrow-right"></i></div>
+            </div>
+            <div class="col-6 col-md">
+                <div class="water-flow-step">
+                    <div class="water-flow-icon"><i class="bi bi-recycle"></i></div>
+                    <h6 class="fw-bold">Reuse / Recharge</h6>
+                    <p class="small text-muted">Use for gardening, flushing, or let it recharge groundwater aquifers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== SYSTEM TYPES ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Systems</h6>
+            <h2 class="section-title">Harvesting Systems</h2>
+            <p class="section-subtitle">Choose the right setup for your home or community.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" alt="Rooftop rainwater collection" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-house-door"></i></div>
+                        <h6 class="fw-bold">Rooftop Collection</h6>
+                        <p class="small text-muted">The most common method. Gutters collect rain from roofs and direct it to storage tanks or recharge pits.</p>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li>Best for: Homes, schools, offices</li>
+                            <li>Cost: ₹5,000 – ₹25,000</li>
+                            <li>Capacity: 100-1,000+ litres per rainfall</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Surface runoff collection" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-layers"></i></div>
+                        <h6 class="fw-bold">Surface Runoff</h6>
+                        <p class="small text-muted">Captures water from courtyards, driveways, and open ground. Ideal for large plots and farms.</p>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li>Best for: Farms, large campuses</li>
+                            <li>Cost: ₹10,000 – ₹50,000</li>
+                            <li>Benefit: Reduces flooding and soil erosion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-img-wrap"><img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80" alt="Groundwater recharge well" class="water-info-img"></div>
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-arrow-down-circle"></i></div>
+                        <h6 class="fw-bold">Recharge Pits</h6>
+                        <p class="small text-muted">Underground pits filled with gravel and sand filter rainwater directly into the groundwater table.</p>
+                        <ul class="small text-muted ps-3 mb-0">
+                            <li>Best for: Areas with falling water tables</li>
+                            <li>Cost: ₹15,000 – ₹40,000</li>
+                            <li>Benefit: Raises groundwater levels</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CALCULATOR ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Estimate</h6>
+                    <h2 class="section-title">Rainwater Potential Calculator</h2>
+                    <p class="section-subtitle">Find out how much rainwater you can harvest from your rooftop.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Rooftop Area (sq ft)</label>
+                            <input type="number" class="form-control form-control-lg" id="roof-area" placeholder="e.g. 1000" min="1">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Annual Rainfall (cm)</label>
+                            <input type="number" class="form-control form-control-lg" id="rainfall" placeholder="e.g. 100" min="1" value="100">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Runoff Coefficient</label>
+                            <select class="form-select form-select-lg" id="runoff-coef">
+                                <option value="0.8">Concrete/Tiles (0.8)</option>
+                                <option value="0.6">Metal Sheets (0.6)</option>
+                                <option value="0.3">Gravel/Soil (0.3)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-end">
+                            <button class="btn btn-water-primary w-100" onclick="calculateRainwater()"><i class="bi bi-calculator me-2"></i>Calculate</button>
+                        </div>
+                    </div>
+                    <div class="calc-result mt-4 d-none" id="rain-result">
+                        <h4 class="fw-bold text-water-dark mb-2">Estimated Harvest: <span id="rain-total" class="text-water-primary">0</span> Litres/Year</h4>
+                        <div class="water-progress mb-3">
+                            <div class="water-progress-bar" id="rain-bar" style="width: 0%"></div>
+                        </div>
+                        <div class="row text-center g-2">
+                            <div class="col-4">
+                                <div class="p-2 bg-white rounded-3 border">
+                                    <div class="fw-bold text-water-primary" id="rain-daily">0</div>
+                                    <small class="text-muted">Litres/Day</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2 bg-white rounded-3 border">
+                                    <div class="fw-bold text-water-primary" id="rain-month">0</div>
+                                    <small class="text-muted">Litres/Month</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2 bg-white rounded-3 border">
+                                    <div class="fw-bold text-water-primary" id="rain-families">0</div>
+                                    <small class="text-muted">Families Supported</small>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="small text-muted mt-3 mb-0"><i class="bi bi-info-circle me-1"></i>This is an estimate. Actual collection depends on rainfall pattern, first-flush loss, and system efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== MAINTENANCE TIPS ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Care</h6>
+            <h2 class="section-title">System Maintenance</h2>
+            <p class="section-subtitle">Keep your harvesting system efficient year-round.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-tip-num mx-auto">1</div>
+                    <h6 class="fw-bold">Clean Gutters</h6>
+                    <p class="small text-muted mb-0">Remove leaves and debris before every monsoon. Clogged gutters overflow and waste precious rain.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-tip-num mx-auto">2</div>
+                    <h6 class="fw-bold">First-Flush Diverter</h6>
+                    <p class="small text-muted mb-0">Always install a first-flush diverter. The first 5-10 minutes of rain carries the most dust and contaminants.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-tip-num mx-auto">3</div>
+                    <h6 class="fw-bold">Check Filters</h6>
+                    <p class="small text-muted mb-0">Clean sand and mesh filters every 2-3 months. Replace filter media annually for best performance.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="water-tip-card h-100 text-center">
+                    <div class="water-tip-num mx-auto">4</div>
+                    <h6 class="fw-bold">Tank Cleaning</h6>
+                    <p class="small text-muted mb-0">Drain and scrub storage tanks once a year before the monsoon. Prevent algae and mosquito breeding.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function calculateRainwater() {
+    const area = parseFloat(document.getElementById('roof-area').value);
+    const rainfall = parseFloat(document.getElementById('rainfall').value);
+    const coef = parseFloat(document.getElementById('runoff-coef').value);
+
+    if (!area || !rainfall || area <= 0 || rainfall <= 0) {
+        alert('Please enter valid rooftop area and rainfall values.');
+        return;
+    }
+
+    const totalLitres = Math.round(area * rainfall * 0.0283 * coef);
+    const daily = Math.round(totalLitres / 365);
+    const monthly = Math.round(totalLitres / 12);
+    const families = (totalLitres / (135 * 365)).toFixed(1);
+
+    document.getElementById('rain-total').textContent = totalLitres.toLocaleString();
+    document.getElementById('rain-daily').textContent = daily.toLocaleString();
+    document.getElementById('rain-month').textContent = monthly.toLocaleString();
+    document.getElementById('rain-families').textContent = families;
+
+    const percentage = Math.min((totalLitres / 500000) * 100, 100);
+    document.getElementById('rain-bar').style.width = percentage + '%';
+    document.getElementById('rain-result').classList.remove('d-none');
+}
+</script>
+{% endblock %}

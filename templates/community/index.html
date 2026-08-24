@@ -1,0 +1,663 @@
+{% extends "base.html" %}
+
+{% block title %}Community Services — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/community.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO CAROUSEL ==================== -->
+<section class="comm-carousel" id="comm-hero">
+    
+    <!-- Slide 1 -->
+    <div class="comm-slide active">
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1920&q=85" alt="Volunteers working together in community" class="comm-slide-img">
+        <div class="comm-slide-overlay"></div>
+        <div class="comm-slide-content">
+            <div class="comm-badge"><i class="bi bi-people-fill me-2"></i>Together We Grow</div>
+            <h1>Build Stronger<br><span class="comm-gradient-text">Communities</span></h1>
+            <p class="comm-slide-desc">Discover volunteer opportunities, local events, and resources to make a real difference in your neighbourhood.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#comm-services" class="btn btn-comm-primary btn-lg">
+                    <i class="bi bi-grid-3x3-gap me-2"></i>Explore Services
+                </a>
+                <a href="#volunteer" class="btn btn-comm-outline btn-lg">
+                    <i class="bi bi-hand-thumbs-up me-2"></i>Volunteer
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 2 -->
+    <div class="comm-slide">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1920&q=85" alt="Happy community of people together" class="comm-slide-img">
+        <div class="comm-slide-overlay"></div>
+        <div class="comm-slide-content">
+            <div class="comm-badge"><i class="bi bi-heart-fill me-2"></i>People First</div>
+            <h1>Connect. Help.<br><span class="comm-gradient-text">Inspire Change.</span></h1>
+            <p class="comm-slide-desc">Join local initiatives, report community issues, and access support resources — all in one place.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#events" class="btn btn-comm-primary btn-lg">
+                    <i class="bi bi-calendar-event me-2"></i>Upcoming Events
+                </a>
+                <a href="#report" class="btn btn-comm-outline btn-lg">
+                    <i class="bi bi-megaphone me-2"></i>Report Issue
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 3 -->
+    <div class="comm-slide">
+        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1920&q=85" alt="Community development and local growth" class="comm-slide-img">
+        <div class="comm-slide-overlay"></div>
+        <div class="comm-slide-content">
+            <div class="comm-badge"><i class="bi bi-tree-fill me-2"></i>Sustainable Future</div>
+            <h1>Green Action<br><span class="comm-gradient-text">Starts Here</span></h1>
+            <p class="comm-slide-desc">Participate in environmental drives, cleanliness campaigns, and sustainability projects near you.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#environment" class="btn btn-comm-primary btn-lg">
+                    <i class="bi bi-leaf me-2"></i>Green Initiatives
+                </a>
+                <a href="#resources" class="btn btn-comm-outline btn-lg">
+                    <i class="bi bi-link-45deg me-2"></i>Find Resources
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Controls -->
+    <div class="comm-carousel-dots">
+        <button class="comm-dot active" onclick="showCommSlide(0)" aria-label="Slide 1"></button>
+        <button class="comm-dot" onclick="showCommSlide(1)" aria-label="Slide 2"></button>
+        <button class="comm-dot" onclick="showCommSlide(2)" aria-label="Slide 3"></button>
+    </div>
+    <button class="comm-carousel-prev" onclick="prevCommSlide()" aria-label="Previous"><i class="bi bi-chevron-left"></i></button>
+    <button class="comm-carousel-next" onclick="nextCommSlide()" aria-label="Next"><i class="bi bi-chevron-right"></i></button>
+    <div class="scroll-hint"><i class="bi bi-chevron-down"></i></div>
+</section>
+
+<!-- ==================== FLOATING STATS ==================== -->
+<section class="comm-stats-bar">
+    <div class="container">
+        <div class="row g-3 text-center">
+            <div class="col-6 col-md-3">
+                <div class="comm-stat-item">
+                    <i class="bi bi-people text-comm-primary"></i>
+                    <div class="comm-stat-num">2.5L+</div>
+                    <div class="comm-stat-label">Active Volunteers</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="comm-stat-item">
+                    <i class="bi bi-calendar-event text-comm-secondary"></i>
+                    <div class="comm-stat-num">10K+</div>
+                    <div class="comm-stat-label">Local Events/Year</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="comm-stat-item">
+                    <i class="bi bi-tree text-success"></i>
+                    <div class="comm-stat-num">500+</div>
+                    <div class="comm-stat-label">Green Drives</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="comm-stat-item">
+                    <i class="bi bi-building text-comm-accent"></i>
+                    <div class="comm-stat-num">1,200+</div>
+                    <div class="comm-stat-label">Partner NGOs</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== DISCOVER SERVICES ==================== -->
+<section class="py-5 my-5" id="comm-services">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">What You Can Do</h6>
+            <h2 class="section-title">Community Services at a Glance</h2>
+            <p class="section-subtitle">Discover ways to participate, contribute, and create positive impact in your community.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Volunteers helping community" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float"><i class="bi bi-hand-thumbs-up"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Volunteer</h5>
+                        <p class="text-muted small mb-3">Join local NGOs, teaching programs, disaster relief, and community support initiatives near you.</p>
+                        <a href="#volunteer" class="comm-link">Find Opportunities <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Community event gathering" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float bg-comm-secondary"><i class="bi bi-calendar-event"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Events</h5>
+                        <p class="text-muted small mb-3">Discover local events, workshops, health camps, blood donation drives, and cultural programs.</p>
+                        <a href="#events" class="comm-link text-comm-secondary">View Events <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80" alt="Reporting community issues" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float bg-danger"><i class="bi bi-megaphone"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Report Issues</h5>
+                        <p class="text-muted small mb-3">Report potholes, sanitation problems, water issues, or safety concerns to the right authorities.</p>
+                        <a href="#report" class="comm-link text-danger">How to Report <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=600&q=80" alt="Local community resources" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float bg-comm-accent"><i class="bi bi-geo-alt"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Local Resources</h5>
+                        <p class="text-muted small mb-3">Find nearby shelters, food banks, libraries, skill centres, and government service offices.</p>
+                        <a href="#resources" class="comm-link text-comm-accent">Browse Resources <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Environmental green action" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float bg-success"><i class="bi bi-leaf"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Green Action</h5>
+                        <p class="text-muted small mb-3">Join tree plantation drives, cleanliness campaigns, waste management, and water conservation efforts.</p>
+                        <a href="#environment" class="comm-link text-success">Go Green <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="comm-service-card h-100">
+                    <div class="comm-service-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Skill sharing and teaching" class="comm-service-img">
+                        <div class="comm-service-img-overlay"></div>
+                        <div class="comm-service-icon-float bg-info"><i class="bi bi-lightbulb"></i></div>
+                    </div>
+                    <div class="comm-service-body">
+                        <h5 class="fw-bold mb-2">Skill Sharing</h5>
+                        <p class="text-muted small mb-3">Teach or learn skills — digital literacy, crafts, languages, coding — and empower your neighbours.</p>
+                        <a href="#assistant" class="comm-link text-info">Get Started <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== VOLUNTEER OPPORTUNITIES ==================== -->
+<section class="py-5 bg-comm-light" id="volunteer">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Make a Difference</h6>
+            <h2 class="section-title">Volunteer Opportunities</h2>
+            <p class="section-subtitle">Your time and skills can transform lives. Explore ways to contribute.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <div class="volunteer-card h-100">
+                    <div class="volunteer-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=600&q=80" alt="Teaching children" class="volunteer-img">
+                        <span class="volunteer-tag">Education</span>
+                    </div>
+                    <div class="volunteer-body">
+                        <h6 class="fw-bold">Teach & Mentor</h6>
+                        <p class="small text-muted mb-3">Volunteer at local schools, tuition centres, or digital literacy camps. Help children and adults learn.</p>
+                        <a href="https://www.india.gov.in/spotlight/volunteer-india" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-comm w-100">
+                            Learn More <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-4">
+                <div class="volunteer-card h-100">
+                    <div class="volunteer-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=600&q=80" alt="Disaster relief volunteers" class="volunteer-img">
+                        <span class="volunteer-tag bg-danger">Disaster Relief</span>
+                    </div>
+                    <div class="volunteer-body">
+                        <h6 class="fw-bold">Disaster Relief</h6>
+                        <p class="small text-muted mb-3">Join NDRF-trained volunteer groups, blood donation camps, and emergency response networks.</p>
+                        <a href="https://ndma.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-comm w-100">
+                            Learn More <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-4">
+                <div class="volunteer-card h-100">
+                    <div class="volunteer-img-wrap">
+                        <img src="https://static.wixstatic.com/media/f38894_ad9936d740c94c4ea09a89c8b5f58b0f~mv2.jpg/v1/fill/w_700,h_400,al_c,q_80,enc_avif,quality_auto/f38894_ad9936d740c94c4ea09a89c8b5f58b0f~mv2.jpg" alt="Elderly care volunteering" class="volunteer-img">
+                        <span class="volunteer-tag bg-comm-accent">Social Care</span>
+                    </div>
+                    <div class="volunteer-body">
+                        <h6 class="fw-bold">Elderly & Social Care</h6>
+                        <p class="small text-muted mb-3">Support senior citizens, run neighbourhood check-ins, and assist at old-age homes and shelters.</p>
+                        <a href="https://socialjustice.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-comm w-100">
+                            Learn More <i class="bi bi-box-arrow-up-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== COMMUNITY EVENTS ==================== -->
+<section class="py-5 my-5" id="events">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Stay Engaged</h6>
+            <h2 class="section-title">Upcoming Community Events</h2>
+            <p class="section-subtitle">Participate in events that bring people together and drive positive change.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="event-card h-100">
+                    <div class="event-date">
+                        <span class="event-day">15</span>
+                        <span class="event-month">SEP</span>
+                    </div>
+                    <img src="https://www.rgniyd.gov.in/sites/default/files/photo_gallery/DSC_0305.JPG" alt="Health camp" class="event-img">
+                    <div class="event-body">
+                        <span class="badge bg-danger bg-opacity-10 text-danger mb-2">Health</span>
+                        <h6 class="fw-bold">Free Health Camp</h6>
+                        <p class="small text-muted mb-2"><i class="bi bi-geo-alt me-1"></i>Local Community Centre</p>
+                        <p class="small text-muted">General checkups, eye tests, and blood pressure screening for all residents.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="event-card h-100">
+                    <div class="event-date bg-comm-secondary">
+                        <span class="event-day">22</span>
+                        <span class="event-month">SEP</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=400&q=80" alt="Tree plantation" class="event-img">
+                    <div class="event-body">
+                        <span class="badge bg-success bg-opacity-10 text-success mb-2">Environment</span>
+                        <h6 class="fw-bold">Tree Plantation Drive</h6>
+                        <p class="small text-muted mb-2"><i class="bi bi-geo-alt me-1"></i>City Park</p>
+                        <p class="small text-muted">Join us in planting 500 native trees. Tools and saplings provided.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="event-card h-100">
+                    <div class="event-date bg-comm-accent">
+                        <span class="event-day">05</span>
+                        <span class="event-month">OCT</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=400&q=80" alt="Digital literacy workshop" class="event-img">
+                    <div class="event-body">
+                        <span class="badge bg-primary bg-opacity-10 text-primary mb-2">Education</span>
+                        <h6 class="fw-bold">Digital Literacy Workshop</h6>
+                        <p class="small text-muted mb-2"><i class="bi bi-geo-alt me-1"></i>Public Library</p>
+                        <p class="small text-muted">Free training on UPI, government portals, and online safety for seniors.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="event-card h-100">
+                    <div class="event-date bg-warning">
+                        <span class="event-day">12</span>
+                        <span class="event-month">OCT</span>
+                    </div>
+                    <img src="https://bapa.org/wp-content/uploads/Porch-Concert-Aug-12.jpg" alt="Community gathering" class="event-img">
+                    <div class="event-body">
+                        <span class="badge bg-warning bg-opacity-10 text-warning-dark mb-2">Culture</span>
+                        <h6 class="fw-bold">Neighbourhood Meet</h6>
+                        <p class="small text-muted mb-2"><i class="bi bi-geo-alt me-1"></i>Community Hall</p>
+                        <p class="small text-muted">An evening of local talent, food stalls, and community bonding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== REPORT & SAFETY ==================== -->
+<section class="py-5 bg-comm-light" id="report">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Speak Up</h6>
+            <h2 class="section-title">Report & Safety</h2>
+            <p class="section-subtitle">Your voice matters. Report issues and access safety resources.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="report-card h-100 text-center">
+                    <div class="report-icon bg-danger text-white"><i class="bi bi-cone-striped"></i></div>
+                    <h6 class="fw-bold">Road & Infrastructure</h6>
+                    <p class="small text-muted">Potholes, broken streetlights, damaged roads, and public property issues.</p>
+                    <a href="https://swachhbharat.mygov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-danger w-100">
+                        Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="report-card h-100 text-center">
+                    <div class="report-icon bg-warning text-dark"><i class="bi bi-droplet-half"></i></div>
+                    <h6 class="fw-bold">Water & Sanitation</h6>
+                    <p class="small text-muted">Water supply problems, drainage blockage, garbage collection, and hygiene issues.</p>
+                    <a href="https://jaljeevanmission.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-warning w-100">
+                        Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="report-card h-100 text-center">
+                    <div class="report-icon bg-comm-primary text-white"><i class="bi bi-shield-exclamation"></i></div>
+                    <h6 class="fw-bold">Safety & Security</h6>
+                    <p class="small text-muted">Report harassment, unsafe areas, or emergency concerns to authorities.</p>
+                    <a href="https://www.ncw.nic.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-comm w-100">
+                        Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="report-card h-100 text-center">
+                    <div class="report-icon bg-success text-white"><i class="bi bi-recycle"></i></div>
+                    <h6 class="fw-bold">Environment</h6>
+                    <p class="small text-muted">Illegal dumping, air pollution sources, deforestation, and water body damage.</p>
+                    <a href="https://cpcb.nic.in/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-success w-100">
+                        Report <i class="bi bi-box-arrow-up-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-comm-info mt-4 mb-0">
+            <div class="d-flex">
+                <div class="flex-shrink-0"><i class="bi bi-info-circle-fill text-comm-primary fs-4"></i></div>
+                <div class="ms-3">
+                    <h6 class="fw-bold mb-1">Emergency? Call Immediately</h6>
+                    <p class="small mb-0">For crimes in progress, medical emergencies, or fire — dial <strong>100</strong> (Police), <strong>108</strong> (Ambulance), or <strong>101</strong> (Fire). Do not use online forms for life-threatening situations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== ENVIRONMENTAL ACTION ==================== -->
+<section class="py-5 my-5" id="environment">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Green environment action" class="img-fluid rounded-4 shadow-lg" onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 ps-lg-5">
+                <h6 class="text-uppercase fw-bold text-success mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Sustainability</h6>
+                <h2 class="section-title">Green Community Action</h2>
+                <p class="text-muted mb-3">Small local actions create global impact. Join environmental initiatives in your area and help build a sustainable future.</p>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2"><i class="bi bi-tree"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Tree Plantation</h6><p class="text-muted small mb-0">Organize or join local drives to increase green cover.</p></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-info rounded-circle p-2"><i class="bi bi-droplet"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Water Conservation</h6><p class="text-muted small mb-0">Rainwater harvesting, leak reporting, and mindful usage.</p></div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-recycle"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Waste Management</h6><p class="text-muted small mb-0">Segregation at source, composting, and reducing single-use plastic.</p></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-4">
+                <div class="green-card h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7_bCDmeqFB-zieQpvuZ5HuEEBRfHSq0dHQHketyllAz7Jo9CC3KZb0FI&s=10" alt="Cleanliness drive" class="green-img">
+                    <div class="green-body">
+                        <h6 class="fw-bold text-success"><i class="bi bi-trash me-2"></i>Swachh Bharat</h6>
+                        <p class="small text-muted mb-3">Participate in cleanliness drives and help your neighbourhood stay clean.</p>
+                        <a href="https://swachhbharat.mygov.in/" target="_blank" rel="noopener noreferrer" class="comm-link text-success">Join Drive <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="green-card h-100">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=80" alt="Solar energy" class="green-img">
+                    <div class="green-body">
+                        <h6 class="fw-bold text-comm-primary"><i class="bi bi-sun me-2"></i>Solar Awareness</h6>
+                        <p class="small text-muted mb-3">Learn about rooftop solar subsidies and renewable energy for your community.</p>
+                        <a href="https://mnre.gov.in/" target="_blank" rel="noopener noreferrer" class="comm-link text-comm-primary">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="green-card h-100">
+                    <img src="https://sb.ecobnb.net/app/uploads/sites/3/2023/07/eco-friendly-transportation-choice-1-870x490.jpg" alt="Sustainable living" class="green-img">
+                    <div class="green-body">
+                        <h6 class="fw-bold text-comm-secondary"><i class="bi bi-bicycle me-2"></i>Sustainable Living</h6>
+                        <p class="small text-muted mb-3">Carpooling, cycling, and reducing your carbon footprint together.</p>
+                        <a href="https://www.undp.org/sustainable-development-goals" target="_blank" rel="noopener noreferrer" class="comm-link text-comm-secondary">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LOCAL RESOURCES ==================== -->
+<section class="py-5 bg-comm-light" id="resources">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Find Help</h6>
+            <h2 class="section-title">Local & National Resources</h2>
+            <p class="section-subtitle">Trusted portals and organizations for community support.</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer" class="resource-card-comm d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-comm-wrap"><img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=200&q=80" alt="Government of India portal" class="resource-img-comm"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">India.gov.in</h6><p class="small text-muted mb-0">National portal for government services, schemes, and information.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://mygov.in/" target="_blank" rel="noopener noreferrer" class="resource-card-comm d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-comm-wrap"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=200&q=80" alt="MyGov platform" class="resource-img-comm"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">MyGov</h6><p class="small text-muted mb-0">Citizen engagement platform for surveys, discussions, and volunteering.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://ngodarpan.gov.in/" target="_blank" rel="noopener noreferrer" class="resource-card-comm d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-comm-wrap"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=200&q=80" alt="NGO Darpan" class="resource-img-comm"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">NGO Darpan</h6><p class="small text-muted mb-0">Directory of registered NGOs and voluntary organizations across India.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.nhp.gov.in/" target="_blank" rel="noopener noreferrer" class="resource-card-comm d-flex align-items-center text-decoration-none">
+                    <div class="resource-img-comm-wrap"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=200&q=80" alt="National Health Portal" class="resource-img-comm"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">National Health Portal</h6><p class="small text-muted mb-0">Health resources, hospital directories, and wellness information.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== COMMUNITY ASSISTANT ==================== -->
+<section class="py-5 my-5" id="assistant">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">AI Support</h6>
+                    <h2 class="section-title">Community Assistant</h2>
+                    <p class="section-subtitle">Ask about volunteering, events, government schemes, and local resources.</p>
+                </div>
+                
+                <div class="comm-assistant-card">
+                    <div class="comm-assistant-header">
+                        <div class="d-flex align-items-center">
+                            <div class="comm-assistant-avatar"><i class="bi bi-robot"></i></div>
+                            <div class="ms-3">
+                                <h6 class="fw-bold text-white mb-0">OPES Community Assistant</h6>
+                                <small class="text-white-50"><i class="bi bi-lightning-charge me-1"></i>Instant Guidance</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comm-assistant-body">
+                        {% if comm_response %}
+                        <div class="comm-chat-user">
+                            <small class="text-muted d-block mb-1"><i class="bi bi-person me-1"></i>You</small>
+                            <p class="mb-0">{{ comm_question }}</p>
+                        </div>
+                        <div class="comm-chat-bot">
+                            <small class="text-comm-primary d-block mb-1"><i class="bi bi-robot me-1"></i>Assistant</small>
+                            <p class="mb-0">{{ comm_response }}</p>
+                        </div>
+                        {% endif %}
+                        <form method="POST" action="{{ url_for('community_assistant') }}#assistant">
+                            <div class="input-group">
+                                <input type="text" name="question" class="form-control form-control-lg" placeholder="e.g., How do I volunteer? or Local NGO contacts..." value="{{ comm_question or '' }}" required>
+                                <button class="btn btn-comm-primary" type="submit"><i class="bi bi-send-fill"></i></button>
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                            <small class="text-muted">Try asking about:</small>
+                            <div class="d-flex flex-wrap gap-2 mt-2">
+                                <span class="badge bg-light text-dark border">volunteer</span>
+                                <span class="badge bg-light text-dark border">events</span>
+                                <span class="badge bg-light text-dark border">NGO</span>
+                                <span class="badge bg-light text-dark border">schemes</span>
+                                <span class="badge bg-light text-dark border">report</span>
+                                <span class="badge bg-light text-dark border">environment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== PARTNER NETWORK ==================== -->
+<section class="py-5 bg-comm-light">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h6 class="text-uppercase fw-bold text-comm-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Collaboration</h6>
+            <h2 class="section-title">Partner Organizations</h2>
+            <p class="section-subtitle">OPES EDGE connects you with trusted national and community organizations.</p>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://www.india.gov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-building fs-1 text-comm-primary"></i>
+                    <div class="small fw-bold text-dark mt-2">Govt of India</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://mygov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-chat-square-text fs-1 text-comm-secondary"></i>
+                    <div class="small fw-bold text-dark mt-2">MyGov</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://ngodarpan.gov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-people fs-1 text-success"></i>
+                    <div class="small fw-bold text-dark mt-2">NGO Darpan</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://nhm.gov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-heart-pulse fs-1 text-danger"></i>
+                    <div class="small fw-bold text-dark mt-2">NHM</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://ndma.gov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-shield-check fs-1 text-warning"></i>
+                    <div class="small fw-bold text-dark mt-2">NDMA</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+                <a href="https://jaljeevanmission.gov.in/" target="_blank" rel="noopener noreferrer" class="partner-card text-decoration-none text-center d-block">
+                    <i class="bi bi-droplet fs-1 text-info"></i>
+                    <div class="small fw-bold text-dark mt-2">Jal Jeevan</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let currentCommSlide = 0;
+const commSlides = document.querySelectorAll('.comm-slide');
+const commDots = document.querySelectorAll('.comm-dot');
+
+function showCommSlide(index) {
+    commSlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    commDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    currentCommSlide = index;
+}
+function nextCommSlide() { showCommSlide((currentCommSlide + 1) % commSlides.length); }
+function prevCommSlide() { showCommSlide((currentCommSlide - 1 + commSlides.length) % commSlides.length); }
+
+let commInterval = setInterval(nextCommSlide, 5000);
+const commCarousel = document.querySelector('.comm-carousel');
+commCarousel.addEventListener('mouseenter', () => clearInterval(commInterval));
+commCarousel.addEventListener('mouseleave', () => { commInterval = setInterval(nextCommSlide, 5000); });
+
+let commTouchStart = 0;
+commCarousel.addEventListener('touchstart', e => { commTouchStart = e.changedTouches[0].screenX; });
+commCarousel.addEventListener('touchend', e => {
+    let diff = commTouchStart - e.changedTouches[0].screenX;
+    if (diff > 50) nextCommSlide();
+    if (diff < -50) prevCommSlide();
+});
+</script>
+{% endblock %}

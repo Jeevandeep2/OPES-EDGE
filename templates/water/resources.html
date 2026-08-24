@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}Water Resources — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/water.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO ==================== -->
+<section class="water-sub-hero">
+    <div class="water-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=85" alt="Earth and water resources" class="water-sub-img">
+        <div class="water-sub-overlay"></div>
+        <div class="water-sub-content">
+            <div class="water-badge"><i class="bi bi-link-45deg me-2"></i>Trusted Sources</div>
+            <h1>Water Resources</h1>
+            <p class="lead opacity-90">Official portals, government schemes, and trusted organizations for water management.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GOVERNMENT PORTALS ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Government</h6>
+            <h2 class="section-title">Official Portals & Schemes</h2>
+            <p class="section-subtitle">Verified government resources for water management in India.</p>
+        </div>
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <a href="https://jalshakti-ddws.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=200&q=80" alt="Ministry of Jal Shakti" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">Ministry of Jal Shakti</h6>
+                        <p class="small text-muted mb-1">Government of India's ministry for water resources, drinking water, and sanitation.</p>
+                        <small class="text-water-primary">jalshakti-ddws.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://jaljeevanmission.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=200&q=80" alt="Jal Jeevan Mission" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">Jal Jeevan Mission</h6>
+                        <p class="small text-muted mb-1">Har Ghar Jal — Functional household tap connection to every rural home.</p>
+                        <small class="text-water-primary">jaljeevanmission.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://pmksy.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=200&q=80" alt="PMKSY" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">PMKSY</h6>
+                        <p class="small text-muted mb-1">Pradhan Mantri Krishi Sinchayee Yojana — Micro-irrigation subsidies for farmers.</p>
+                        <small class="text-water-primary">pmksy.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://cgwb.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=200&q=80" alt="CGWB" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">Central Ground Water Board</h6>
+                        <p class="small text-muted mb-1">Groundwater assessment, water level data, and aquifer mapping for India.</p>
+                        <small class="text-water-primary">cgwb.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://nwm.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=200&q=80" alt="National Water Mission" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">National Water Mission</h6>
+                        <p class="small text-muted mb-1">Conservation of water, minimizing wastage, and ensuring equitable distribution.</p>
+                        <small class="text-water-primary">nwm.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://swachhbharatmission.gov.in/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=200&q=80" alt="Swachh Bharat" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">Swachh Bharat Mission</h6>
+                        <p class="small text-muted mb-1">Clean India mission with focus on sanitation and wastewater management.</p>
+                        <small class="text-water-primary">swachhbharatmission.gov.in <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== INTERNATIONAL RESOURCES ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Global</h6>
+            <h2 class="section-title">International Resources</h2>
+            <p class="section-subtitle">Trusted global organizations for water knowledge and standards.</p>
+        </div>
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <a href="https://www.epa.gov/watersense" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=200&q=80" alt="EPA WaterSense" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">EPA WaterSense</h6>
+                        <p class="small text-muted mb-1">U.S. EPA program for water-efficient products and practices.</p>
+                        <small class="text-water-primary">epa.gov/watersense <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.who.int/health-topics/water-sanitation-and-hygiene" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=200&q=80" alt="WHO Water" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">WHO Water & Sanitation</h6>
+                        <p class="small text-muted mb-1">Global guidelines for drinking water quality and health standards.</p>
+                        <small class="text-water-primary">who.int <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.unwater.org/" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=200&q=80" alt="UN Water" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">UN Water</h6>
+                        <p class="small text-muted mb-1">United Nations coordination on freshwater and sanitation issues.</p>
+                        <small class="text-water-primary">unwater.org <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.worldbank.org/en/topic/water" target="_blank" rel="noopener noreferrer" class="water-resource-card">
+                    <div class="water-resource-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=200&q=80" alt="World Bank Water" class="water-resource-img">
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="fw-bold text-dark mb-1">World Bank Water</h6>
+                        <p class="small text-muted mb-1">Global water projects, data, and policy resources.</p>
+                        <small class="text-water-primary">worldbank.org <i class="bi bi-box-arrow-up-right ms-1"></i></small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== LEARNING RESOURCES ==================== -->
+<section class="py-5 my-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Learn</h6>
+            <h2 class="section-title">Educational Materials</h2>
+            <p class="section-subtitle">Videos, documents, and courses to deepen your water knowledge.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-water-primary text-white"><i class="bi bi-book"></i></div>
+                        <h6 class="fw-bold">Jal Shakti Abhiyan Guide</h6>
+                        <p class="small text-muted">Official government guide on rainwater harvesting, water conservation, and recharge structures.</p>
+                        <a href="https://jalshakti-ddws.gov.in/" target="_blank" rel="noopener noreferrer" class="water-link">Download <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-success text-white"><i class="bi bi-camera-video"></i></div>
+                        <h6 class="fw-bold">PMKSY Training Videos</h6>
+                        <p class="small text-muted">Step-by-step videos on drip irrigation installation, maintenance, and subsidy application.</p>
+                        <a href="https://pmksy.gov.in/" target="_blank" rel="noopener noreferrer" class="water-link text-success">Watch <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="water-info-card h-100">
+                    <div class="water-info-body">
+                        <div class="water-info-icon bg-info text-white"><i class="bi bi-journal-text"></i></div>
+                        <h6 class="fw-bold">BIS Drinking Water Standard</h6>
+                        <p class="small text-muted">IS 10500:2012 — The official Indian standard for drinking water quality parameters.</p>
+                        <a href="https://www.bis.gov.in/" target="_blank" rel="noopener noreferrer" class="water-link text-info">View Standard <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== HELPLINES ==================== -->
+<section class="py-5 bg-water-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase fw-bold text-water-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Help</h6>
+                    <h2 class="section-title">Report & Helplines</h2>
+                    <p class="section-subtitle">Where to report water issues and seek help.</p>
+                </div>
+                <div class="water-calc-box">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <div class="water-info-icon bg-water-primary text-white flex-shrink-0"><i class="bi bi-telephone"></i></div>
+                                <div class="ms-3">
+                                    <h6 class="fw-bold mb-1">Jal Jeevan Mission Helpline</h6>
+                                    <p class="small text-muted mb-0">For issues related to rural tap water supply, quality complaints, and scheme information.</p>
+                                    <small class="text-water-primary fw-bold">Contact your Gram Panchayat or District Water Supply Office</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <div class="water-info-icon bg-success text-white flex-shrink-0"><i class="bi bi-exclamation-triangle"></i></div>
+                                <div class="ms-3">
+                                    <h6 class="fw-bold mb-1">Report Water Contamination</h6>
+                                    <p class="small text-muted mb-0">If you suspect drinking water contamination, report to your local health department or State Pollution Control Board immediately.</p>
+                                    <small class="text-success fw-bold">State PCB offices are listed on cpcb.nic.in</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-start p-3 bg-white rounded-3 border">
+                                <div class="water-info-icon bg-warning text-white flex-shrink-0"><i class="bi bi-tools"></i></div>
+                                <div class="ms-3">
+                                    <h6 class="fw-bold mb-1">Leak Reporting</h6>
+                                    <p class="small text-muted mb-0">Report public pipe leaks to your municipal corporation or Jal Board. Many cities now have apps or WhatsApp numbers for this.</p>
+                                    <small class="text-warning fw-bold">Check your city municipal corporation website</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

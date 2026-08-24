@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Energy Resources — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO CAROUSEL ==================== -->
+<section class="energy-sub-hero">
+    <div class="energy-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=85" alt="Technology and energy network" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-slide">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=85" alt="Circuit board technology" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-content">
+        <div class="energy-badge"><i class="bi bi-link-45deg me-2"></i>Trusted Sources</div>
+        <h1>Energy Resources</h1>
+        <p class="lead opacity-90">Official portals, calculators, and tools for informed energy decisions.</p>
+        <a href="#portals" class="btn btn-energy-primary btn-lg"><i class="bi bi-globe me-2"></i>Browse Portals</a>
+    </div>
+    <div class="energy-sub-dots">
+        <button class="energy-sub-dot active" onclick="showSubSlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-sub-dot" onclick="showSubSlide(1)" aria-label="Slide 2"></button>
+    </div>
+</section>
+
+<!-- ==================== PORTALS ==================== -->
+<section class="py-5 my-5" id="portals">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Official Links</h6>
+            <h2 class="section-title">Government & Trusted Portals</h2>
+            <p class="section-subtitle">Direct access to energy schemes, data, and services.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <a href="https://mnre.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=200&q=80" alt="MNRE solar" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">MNRE</h6><p class="small text-muted mb-0">Ministry of New & Renewable Energy — schemes, subsidies, and solar programs.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.beestarlabel.com/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=200&q=80" alt="BEE star label" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">BEE Star Label</h6><p class="small text-muted mb-0">Check energy efficiency ratings before buying appliances.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://solarrooftop.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=200&q=80" alt="Rooftop solar" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">Rooftop Solar Portal</h6><p class="small text-muted mb-0">Apply for rooftop solar subsidies and track application status.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.umang.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=200&q=80" alt="UMANG app" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">UMANG App</h6><p class="small text-muted mb-0">One app for all government services including UJALA and energy schemes.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.niti.gov.in/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=200&q=80" alt="NITI Aayog" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">NITI Aayog</h6><p class="small text-muted mb-0">National energy policy, SDG reports, and sustainable development goals.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+            <div class="col-12 col-md-6">
+                <a href="https://www.npcil.nic.in/" target="_blank" rel="noopener noreferrer" class="energy-resource-card text-decoration-none">
+                    <div class="energy-resource-img-wrap"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=200&q=80" alt="Nuclear power" class="energy-resource-img"></div>
+                    <div class="ms-3 flex-grow-1"><h6 class="fw-bold text-dark mb-1">NPCIL</h6><p class="small text-muted mb-0">Nuclear Power Corporation — clean nuclear energy information and plants.</p></div>
+                    <i class="bi bi-box-arrow-up-right text-muted fs-5"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== STATE DISCOMS ==================== -->
+<section class="py-5 bg-energy-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Your State</h6>
+            <h2 class="section-title">Electricity Distribution Companies</h2>
+            <p class="section-subtitle">Pay bills, register complaints, and track outages through your state DISCOM.</p>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.bsesdelhi.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>BSES Delhi</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.tatapower-ddl.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Tata Power DDL</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.mahadiscom.in/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Maharashtra</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.tangedco.gov.in/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Tamil Nadu</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.apeasternpower.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>AP Eastern</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.kseb.in/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Kerala KSEB</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.ugvcl.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>Gujarat UGVCL</a></div>
+            <div class="col-6 col-md-4 col-lg-3"><a href="https://www.bescom.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-energy w-100 py-3 fw-bold"><i class="bi bi-lightning-charge me-2"></i>BESCOM Bangalore</a></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let subIndex = 0;
+const subSlides = document.querySelectorAll('.energy-sub-slide');
+function showSubSlide(i) {
+    subSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.querySelectorAll('.energy-sub-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    subIndex = i;
+}
+setInterval(() => { showSubSlide((subIndex + 1) % subSlides.length); }, 4000);
+</script>
+{% endblock %}

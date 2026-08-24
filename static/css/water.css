@@ -1,0 +1,731 @@
+/* ============================================
+   OPES EDGE — WATER MANAGEMENT STYLES
+   DEEP BLUE + AQUA + FRESH GREEN
+   ============================================ */
+
+:root {
+  --water-primary: #0369a1;
+  --water-primary-dark: #075985;
+  --water-secondary: #06b6d4;
+  --water-accent: #10b981;
+  --water-dark: #0c4a6e;
+  --water-light: #ecfeff;
+  --water-gray: #64748b;
+}
+
+.text-water-primary { color: var(--water-primary) !important; }
+.text-water-secondary { color: var(--water-secondary) !important; }
+.text-water-accent { color: var(--water-accent) !important; }
+.bg-water-light { background-color: var(--water-light) !important; }
+.bg-water-primary { background-color: var(--water-primary) !important; }
+.bg-water-secondary { background-color: var(--water-secondary) !important; }
+
+/* ============================================
+   HERO CAROUSEL
+   ============================================ */
+.water-carousel {
+  position: relative;
+  min-height: 85vh;
+  overflow: hidden;
+  background: var(--water-dark);
+}
+
+.water-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-slide.active { opacity: 1; z-index: 1; }
+
+.water-slide-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: none !important;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+
+.water-slide.active .water-slide-img { transform: scale(1); }
+
+.water-slide-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(12,74,110,0.3) 0%, rgba(12,74,110,0.6) 50%, rgba(12,74,110,0.85) 100%);
+  z-index: 1;
+}
+
+.water-slide-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 6rem 1.5rem 4rem;
+  text-align: center;
+  color: white;
+}
+
+.water-slide-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+  animation: slideUp 0.9s ease-out;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.water-gradient-text {
+  background: linear-gradient(135deg, #22d3ee, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.water-slide-desc {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  animation: slideUp 0.9s ease-out 0.15s both;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+}
+
+.water-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.25);
+  animation: slideUp 0.9s ease-out 0.05s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.water-carousel-dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.water-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.water-dot.active { background: white; border-color: white; width: 28px; border-radius: 5px; }
+.water-dot:hover { border-color: white; background: rgba(255,255,255,0.3); }
+
+.water-carousel-prev, .water-carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.water-carousel-prev { left: 1.5rem; }
+.water-carousel-next { right: 1.5rem; }
+.water-carousel-prev:hover, .water-carousel-next:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+  z-index: 10;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-12px); }
+  60% { transform: translateX(-50%) translateY(-6px); }
+}
+
+/* ============================================
+   FLOATING STATS BAR
+   ============================================ */
+.water-stats-bar {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.1);
+  border: 1px solid #cffafe;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.water-stat-item { text-align: center; }
+.water-stat-item i { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
+.water-stat-num { font-size: 1.5rem; font-weight: 800; color: var(--water-dark); line-height: 1; }
+.water-stat-label { font-size: 0.8rem; color: var(--water-gray); margin-top: 0.25rem; }
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-water-primary {
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+}
+
+.btn-water-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.45);
+  color: white;
+}
+
+.btn-water-outline {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-water-outline:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: white;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-outline-water {
+  border: 1.5px solid var(--water-primary);
+  color: var(--water-primary);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-water:hover { background: var(--water-primary); color: white; }
+
+/* ============================================
+   SERVICE CARDS WITH IMAGES
+   ============================================ */
+.water-service-card {
+  background: white;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid #cffafe;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.water-service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.water-service-img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.water-service-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.water-service-card:hover .water-service-img { transform: scale(1.08); }
+
+.water-service-img-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+}
+
+.water-service-icon-float {
+  position: absolute;
+  bottom: -24px;
+  left: 1.5rem;
+  width: 52px; height: 52px;
+  border-radius: 1rem;
+  background: var(--water-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.water-service-body { padding: 2.5rem 1.5rem 1.5rem; }
+
+.water-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--water-primary);
+  transition: all 0.2s ease;
+}
+
+.water-link:hover { color: var(--water-primary-dark); padding-left: 4px; }
+
+/* ============================================
+   SUB HERO (MINI CAROUSEL)
+   ============================================ */
+.water-sub-hero {
+  position: relative;
+  min-height: 55vh;
+  overflow: hidden;
+  background: var(--water-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-sub-slide {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.water-sub-slide.active { opacity: 1; z-index: 1; }
+
+.water-sub-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: none !important;
+}
+
+.water-sub-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(12,74,110,0.75), rgba(6,182,212,0.55));
+  z-index: 1;
+}
+
+.water-sub-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 5rem 1.5rem 3rem;
+  max-width: 700px;
+}
+
+.water-sub-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+}
+
+.water-sub-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.water-sub-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.water-sub-dot.active { background: white; border-color: white; width: 20px; border-radius: 4px; }
+
+/* ============================================
+   INFO CARDS
+   ============================================ */
+.water-info-card {
+  background: white;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid #cffafe;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.35s ease;
+  height: 100%;
+}
+
+.water-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+  border-color: var(--water-primary);
+}
+
+.water-info-img-wrap {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.water-info-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.water-info-card:hover .water-info-img { transform: scale(1.06); }
+
+.water-info-body { padding: 1.5rem; }
+
+.water-info-icon {
+  width: 48px; height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   TIP CARDS
+   ============================================ */
+.water-tip-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.water-tip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(6, 182, 212, 0.08);
+  border-color: #a5f3fc;
+}
+
+.water-tip-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* ============================================
+   FLOW DIAGRAM (RAINWATER)
+   ============================================ */
+.water-flow-step {
+  text-align: center;
+  position: relative;
+}
+
+.water-flow-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin: 0 auto 1rem;
+  border: 4px solid white;
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.water-flow-arrow {
+  position: absolute;
+  top: 36px;
+  right: -50%;
+  width: 100%;
+  text-align: center;
+  color: var(--water-secondary);
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+/* ============================================
+   CALCULATOR
+   ============================================ */
+.water-calc-box {
+  background: white;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid #cffafe;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.calc-result {
+  background: linear-gradient(135deg, #ecfeff, #d1fae5);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #a5f3fc;
+  text-align: center;
+}
+
+/* ============================================
+   TABLE
+   ============================================ */
+.water-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.water-table th {
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  color: white;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.water-table th:first-child { border-radius: 0.75rem 0 0 0; }
+.water-table th:last-child { border-radius: 0 0.75rem 0 0; }
+
+.water-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  background: white;
+}
+
+.water-table tr:last-child td:first-child { border-radius: 0 0 0 0.75rem; }
+.water-table tr:last-child td:last-child { border-radius: 0 0 0.75rem 0; }
+
+/* ============================================
+   RESOURCE CARDS
+   ============================================ */
+.water-resource-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.35s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.water-resource-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.water-resource-img-wrap {
+  width: 72px; height: 72px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.water-resource-card:hover .water-resource-img-wrap {
+  border-color: var(--water-primary);
+  transform: scale(1.05);
+}
+
+.water-resource-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   ASSISTANT
+   ============================================ */
+.water-assistant-card {
+  background: white;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid #cffafe;
+  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.1);
+}
+
+.water-assistant-header {
+  background: linear-gradient(135deg, var(--water-primary), var(--water-secondary));
+  padding: 1.5rem 2rem;
+}
+
+.water-assistant-avatar {
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.water-assistant-body { padding: 2rem; }
+
+.water-chat-user {
+  background: #ecfeff;
+  border-radius: 1rem 1rem 0.25rem 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  max-width: 85%;
+  border: 1px solid #a5f3fc;
+}
+
+.water-chat-bot {
+  background: white;
+  border-radius: 1rem 1rem 1rem 0.25rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-width: 85%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+}
+
+/* ============================================
+   ALERTS
+   ============================================ */
+.alert-water-info {
+  background: #ecfeff;
+  border: 1px solid #a5f3fc;
+  border-radius: 1rem;
+  color: #164e63;
+}
+
+/* ============================================
+   PROGRESS BAR
+   ============================================ */
+.water-progress {
+  height: 10px;
+  border-radius: 5px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.water-progress-bar {
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--water-primary), var(--water-secondary));
+  transition: width 1s ease;
+}
+
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--water-dark);
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  color: var(--water-gray);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+  .water-carousel-prev, .water-carousel-next { display: none; }
+  .water-stats-bar {
+    margin-top: -2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .water-sub-hero { min-height: 45vh; }
+  .water-flow-arrow { display: none; }
+}
+
+@media (max-width: 768px) {
+  .water-slide-content h1 { font-size: 2.5rem !important; }
+  .water-slide-desc { font-size: 1rem !important; }
+  .water-carousel { min-height: 80vh; }
+  .water-service-img-wrap { height: 160px; }
+  .water-sub-content h1 { font-size: 2rem !important; }
+  .water-sub-hero { min-height: 40vh; }
+  .section-title { font-size: 1.75rem; }
+}
+
+@media (max-width: 576px) {
+  .water-slide-content h1 { font-size: 2rem !important; }
+  .water-slide-content { padding: 5rem 1rem 3rem; }
+  .water-service-card, .water-info-card { border-radius: 1rem; }
+  .water-stats-bar { padding: 1.5rem 1rem; border-radius: 1rem; }
+  .water-stat-num { font-size: 1.25rem; }
+  .water-calc-box { padding: 1.5rem; }
+}

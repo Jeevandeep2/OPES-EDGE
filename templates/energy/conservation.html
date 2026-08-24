@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+
+{% block title %}Energy Conservation — OPES EDGE{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/energy.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== SUB HERO CAROUSEL ==================== -->
+<section class="energy-sub-hero">
+    <div class="energy-sub-slide active">
+        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=85" alt="Green nature conservation" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-slide">
+        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1920&q=85" alt="Sustainable landscape" class="energy-sub-img">
+        <div class="energy-sub-overlay"></div>
+    </div>
+    <div class="energy-sub-content">
+        <div class="energy-badge"><i class="bi bi-leaf me-2"></i>Save Today</div>
+        <h1>Energy Conservation</h1>
+        <p class="lead opacity-90">Small habits. Big impact. Protect resources for future generations.</p>
+        <a href="#habits" class="btn btn-energy-primary btn-lg"><i class="bi bi-heart me-2"></i>Daily Habits</a>
+    </div>
+    <div class="energy-sub-dots">
+        <button class="energy-sub-dot active" onclick="showSubSlide(0)" aria-label="Slide 1"></button>
+        <button class="energy-sub-dot" onclick="showSubSlide(1)" aria-label="Slide 2"></button>
+    </div>
+</section>
+
+<!-- ==================== DAILY HABITS ==================== -->
+<section class="py-5 my-5" id="habits">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h6 class="text-uppercase fw-bold text-energy-primary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Lifestyle</h6>
+            <h2 class="section-title">Conservation in Daily Life</h2>
+            <p class="section-subtitle">Every unit saved is a unit generated. Build these habits today.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=400&q=80" alt="AC temperature setting" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-energy-primary text-white"><i class="bi bi-thermometer-half"></i></div>
+                        <h6 class="fw-bold">Set AC to 24°C</h6>
+                        <p class="small text-muted">Every 1°C lower = 6% more power. 24°C is the sweet spot for comfort and savings.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1513506003011-3b03c80175e8?auto=format&fit=crop&w=400&q=80" alt="Switch off lights" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-warning text-white"><i class="bi bi-lightbulb-off"></i></div>
+                        <h6 class="fw-bold">Switch Off</h6>
+                        <p class="small text-muted">Lights, fans, and chargers when leaving a room. It takes 2 seconds and saves 10% energy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="Full load washing machine" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-info text-white"><i class="bi bi-droplet"></i></div>
+                        <h6 class="fw-bold">Full Loads Only</h6>
+                        <p class="small text-muted">Run washing machines and dishwashers only with full loads. Use cold water when possible.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="energy-info-card h-100">
+                    <div class="energy-info-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=400&q=80" alt="Iron clothes batch" class="energy-info-img">
+                    </div>
+                    <div class="energy-info-body">
+                        <div class="energy-info-icon bg-success text-white"><i class="bi bi-patch-check"></i></div>
+                        <h6 class="fw-bold">Iron in Batches</h6>
+                        <p class="small text-muted">Ironing multiple clothes at once saves repeated heating. Use the right temperature setting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== COMMUNITY ACTION ==================== -->
+<section class="py-5 bg-energy-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Community green action" class="img-fluid rounded-4 shadow-lg" onerror="this.style.display='none'">
+            </div>
+            <div class="col-lg-6 order-lg-1 pe-lg-5">
+                <h6 class="text-uppercase fw-bold text-energy-secondary mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Community</h6>
+                <h3 class="fw-bold mb-3">Conserve Together</h3>
+                <p class="text-muted mb-4">Energy conservation works best when communities act together. Here is how your neighbourhood can contribute.</p>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-energy-primary rounded-circle p-2"><i class="bi bi-building"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Common Area LEDs</h6><p class="text-muted small mb-0">Replace all society lights with LEDs. Motion sensors in parking and staircases.</p></div>
+                </div>
+                <div class="d-flex mb-3">
+                    <div class="flex-shrink-0"><span class="badge bg-success rounded-circle p-2"><i class="bi bi-tree"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Plant Shade Trees</h6><p class="text-muted small mb-0">Trees around buildings reduce indoor temperature by 2-4°C, cutting AC use.</p></div>
+                </div>
+                <div class="d-flex">
+                    <div class="flex-shrink-0"><span class="badge bg-warning text-dark rounded-circle p-2"><i class="bi bi-people"></i></span></div>
+                    <div class="ms-3"><h6 class="fw-bold mb-1">Energy Audits</h6><p class="text-muted small mb-0">Conduct annual energy audits for apartments and schools to find waste points.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+let subIndex = 0;
+const subSlides = document.querySelectorAll('.energy-sub-slide');
+function showSubSlide(i) {
+    subSlides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+    document.querySelectorAll('.energy-sub-dot').forEach((d, idx) => d.classList.toggle('active', idx === i));
+    subIndex = i;
+}
+setInterval(() => { showSubSlide((subIndex + 1) % subSlides.length); }, 4000);
+</script>
+{% endblock %}
