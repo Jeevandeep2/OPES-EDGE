@@ -1,8 +1,8 @@
 # OPES EDGE
 ### visit link of OPES EDGE 
 ### https://jeevandeep2.github.io/OPES-EDGE/
-### gihttps://opes-edge-of3y.onrender.com
-### https://opes-edge.onrender.com
+### [Visit OPES EDGE ->](https://opes-edge-of3y.onrender.com)
+### [Visit OPES EDGE ->](https://opes-edge.onrender.com)
 
 ### One Platform for Every Solution
 **Engineering Excellence Challenge — EEC-2026**  
