@@ -1,6 +1,9 @@
 # OPES EDGE
 ### visit link of OPES EDGE 
 ### https://jeevandeep2.github.io/OPES-EDGE/
+### gihttps://opes-edge-of3y.onrender.com
+### https://opes-edge.onrender.com
+
 ### One Platform for Every Solution
 **Engineering Excellence Challenge — EEC-2026**  
 **Team: Logic Legends | ID: EEC2607911 e80Spark**
