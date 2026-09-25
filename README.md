@@ -2,10 +2,9 @@
 
 ### [Project folders 🔗->](https://drive.google.com/drive/folders/1kU9q2OUomUQ9ZEJKbhH2uxx2rtnQaOiv)
 ### [Documentation 🔗->](https://drive.google.com/file/d/1e4D0fzI2vHtXSZADqUelrrWfiMjTWwPl/view?usp=drivesdk)
-### visit link of OPES EDGE 
-### repo 🔗 => https://jeevandeep2.github.io/OPES-EDGE/
-### [Visit OPES EDGE ->](https://opes-edge-of3y.onrender.com)
-### [Visit OPES EDGE ->](https://opes-edge.onrender.com)
+### [GitHub repository =>](https://jeevandeep2.github.io/OPES-EDGE/)
+### [Visit OPES EDGE =>](https://opes-edge-of3y.onrender.com)
+### [Visit OPES EDGE =>](https://opes-edge.onrender.com)
 
 ### One Platform for Every Solution
 **Engineering Excellence Challenge — EEC-2026**  
