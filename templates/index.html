@@ -5,7 +5,536 @@
 {% block content %}
 
 <!-- ==================== HERO SECTION ==================== -->
+<!-- ==================== OPES EDGE HERO WITH BACKGROUND CAROUSEL ==================== -->
+
+<!-- ==================== OPES EDGE HERO SECTION ==================== -->
+
+<style>
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* ---------- BACKGROUND CAROUSEL ---------- */
+.hero-carousel-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Each slide */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out;
+}
+
+/* Active slide */
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Background image */
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 4s ease;
+}
+
+/* Slight zoom effect */
+.hero-slide.active img {
+    transform: scale(1.06);
+}
+
+/* ---------- DARK OVERLAY ---------- */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.65)
+        );
+}
+
+/* ---------- HERO CONTENT ---------- */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* ---------- BADGE ---------- */
+.hero-badge {
+    display: inline-block;
+    padding: 9px 20px;
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ---------- MAIN TITLE ---------- */
+.hero-content h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin: 0 0 15px;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- DESCRIPTION ---------- */
+.hero-content .lead {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- BUTTONS ---------- */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 28px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+/* Primary button */
+.hero-btn-primary {
+    background: #ffffff;
+    color: #111111;
+}
+
+.hero-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #111111;
+}
+
+/* Outline button */
+.hero-btn-outline {
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5px);
+}
+
+.hero-btn-outline:hover {
+    background: #ffffff;
+    color: #111111;
+    transform: translateY(-3px);
+}
+
+/* ---------- SLIDE LABEL ---------- */
+.hero-slide-label {
+    position: absolute;
+    z-index: 3;
+
+    left: 30px;
+    bottom: 30px;
+
+    padding: 10px 18px;
+
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    transition: all 0.8s ease;
+}
+
+.hero-slide.active .hero-slide-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- CAROUSEL DOTS ---------- */
+.hero-dots {
+    position: absolute;
+    z-index: 5;
+
+    bottom: 28px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 8px;
+}
+
+.hero-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+    width: 28px;
+    border-radius: 10px;
+    background: white;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+
+    .hero-section {
+        min-height: 85vh;
+    }
+
+    .hero-content {
+        padding: 30px 18px;
+    }
+
+    .hero-content h1 {
+        letter-spacing: 2px;
+    }
+
+    .hero-content .lead {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero-slide-label {
+        left: 15px;
+        bottom: 65px;
+        font-size: 0.8rem;
+    }
+
+    .hero-dots {
+        bottom: 25px;
+    }
+}
+</style>
+
+
+<!-- ==================== HERO ==================== -->
+
 <section class="hero-section" id="home">
+
+    <!-- ===== BACKGROUND CAROUSEL ===== -->
+
+    <div class="hero-carousel-bg">
+
+        <!-- 1. AGRICULTURE -->
+        <div class="hero-slide active">
+
+            <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85"
+                alt="Agriculture">
+
+            <div class="hero-slide-label">
+                🌾 Agriculture
+            </div>
+
+        </div>
+
+
+        <!-- 2. EDUCATION -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=2000&q=85"
+                alt="Education">
+
+            <div class="hero-slide-label">
+                🎓 Education
+            </div>
+
+        </div>
+
+
+        <!-- 3. HEALTHCARE -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=2000&q=85"
+                alt="Healthcare">
+
+            <div class="hero-slide-label">
+                🏥 Healthcare
+            </div>
+
+        </div>
+
+
+        <!-- 4. COMMUNITY -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2000&q=85"
+                alt="Community Services">
+
+            <div class="hero-slide-label">
+                🤝 Community Services
+            </div>
+
+        </div>
+
+
+        <!-- 5. ENERGY -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
+                alt="Energy Management">
+
+            <div class="hero-slide-label">
+                ⚡ Energy Management
+            </div>
+
+        </div>
+
+
+        <!-- 6. WATER -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=2000&q=85"
+                alt="Water Management">
+
+            <div class="hero-slide-label">
+                💧 Water Management
+            </div>
+
+        </div>
+
+
+        <!-- 7. AI MITRA -->
+        <div class="hero-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2000&q=85"
+                alt="Artificial Intelligence">
+
+            <div class="hero-slide-label">
+                🤖 AI Mitra
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== DARK OVERLAY ===== -->
+
+    <div class="hero-overlay"></div>
+
+
+    <!-- ===== MAIN HERO CONTENT ===== -->
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <i class="bi bi-award me-1"></i>
+            Engineering Excellence Challenge 2026
+        </div>
+
+
+        <h1>
+            OPES EDGE
+        </h1>
+
+
+        <p class="lead">
+            One Platform for Every Solution.
+            Connecting people, essential services,
+            smart technology and sustainable solutions
+            in one unified platform.
+        </p>
+
+
+        <!-- ===== BUTTONS ===== -->
+
+        <div class="hero-buttons">
+
+            <a href="#services"
+               class="hero-btn hero-btn-primary">
+
+                <i class="bi bi-grid-3x3-gap me-2"></i>
+
+                Explore OPES EDGE
+
+            </a>
+
+
+            <a href="{{ url_for('register') }}"
+               class="hero-btn hero-btn-outline">
+
+                <i class="bi bi-rocket-takeoff me-2"></i>
+
+                Get Started
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===== CAROUSEL DOTS ===== -->
+
+    <div class="hero-dots">
+
+        <button class="hero-dot active" onclick="showHeroSlide(0)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(1)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(2)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(3)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(4)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(5)"></button>
+
+        <button class="hero-dot" onclick="showHeroSlide(6)"></button>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== CAROUSEL JAVASCRIPT ==================== -->
+
+<script>
+
+let currentHeroSlide = 0;
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDots = document.querySelectorAll(".hero-dot");
+
+
+function showHeroSlide(index) {
+
+    /* Remove active from all slides */
+    heroSlides.forEach(function(slide) {
+        slide.classList.remove("active");
+    });
+
+
+    /* Remove active from all dots */
+    heroDots.forEach(function(dot) {
+        dot.classList.remove("active");
+    });
+
+
+    /* Add active to selected slide */
+    heroSlides[index].classList.add("active");
+
+    heroDots[index].classList.add("active");
+
+
+    /* Update current slide */
+    currentHeroSlide = index;
+}
+
+
+/* Automatically change slide every 3 seconds */
+
+setInterval(function() {
+
+    currentHeroSlide++;
+
+    if (currentHeroSlide >= heroSlides.length) {
+        currentHeroSlide = 0;
+    }
+
+    showHeroSlide(currentHeroSlide);
+
+}, 3000);
+
+</script>
+
+<!-- ==================== END OPES EDGE HERO SECTION ==================== -->
+
+<!-- ==================== END HERO ==================== -->
+
+
+<!-- <section class="hero-section" id="home">
     <div class="container hero-content">
         <div class="hero-badge">
             <i class="bi bi-award me-1"></i> Engineering Excellence Challenge 2026
@@ -21,7 +550,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- ==================== INTRODUCTION ==================== -->
 <section class="py-5 my-5" id="about">

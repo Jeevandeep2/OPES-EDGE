@@ -6,7 +6,632 @@
 {% block content %}
 
 <!-- HERO -->
+
+<!-- ==================== EDUCATION HERO WITH 6-IMAGE CAROUSEL ==================== -->
+
+<style>
+
+/* ==================== EDUCATION HERO ==================== */
+
+.edu-hero {
+    position: relative;
+    min-height: 90vh;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+}
+
+
+/* ==================== BACKGROUND CAROUSEL ==================== */
+
+.edu-carousel-bg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+}
+
+
+/* Individual slides */
+
+.edu-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 1.2s ease-in-out;
+}
+
+
+/* Active slide */
+
+.edu-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Images */
+
+.edu-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform: scale(1);
+
+    transition:
+        transform 4s ease;
+}
+
+
+/* Slow zoom effect */
+
+.edu-slide.active img {
+    transform: scale(1.07);
+}
+
+
+/* ==================== DARK OVERLAY ==================== */
+
+.edu-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.68)
+        );
+}
+
+
+/* ==================== HERO CONTENT ==================== */
+
+.edu-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1000px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+
+/* ==================== BADGE ==================== */
+
+.edu-badge {
+    display: inline-block;
+
+    padding: 9px 20px;
+
+    margin-bottom: 20px;
+
+    background: rgba(255,255,255,0.15);
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    border-radius: 50px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+/* ==================== HEADING ==================== */
+
+.edu-hero h1 {
+    font-size: clamp(2.7rem, 6vw, 5.5rem);
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 4px 20px rgba(0,0,0,0.7);
+}
+
+
+/* ==================== DESCRIPTION ==================== */
+
+.edu-hero .lead {
+    max-width: 700px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.95);
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,0.7);
+}
+
+
+/* ==================== BUTTONS ==================== */
+
+.edu-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+
+.edu-buttons a {
+    transition: all 0.3s ease;
+}
+
+
+.edu-buttons a:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.3);
+}
+
+
+/* ==================== IMAGE CAPTION ==================== */
+
+.edu-slide-caption {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 30px;
+    bottom: 30px;
+
+    padding: 10px 18px;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    border:
+        1px solid rgba(255,255,255,0.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition:
+        all 0.8s ease;
+}
+
+
+.edu-slide.active .edu-slide-caption {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==================== DOTS ==================== */
+
+.edu-dots {
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.edu-dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.45);
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.edu-dot.active {
+    width: 28px;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 768px) {
+
+    .edu-hero {
+        min-height: 85vh;
+    }
+
+    .edu-hero-content {
+        padding: 30px 18px;
+    }
+
+    .edu-hero h1 {
+        font-size: 2.6rem;
+    }
+
+    .edu-hero .lead {
+        font-size: 1rem;
+    }
+
+    .edu-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .edu-buttons a {
+        width: 100%;
+
+        max-width: 300px;
+    }
+
+    .edu-slide-caption {
+        left: 15px;
+
+        bottom: 65px;
+
+        font-size: 0.8rem;
+    }
+
+    .edu-dots {
+        bottom: 25px;
+    }
+}
+
+</style>
+
+
+<!-- ==================== HERO ==================== -->
+
 <section class="edu-hero">
+
+
+    <!-- ==================== 6 IMAGE CAROUSEL ==================== -->
+
+    <div class="edu-carousel-bg">
+
+
+        <!-- 1️⃣ ONLINE LEARNING -->
+
+        <div class="edu-slide active">
+
+            <img
+                src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=2000&q=85"
+                alt="Online Learning">
+
+            <div class="edu-slide-caption">
+                💻 Online Learning
+            </div>
+
+        </div>
+
+
+        <!-- 2️⃣ CLASSROOM EDUCATION -->
+
+        <div class="edu-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=2000&q=85"
+                alt="Students Learning">
+
+            <div class="edu-slide-caption">
+                🎓 Classroom Learning
+            </div>
+
+        </div>
+
+
+        <!-- 3️⃣ LIBRARY / STUDY -->
+
+        <div class="edu-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=2000&q=85"
+                alt="Library Study">
+
+            <div class="edu-slide-caption">
+                📚 Study & Knowledge
+            </div>
+
+        </div>
+
+
+        <!-- 4️⃣ CODING -->
+
+        <div class="edu-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=2000&q=85"
+                alt="Coding Education">
+
+            <div class="edu-slide-caption">
+                💻 Coding & Technology
+            </div>
+
+        </div>
+
+
+        <!-- 5️⃣ EXAM PREPARATION -->
+
+        <div class="edu-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=2000&q=85"
+                alt="Exam Preparation">
+
+            <div class="edu-slide-caption">
+                📝 Exam Preparation
+            </div>
+
+        </div>
+
+
+        <!-- 6️⃣ CAREER / FUTURE -->
+
+        <div class="edu-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2000&q=85"
+                alt="Career Opportunities">
+
+            <div class="edu-slide-caption">
+                🚀 Career & Opportunities
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==================== DARK OVERLAY ==================== -->
+
+    <div class="edu-overlay"></div>
+
+
+    <!-- ==================== YOUR ORIGINAL CONTENT ==================== -->
+
+    <div class="container position-relative edu-hero-content">
+
+        <div class="edu-badge">
+
+            <i class="bi bi-mortarboard me-1"></i>
+
+            Education Module
+
+        </div>
+
+
+        <h1 class="fw-bold">
+
+            Learn. Grow. Build Your Future.
+
+        </h1>
+
+
+        <p class="lead opacity-90 mx-auto mt-3">
+
+            Access learning resources, courses, exam preparation,
+            coding practice and career opportunities —
+            all in one place.
+
+        </p>
+
+
+        <div class="edu-buttons">
+
+
+            <a
+                href="#services"
+                class="btn btn-light btn-lg fw-bold text-primary">
+
+                <i class="bi bi-compass me-2"></i>
+
+                Explore Learning
+
+            </a>
+
+
+            <a
+                href="{{ url_for('education_profile') }}"
+                class="btn btn-outline-light btn-lg">
+
+                <i class="bi bi-person-circle me-2"></i>
+
+                Student Profile
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== CAROUSEL DOTS ==================== -->
+
+    <div class="edu-dots">
+
+        <button
+            class="edu-dot active"
+            onclick="showEducationSlide(0)">
+        </button>
+
+        <button
+            class="edu-dot"
+            onclick="showEducationSlide(1)">
+        </button>
+
+        <button
+            class="edu-dot"
+            onclick="showEducationSlide(2)">
+        </button>
+
+        <button
+            class="edu-dot"
+            onclick="showEducationSlide(3)">
+        </button>
+
+        <button
+            class="edu-dot"
+            onclick="showEducationSlide(4)">
+        </button>
+
+        <button
+            class="edu-dot"
+            onclick="showEducationSlide(5)">
+        </button>
+
+    </div>
+
+
+</section>
+
+
+<!-- ==================== EDUCATION CAROUSEL JAVASCRIPT ==================== -->
+
+<script>
+
+let currentEducationSlide = 0;
+
+const educationSlides =
+    document.querySelectorAll(".edu-slide");
+
+const educationDots =
+    document.querySelectorAll(".edu-dot");
+
+
+function showEducationSlide(index) {
+
+    /* Remove active from every slide */
+
+    educationSlides.forEach(function(slide) {
+
+        slide.classList.remove("active");
+
+    });
+
+
+    /* Remove active from every dot */
+
+    educationDots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    /* Activate selected slide */
+
+    educationSlides[index].classList.add("active");
+
+    educationDots[index].classList.add("active");
+
+
+    /* Update current slide */
+
+    currentEducationSlide = index;
+
+}
+
+
+/* ==================== AUTO SLIDE ==================== */
+
+setInterval(function() {
+
+    currentEducationSlide++;
+
+    if (
+        currentEducationSlide >=
+        educationSlides.length
+    ) {
+
+        currentEducationSlide = 0;
+
+    }
+
+    showEducationSlide(currentEducationSlide);
+
+}, 3000);
+
+</script>
+
+<!-- ==================== END EDUCATION HERO ==================== -->
+
+
+<!-- <section class="edu-hero">
     <div class="container position-relative" style="z-index: 1;">
         <div class="edu-badge"><i class="bi bi-mortarboard me-1"></i> Education Module</div>
         <h1 class="fw-bold display-4">Learn. Grow. Build Your Future.</h1>
@@ -22,7 +647,7 @@
             </a>
         </div>
     </div>
-</section>
+</section> -->
 
 <!-- STATS -->
 <section class="py-4" style="margin-top: -2rem; position: relative; z-index: 2;">

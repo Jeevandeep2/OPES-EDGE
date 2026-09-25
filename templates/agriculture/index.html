@@ -219,7 +219,603 @@
      HERO
      ========================================================= -->
 
+<!-- =========================================================
+     AGRICULTURE HERO — 6 IMAGE BACKGROUND CAROUSEL
+     ========================================================= -->
+
+<style>
+
+/* ==================== AGRICULTURE HERO ==================== */
+
+.agri-hero {
+    position: relative;
+    min-height: 90vh;
+    width: 100%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+}
+
+
+/* ==================== BACKGROUND CAROUSEL ==================== */
+
+.agri-carousel-bg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 0;
+}
+
+
+/* Individual slides */
+
+.agri-slide {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 1.2s ease-in-out;
+}
+
+
+/* Active slide */
+
+.agri-slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Images */
+
+.agri-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform: scale(1);
+
+    transition: transform 4s ease;
+}
+
+
+/* Slow zoom */
+
+.agri-slide.active img {
+    transform: scale(1.07);
+}
+
+
+/* ==================== DARK OVERLAY ==================== */
+
+.agri-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.42),
+            rgba(0, 0, 0, 0.68)
+        );
+}
+
+
+/* ==================== HERO CONTENT ==================== */
+
+.agri-hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1000px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+
+/* ==================== BADGE ==================== */
+
+.agri-badge {
+    display: inline-block;
+
+    padding: 9px 20px;
+
+    margin-bottom: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 50px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+}
+
+
+/* ==================== HEADING ==================== */
+
+.agri-hero h1 {
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+
+/* ==================== DESCRIPTION ==================== */
+
+.agri-hero .lead {
+    max-width: 720px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.95);
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+/* ==================== BUTTON ==================== */
+
+.agri-profile-btn {
+    transition: all 0.3s ease;
+}
+
+
+.agri-profile-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ==================== IMAGE CAPTION ==================== */
+
+.agri-slide-caption {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 30px;
+    bottom: 30px;
+
+    padding: 10px 18px;
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    transition: all 0.8s ease;
+}
+
+
+.agri-slide.active .agri-slide-caption {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ==================== CAROUSEL DOTS ==================== */
+
+.agri-dots {
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 28px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.agri-dot {
+    width: 9px;
+    height: 9px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.45);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.agri-dot.active {
+    width: 28px;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 768px) {
+
+    .agri-hero {
+        min-height: 85vh;
+    }
+
+    .agri-hero-content {
+        padding: 30px 18px;
+    }
+
+    .agri-hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .agri-hero .lead {
+        font-size: 1rem;
+    }
+
+    .agri-profile-btn {
+        width: auto;
+    }
+
+    .agri-slide-caption {
+        left: 15px;
+
+        bottom: 65px;
+
+        font-size: 0.8rem;
+    }
+
+    .agri-dots {
+        bottom: 25px;
+    }
+}
+
+</style>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
 <section class="agri-hero">
+
+
+    <!-- ==================== 6 IMAGE CAROUSEL ==================== -->
+
+    <div class="agri-carousel-bg">
+
+
+        <!-- 1️⃣ FARM / CROPLAND -->
+
+        <div class="agri-slide active">
+
+            <img
+                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85"
+                alt="Green Agricultural Fields">
+
+            <div class="agri-slide-caption">
+                🌾 Smart Farming
+            </div>
+
+        </div>
+
+
+        <!-- 2️⃣ FARMER IN FIELD -->
+
+        <div class="agri-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1592982537447-6f2a6a0a2b1c?auto=format&fit=crop&w=2000&q=85"
+                alt="Farmer Working in Field">
+
+            <div class="agri-slide-caption">
+                👨‍🌾 Farmers & Communities
+            </div>
+
+        </div>
+
+
+        <!-- 3️⃣ CROPS -->
+
+        <div class="agri-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=2000&q=85"
+                alt="Agricultural Crops">
+
+            <div class="agri-slide-caption">
+                🌱 Crop Cultivation
+            </div>
+
+        </div>
+
+
+        <!-- 4️⃣ MODERN AGRICULTURE -->
+
+        <div class="agri-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?auto=format&fit=crop&w=2000&q=85"
+                alt="Modern Agriculture">
+
+            <div class="agri-slide-caption">
+                🚜 Modern Agriculture
+            </div>
+
+        </div>
+
+
+        <!-- 5️⃣ SUSTAINABLE FARMING -->
+
+        <div class="agri-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?auto=format&fit=crop&w=2000&q=85"
+                alt="Sustainable Farming">
+
+            <div class="agri-slide-caption">
+                🌿 Sustainable Farming
+            </div>
+
+        </div>
+
+
+        <!-- 6️⃣ HARVEST -->
+
+        <div class="agri-slide">
+
+            <img
+                src="https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=2000&q=85"
+                alt="Agricultural Harvest">
+
+            <div class="agri-slide-caption">
+                🌾 Harvest & Prosperity
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ==================== DARK OVERLAY ==================== -->
+
+    <div class="agri-overlay"></div>
+
+
+    <!-- ==================== YOUR ORIGINAL CONTENT ==================== -->
+
+    <div class="container agri-hero-content">
+
+
+        <div class="agri-badge">
+
+            <i class="bi bi-flower1 me-2"></i>
+
+            Agriculture Module
+
+        </div>
+
+
+        <h1 class="fw-bold">
+
+            Smarter Farming.<br>
+
+            Better Decisions.
+
+        </h1>
+
+
+        <p class="lead opacity-90 mx-auto mt-3">
+
+            Practical agricultural information, crop guidance
+            and sustainable farming support — connected through
+            OPES EDGE.
+
+        </p>
+
+
+        <a
+            href="{{ url_for('farmer_profile') }}"
+            class="btn btn-light btn-lg fw-bold text-success mt-4 rounded-pill px-4 agri-profile-btn">
+
+            <i class="bi bi-person-circle me-2"></i>
+
+            Farmer Profile
+
+        </a>
+
+
+    </div>
+
+
+    <!-- ==================== CAROUSEL DOTS ==================== -->
+
+    <div class="agri-dots">
+
+        <button
+            class="agri-dot active"
+            onclick="showAgriSlide(0)">
+        </button>
+
+        <button
+            class="agri-dot"
+            onclick="showAgriSlide(1)">
+        </button>
+
+        <button
+            class="agri-dot"
+            onclick="showAgriSlide(2)">
+        </button>
+
+        <button
+            class="agri-dot"
+            onclick="showAgriSlide(3)">
+        </button>
+
+        <button
+            class="agri-dot"
+            onclick="showAgriSlide(4)">
+        </button>
+
+        <button
+            class="agri-dot"
+            onclick="showAgriSlide(5)">
+        </button>
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     AGRICULTURE CAROUSEL JAVASCRIPT
+     ========================================================= -->
+
+<script>
+
+let currentAgriSlide = 0;
+
+const agriSlides =
+    document.querySelectorAll(".agri-slide");
+
+const agriDots =
+    document.querySelectorAll(".agri-dot");
+
+
+function showAgriSlide(index) {
+
+
+    /* Remove active from all slides */
+
+    agriSlides.forEach(function(slide) {
+
+        slide.classList.remove("active");
+
+    });
+
+
+    /* Remove active from all dots */
+
+    agriDots.forEach(function(dot) {
+
+        dot.classList.remove("active");
+
+    });
+
+
+    /* Activate selected slide */
+
+    agriSlides[index].classList.add("active");
+
+    agriDots[index].classList.add("active");
+
+
+    /* Update current slide */
+
+    currentAgriSlide = index;
+
+}
+
+
+/* ==================== AUTO SLIDE EVERY 3 SECONDS ==================== */
+
+setInterval(function() {
+
+    currentAgriSlide++;
+
+    if (
+        currentAgriSlide >=
+        agriSlides.length
+    ) {
+
+        currentAgriSlide = 0;
+
+    }
+
+    showAgriSlide(currentAgriSlide);
+
+}, 3000);
+
+</script>
+
+<!-- =========================================================
+     END AGRICULTURE HERO
+     ========================================================= -->
+
+
+<!-- <section class="agri-hero">
     <div class="container">
 
         <div class="agri-badge">
@@ -250,7 +846,7 @@
         </a>
 
     </div>
-</section>
+</section> -->
 
 
 <!-- =========================================================
